@@ -1,0 +1,66 @@
+.flip {
+  width: 300px;
+  height: 300px;
+  margin: 150px auto;
+  -webkit-transform-origin: 400 400;
+  -moz-transform-origin: 400 400;
+  -ms-transform-origin: 400 400;
+  -o-transform-origin: 400 400;
+  transform-origin: 400 400;
+}
+
+.flip > .front {
+  //position: absolute;
+  -webkit-transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
+  width: 300px;
+  height: 300px;
+  background-color: #FC0;
+  backface-visibility: hidden;
+  -webkit-transition: transform .5s linear 0s;
+  -moz-transition: transform .5s linear 0s;
+  -ms-transition: transform .5s linear 0s;
+  -o-transition: transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+  -webkit-transform-origin: 400 400;
+  -moz-transform-origin: 400 400;
+  -ms-transform-origin: 400 400;
+  -o-transform-origin: 400 400;
+  transform-origin: 400 400;
+}
+
+.flip > .back {
+  position: absolute;
+  -webkit-transform: perspective(600px) rotateY(180deg);
+  transform: perspective(600px) rotateY(180deg);
+  width: 300px;
+  height: 300px;
+  background-color: #FA0;
+  backface-visibility: hidden;
+  -webkit-transition: transform .5s linear 0s;
+  -moz-transition: transform .5s linear 0s;
+  -ms-transition: transform .5s linear 0s;
+  -o-transition: transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+  -webkit-transform-origin: 400 400;
+  -moz-transform-origin: 400 400;
+  -ms-transform-origin: 400 400;
+  -o-transform-origin: 400 400;
+  transform-origin: 400 400;
+}
+
+.flip:hover > .front {
+  -webkit-transform: perspective(600px) rotateY(-180deg);
+  -moz-transform: perspective(600px) rotateY(-180deg);
+  -ms-transform: perspective(600px) rotateY(-180deg);
+  -o-transform: perspective(600px) rotateY(-180deg);
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.flip:hover > .back {
+  -webkit-transform: perspective(600px) rotateY(0deg);
+  -moz-transform: perspective(600px) rotateY(0deg);
+  -ms-transform: perspective(600px) rotateY(0deg);
+  -o-transform: perspective(600px) rotateY(0deg);
+  transform: perspective(600px) rotateY(0deg);
+}
