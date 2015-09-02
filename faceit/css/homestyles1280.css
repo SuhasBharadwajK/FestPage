@@ -1,0 +1,215 @@
+@font-face {
+  font-family: 'Dense';
+  src: url("fonts/Dense-Regular.otf") ;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url("fonts/HelveticaNeue.otf");
+}
+
+@font-face {
+  font-family: 'Bigjohn';
+  src: url("fonts/BIGJOHN.otf");
+}
+
+@font-face {
+  font-family: 'HelveticaNeueThin';
+  src: url("fonts/HelveticaNeue-Thin.otf");
+}
+
+
+
+@font-face {
+    font-family: 'big_johnregular';
+    src: url('fonts/bigjohn-webfont.eot');
+    src: url('fonts/bigjohn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bigjohn-webfont.woff2') format('woff2'),
+         url('fonts/bigjohn-webfont.woff') format('woff'),
+         url('fonts/bigjohn-webfont.ttf') format('truetype'),
+         url('fonts/bigjohn-webfont.svg#big_johnregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* { padding: 0; margin: 0; }
+
+html {
+    height: 100%;
+}
+
+body {
+  //background-color: black;
+  overflow: hidden;
+}
+
+.container {
+
+}
+
+.lefthalf{
+  float: left;
+  width: 42.5%;
+  //background-color: rgb(138, 138, 138);
+  background-color: #1B1F2A;
+}
+
+.righthalf{
+  float: right;
+  width: 57.5%;
+  //background-color: rgba(233, 97, 121, 0.56);
+
+  //background-image: url("http://i.ytimg.com/vi/bk5368Y_DRo/maxresdefault.jpg");
+  background-size: contain;
+  background-size: cover;
+}
+
+.overlay {
+  height: inherit;
+  width: 100%;
+  //background-color: rgba(93, 182, 255, 0.56);
+  //background-color: rgba(131, 134, 143, 0.5);
+  background-color: rgba(22, 125, 148, 0.5);
+  margin-top: -50px;
+
+}
+
+/*.collegetext  div {
+  display: inline-block;
+}*/
+
+.firstLine {
+  color: white;
+  font-size: 50px;
+  font-family: 'HelveticaNeue';
+  padding-left: 120px;
+  margin-top: 10px;
+}
+
+.secondLine {
+  color: white;
+  font-size: 40px;
+  font-family: 'HelveticaNeueThin';
+  padding-left: 120px;
+  margin-top: -5px;
+}
+
+.presents {
+  color: white;
+  font-size: 100px;
+  font-family: 'Dense';
+  padding-left: 120px;
+
+}
+
+#clogo {
+  width: 75px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#flogo {
+  width: 420px;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.hexagon-container {
+  margin-left: 120px;
+  //margin-right: auto;
+  margin-top: 50px;
+
+}
+
+.hexagon {
+  position: absolute;
+  width: 200px;
+  height: 350px;
+  //background-color: rgba(0, 218, 247, 0.4);
+  background-color: rgba(92, 231, 255, 0.5);
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transform: rotate(120deg);
+	-moz-transform: rotate(120deg);
+	-o-transform: rotate(120deg);
+	-ms-transform: rotate(120deg);
+	transform: rotate(120deg);
+
+}
+
+.hexagon1 {
+  width: 100%;
+  height: 100%;
+  //background-color: rgba(0, 218, 247, 0.7);
+  //background-color: rgba(92, 231, 255, 0.4);
+  background-color: inherit;
+  overflow: hidden;
+
+  -webkit-transform: rotate(-60deg);
+	-moz-transform: rotate(-60deg);
+	-o-transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+  -webkit-backface-visibility:hidden;
+}
+
+.hexagon2 {
+  width: 100%;
+  height: 100%;
+  //background-color: rgba(0, 218, 247, 0.7);
+  //background-color: rgba(92, 231, 255, 0.4);
+  background-color: inherit;
+  visibility: visible;
+  //background-image: url('hammer.png');
+  background-repeat: no-repeat;
+  //background-position: 50%;
+  //background-position: right -90px bottom 150px;
+  background-position: right -650px bottom -40px;
+
+  -webkit-backface-visibility:hidden;
+
+  -webkit-transform: rotate(-60deg);
+	-moz-transform: rotate(-60deg);
+	-o-transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+}
+
+#faceit {
+  margin-left: 151px;
+  margin-top: 150px;
+
+}
+
+#cse {
+  z-index: 10;
+  margin-left: 48px;
+  margin-top: -28px;
+}
+
+#ece {
+  margin-left: 254px;
+  margin-top: -28px;
+}
+
+#mech {
+  margin-left: -55px;
+  margin-top: 150px;
+}
+
+#civ {
+  margin-left: 357px;
+  margin-top: 150px;
+}
+
+#it {
+  margin-left: 48px;
+  margin-top: 328px;
+}
+
+#eee {
+  margin-left: 254px;
+  margin-top: 328px;
+}

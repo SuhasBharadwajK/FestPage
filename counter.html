@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Countdown</title>
+    <link rel="stylesheet" href="css/counter.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/counter.js"></script>
+    <script type="text/javascript" src="jquery-css.js"></script>
+    <script type="text/javascript">
+    $(".square").hover(function() {
+      $(this).addClass('box_rotate box_transition');
+    }, function() {
+      $(this).removeClass('box_rotate box_transition');
+    });
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hexagon"></div>
+    </div>
+    
+  </body>
+</html>
