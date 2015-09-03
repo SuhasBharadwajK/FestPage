@@ -55,6 +55,95 @@ body {
   background-color: #1B1F2A;
 }
 
+.socialaddress {
+  color: white;
+  font-family: 'HelveticaNeueThin';
+  font-size: 20px;
+  position: absolute;
+  bottom: 65px;
+}
+
+.socialbuttons {
+  font-size: 0;
+  position: absolute;
+  bottom: 0;
+  /*z-index: 5;
+  margin-top: 700px;*/
+}
+
+.socialbutton {
+  width: 60px;
+  height: 60px;
+  //display: inline-block;
+  float: left;
+  //position: absolute;
+  //bottom: 0;
+  transition: background-color 0.4s ease;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  -ms-transition: background-color 0.4s ease;
+  /*z-index: 5;
+  margin-top: 700px;*/
+}
+
+#facebook {
+  background-color: #45619D;
+}
+
+#twitter {
+  background-color: #55ACEE;
+}
+
+#googleplus {
+  background-color: #DD4B39;
+}
+
+#instagram {
+  background-color: #3F72B9;
+}
+
+#youtube {
+  background-color: #CD201F;
+}
+
+#facebook:hover, #twitter:hover, #googleplus:hover, #instagram:hover, #youtube:hover {
+  background-color: white;
+}
+
+.brand {
+  width: 50px;
+}
+
+#facebook img {
+  margin-top: 4px;
+  margin-left: 5px;
+}
+
+#twitter img {
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+#googleplus img {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+
+#instagram  img {
+  margin-top: 9px;
+  margin-left: 9px;
+  width: 40px;
+}
+
+#youtube  img {
+  margin-top: 14.5px;
+  margin-left: 10px;
+  width: 40px;
+}
+
+
 .righthalf{
   float: right;
   width: 57.5%;
@@ -63,6 +152,7 @@ body {
   //background-image: url("http://i.ytimg.com/vi/bk5368Y_DRo/maxresdefault.jpg");
   background-size: contain;
   background-size: cover;
+  background-position: right;
 }
 
 .overlay {
