@@ -9,7 +9,7 @@
     <link id="responsive" rel="stylesheet" href="css/homestyles1366.css" media="screen" title="no title" charset="utf-8">
     <link rel="icon" href="images/logo.png"type="image/png"/>
     <script type="text/javascript" src="javascript/jquery.js"></script>
-    <script type="text/javascript" src="javascript/homescript.js"></script>
+    <script id="jssource" type="text/javascript" src="javascript/homescript.js"></script>
   </head>
   <body>
     <div class="container">
@@ -21,15 +21,15 @@
           </div>
           <div class="collegetext">
             <div class="firstLine">
-              ACE
+              <span>ACE</span>
             </div>
             <div class="secondLine">
-              Engineering College
+              <span>Engineering College</span>
             </div>
           </div>
         </div>
         <div class="presents">
-          Presents
+          <span>Presents</span>
         </div>
         <div class="faceit">
           <img id="flogo" src="images/faceitlogo.png" alt="" />
@@ -87,12 +87,16 @@
 
       </div>
 
-      <div class="righthalf" id="right" style="background-image: url('images/background.jpg');">
+      <div class="righthalf" id="right">
+        <div class="overlay">
+        </div>
 
         <div class="hexagon-container">
           <div id="faceit" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
+                <!-- <span>FACEIT</span>
+                <span id ="k15" href="#">2K15</span> -->
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -101,8 +105,10 @@
           </div>
 
           <div id="cse" class="hexagon">
+
             <div class="hexagon1">
               <div class="hexagon2">
+                <a target="_blank" href="http://www.faceit-2k15.com/computer-science-engineering/">CSE</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -113,6 +119,7 @@
           <div id="ece" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
+                <a target="_blank" href="http://www.faceit-2k15.com/ece/">ECE</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -123,6 +130,7 @@
           <div id="mech" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
+                <a target="_blank" href="http://www.faceit-2k15.com/mechanical/">MECH</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -133,6 +141,7 @@
           <div id="civ" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
+                <a target="_blank" href="http://www.faceit-2k15.com/civil/">CIVIL</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -143,6 +152,7 @@
           <div id="it" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
+                <a target="_blank" href="http://www.faceit-2k15.com/electrical-and-electronic-engineering/">EEE</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -153,6 +163,7 @@
           <div id="eee" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
+                <a target="_blank" href="http://aceec.ac.in/">ACE</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -161,9 +172,7 @@
           </div>
 
         </div>
-        <div class="overlay">
 
-        </div>
       </div>
     </div>
   </body>

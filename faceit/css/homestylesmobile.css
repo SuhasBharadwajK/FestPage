@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'Dense';
+  src: url("fonts/Dense-Regular.otf") ;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url("fonts/HelveticaNeue.otf");
+}
+
+@font-face {
+  font-family: 'Bigjohn';
+  src: url("fonts/BIGJOHN.otf");
+}
+
+@font-face {
+  font-family: 'HelveticaNeueThin';
+  src: url("fonts/HelveticaNeue-Thin.otf");
+}
+
+* { padding: 0; margin: 0; }
+
+body {
+  overflow: hidden;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  //visibility: collapse;
+  width: 50px;
+}
+
+.righthalf {
+  //float: left;
+  background-image: url('../images/background.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.overlay {
+  height: inherit;
+  width: 100%;
+  //background-color: rgba(93, 182, 255, 0.56);
+  //background-color: rgba(131, 134, 143, 0.5);
+  background-color: rgba(22, 125, 148, 0.5);
+  //margin-top: -50px;
+}
+
+#clogo {
+  visibility: visible;
+  position: relative;
+  width: 80px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#flogo {
+  visibility: visible;
+  position: relative;
+  width: 450px;
+}
+
+
+.firstLine {
+  color: white;
+  font-size: 40px;
+  font-family: 'HelveticaNeue';
+  padding-left: 260px;
+  //margin-top: 10px;
+  position: relative;
+
+}
+
+.firstLine span {
+  position: relative;
+  margin: 0 auto;
+}
+
+.secondLine {
+  position: relative;
+  color: white;
+  font-size: 50px;
+  font-family: 'HelveticaNeueThin';
+  //padding-left: 120px;
+  margin-top: -5px;
+
+}
+
+.secondLine span {
+  /*left: auto;
+  right: auto;*/
+}
+
+.presents {
+  position: relative;
+  color: white;
+  font-size: 120px;
+  font-family: 'Dense';
+  //width: inherit;
+
+  /*//padding-left: 200px;*/
+  /*left: auto;
+  right: auto;*/
+}
+
+.presents span {
+  //margin: 0 auto;
+  //left: auto;
+  //right: auto;
+}
+
+.socialbuttons {
+  margin-top: -200px;
+}
+
+.socialbutton {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  top: -15px;
+  transition: background-color 0.4s ease;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  -ms-transition: background-color 0.4s ease;
+}
+
+#facebook {
+  background-color: #45619D;
+}
+
+#twitter {
+  background-color: #55ACEE;
+}
+
+#googleplus {
+  background-color: #DD4B39;
+}
+
+#instagram {
+  background-color: #3F72B9;
+}
+
+#youtube {
+  background-color: #CD201F;
+}
+
+#facebook img {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+#twitter img {
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+#googleplus img {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+
+#instagram  img {
+  margin-top: 9px;
+  margin-left: 9px;
+  width: 40px;
+}
+
+#youtube  img {
+  margin-top: 14.5px;
+  margin-left: 8px;
+  width: 40px;
+}
+
+#facebook:hover, #twitter:hover, #googleplus:hover, #instagram:hover, #youtube:hover {
+  background-color: white;
+}
