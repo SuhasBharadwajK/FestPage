@@ -1,3 +1,12 @@
+/***
+
+TODO The loading screen doesn't show up in smaller screens
+MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!
+
+***/
+var images = Array("background.jpg","pic.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg");
+var currentImage = 0;
+
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
     function checkReady() {
@@ -13,77 +22,121 @@ function show(id, value) {
 }
 
 onReady(function () {
-  doneLoading();
+  if($(window).width() >= 1280) {
+    doneLoading();
+  }
+  else {
+    doneMobileLoading();
+  }
   show('container', true);
-    //show('loadingoverlay', false);
 });
 
 function doneLoading() {
     $("#loadingoverlay").fadeOut('slow', function() {
 
-      $("#faceit").fadeTo('fast', 0.5, function() {
-        $(this).fadeTo('slow', 1);
-      });
-      $("#cse").fadeTo('slow', 0.5, function() {
-        $(this).fadeTo('slow', 1, function() {
-          $(this).animate({
-            left: "+=18px",
-            top: "+=32px"
-            },
-            800);
-
+      $('.lefthalf').animate({
+        marginLeft: '+=42.5%'
+      },
+        800, function() {
+        $('.firstLine').animate({
+          marginLeft: '+=400px'
+          }, 500);
+        $('.secondLine').animate({
+          marginLeft: '+=550px'
+          },
+          700, function() {
+            $("#clogo").fadeIn('slow');
           });
-      });
-      $("#ece").fadeTo('slow', 0.5, function() {
-        $(this).fadeTo('slow', 1, function() {
-          $(this).animate({
-            left: "-=18px",
-            top: "+=32px"
-            },
-            800);
 
+        $('.presents').animate({
+          marginLeft: '+=600px'
+          },
+          900, function() {
+            $('#flogo').fadeIn('slow', function() {
+
+            $('.socialbuttons').animate({
+              bottom: "+=60px"
+            },'100');
+            $('.socialaddress').animate({
+              bottom: '+=85px'
+            }, '100');
           });
-      });
-      $("#mech").fadeTo('slow', 0.5, function() {
-        $(this).fadeTo('slow', 1, function() {
-          $(this).animate({
-            left: "+=20px"
-            },
-            800);
+        });
 
+
+      });
+      $('.righthalf').animate({
+        marginRight: '+=57.5%'
+      },
+        800, function() {
+          $("#faceit").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1);
           });
-      });
-      $("#civ").fadeTo('slow', 0.5, function() {
-        $(this).fadeTo('slow', 1, function() {
-          $(this).animate({
-            left: "-=20px"
-            },
-            800);
-
+          $("#cse").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "+=18px",
+                top: "+=32px"
+                },
+                800);
+              });
           });
-      });
-      $("#it").fadeTo('slow', 0.5, function() {
-        $(this).fadeTo('slow', 1, function() {
-          $(this).animate({
-            left: "+=20px",
-            top: "-=20px"
-            },
-            800);
-
+          $("#ece").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "-=18px",
+                top: "+=32px"
+                },
+                800);
+              });
           });
-      });
-      $("#eee").fadeTo('slow', 0.5, function() {
-        $(this).fadeTo('slow', 1, function() {
-          $(this).animate({
-            left: "-=20px",
-            top: "-=20px"
-            },
-            800);
-
+          $("#mech").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "+=20px"
+                },
+                800);
+              });
           });
-      });
-
-
+          $("#civ").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "-=20px"
+                },
+                800);
+              });
+          });
+          $("#it").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "+=20px",
+                top: "-=20px"
+                },
+                800);
+              });
+          });
+          $("#eee").fadeTo('fast', 0.5, function() {
+            $(this).fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "-=20px",
+                top: "-=20px"
+                },
+                800);
+              });
+          });
+        });
+      // $('.socialbuttons').animate({
+      //   bottom: "+=60px"
+      // },
+      //   "400", function() {
+      //   /* stuff to do after animation is complete */
+      // });
+      // $('.socialaddress').animate({
+      //   bottom: '+=85px'
+      // },
+      //   '400', function() {
+      //   /* stuff to do after animation is complete */
+      // });
     });
 
 }
@@ -95,15 +148,31 @@ function doneLoading() {
 //   });
 // });
 
+function doneMobileLoading() {
+  $("#loadingoverlay").fadeOut('slow', function() {});
+}
+
 $(document).load(function() {
   /* Act on the event */
   //respond();
 });
 $(document).ready(function() {
+
   //$(".lefthalf").height($(window).height());
   //$(".righthalf").height($(window).height());
   //makemobile()
   respond();
+
+  // $(".righthalf").delay(1000).queue(function(){
+  //               $(this).css({"background-image":"url('images/pic.jpg')"});
+  // });
+
+  // $(".righthalf").animate({
+  //   opacity: 0.5
+  // },
+  //   'slow', function() {
+  //   /* stuff to do after animation is complete */
+  // });
 
   $(window).ready(function() {
     /* Act on the event */
@@ -135,102 +204,12 @@ $(document).ready(function() {
   // });
   setTimeout(function(){$(window).trigger('click');} , 100);
 
-  //$(window).trigger('click');
+  /**** TODO Without this, the elements in the smaller screens are fucked up for some reason  ****/
+  setTimeout(function(){$(window).trigger('resize');} , 100);
 
-  // $('#cse').fadeIn('slow', function() {
-  //
-  // });
-  //$(".lefthalf").hide("slide", { direction: "right" }, 1200);
-
-  // $(".lefthalf").delay(400).show("slide", { direction: "right" }, 1200);
-  //   'slow', function() {
-  //   /* stuff to do after animation is complete */
-  // });
-
-  // $("#faceit").fadeTo('fast', 0.5, function() {
-  //   $(this).fadeTo('slow', 1);
-  // });
-  // $("#cse").fadeTo('slow', 0.5, function() {
-  //   $(this).fadeTo('slow', 1, function() {
-  //     $(this).animate({
-  //       left: "+=18px",
-  //       top: "+=32px"
-  //       },
-  //       800);
-  //
-  //     });
-  // });
-  // $("#ece").fadeTo('slow', 0.5, function() {
-  //   $(this).fadeTo('slow', 1, function() {
-  //     $(this).animate({
-  //       left: "-=18px",
-  //       top: "+=32px"
-  //       },
-  //       800);
-  //
-  //     });
-  // });
-  // $("#mech").fadeTo('slow', 0.5, function() {
-  //   $(this).fadeTo('slow', 1, function() {
-  //     $(this).animate({
-  //       left: "+=20px"
-  //       },
-  //       800);
-  //
-  //     });
-  // });
-  // $("#civ").fadeTo('slow', 0.5, function() {
-  //   $(this).fadeTo('slow', 1, function() {
-  //     $(this).animate({
-  //       left: "-=20px"
-  //       },
-  //       800);
-  //
-  //     });
-  // });
-  // $("#it").fadeTo('slow', 0.5, function() {
-  //   $(this).fadeTo('slow', 1, function() {
-  //     $(this).animate({
-  //       left: "+=20px",
-  //       top: "-=20px"
-  //       },
-  //       800);
-  //
-  //     });
-  // });
-  // $("#eee").fadeTo('slow', 0.5, function() {
-  //   $(this).fadeTo('slow', 1, function() {
-  //     $(this).animate({
-  //       left: "-=20px",
-  //       top: "-=20px"
-  //       },
-  //       800);
-  //
-  //     });
-  // });
-  // // $("#cse").animate({
-  //   opacity: 1},
-  //   400, function() {
-  //     $(this).animate({
-  //       left: "+=18px",
-  //       top: "+=32px"
-  //       },
-  //       1000);
-  //   /* stuff to do after animation is complete */
-  // });
-  //respond()
-
-  // $("#cse").fadeIn('slow', function() {
-  //
-  //
-  // });
+  setInterval(changeBackground, 4000);
 
 
-
-  // var socialTop = $(window).height() - $(this).height();
-  // $(".socialbuttons").css({
-  //    'margin-top': socialTop
-  //  });
   $(".socialbutton").hover(function() {
     /* Stuff to do when the mouse enters the element */
     var id = $(this).attr("id");
@@ -240,16 +219,25 @@ $(document).ready(function() {
       $(this).fadeIn('fast');
     });
 
-  }, function() {
+    }, function() {
     /* Stuff to do when the mouse leaves the element */
-    var id = $(this).attr("id");
-    $(this).find('img').fadeOut('fast', function() {
-      $(this).attr('src', 'images/' + id + 'white.png');
-      $(this).fadeIn('fast');
+      var id = $(this).attr("id");
+      $(this).find('img').fadeOut('fast', function() {
+        $(this).attr('src', 'images/' + id + 'white.png');
+        $(this).fadeIn('fast');
     });
-
   });
 });
+
+
+function changeBackground() {
+  if(currentImage > images.length-1) {
+    currentImage = 0;
+  }
+  displayImage =  images[currentImage];
+  $(".righthalf").css({"background-image":"url('images/" + displayImage + "')"});
+  currentImage++;
+}
 
 function setHeight() {
   $(".lefthalf").height($(window).height());
@@ -259,8 +247,12 @@ function setHeight() {
 function respond() {
   var windowWidth = parseInt($(window).width());
   //alert(windowWidth);
-  if (windowWidth >= 1600) {
-    $("#responsive").attr("href", "css/homestyles16001.css");
+  if (windowWidth >= 1920) {
+    $("#responsive").attr("href", "css/homestyles1920.css");
+    console.log("1600");
+  }
+  else if (windowWidth >= 1600) {
+    $("#responsive").attr("href", "css/homestyles1600.css");
     console.log("1600");
   }
   else if (windowWidth >= 1366) {

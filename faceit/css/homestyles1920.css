@@ -180,6 +180,7 @@ body {
   margin-right: -57.5%;
   width: 57.5%;
   //background-color: rgba(233, 97, 121, 0.56);
+
   //background-image: url("http://i.ytimg.com/vi/bk5368Y_DRo/maxresdefault.jpg");
   //background-image: url("");
   background-image: url('../images/background.jpg');
@@ -191,10 +192,6 @@ body {
   -o-transition:background-image 1s ease-in-out;
   -ms-transition:background-image 1s ease-in-out;
   transition:background-image 1s ease-in-out;
-}
-
-.righthalf:active {
-  background-image: url('../images/pic.jpg');
 }
 
 .overlay {
@@ -213,7 +210,6 @@ body {
 
 .firstLine {
   color: white;
-  position: relative;
   font-size: 70px;
   font-family: 'HelveticaNeue';
   padding-left: 260px;
@@ -266,9 +262,9 @@ body {
 }
 
 .hexagon-container {
-  margin-left: 220px;
+  margin-left: 320px;
   //margin-right: auto;
-  //margin-top: 50px;
+  margin-top: 100px;
   position: absolute;
   top: 10%;
   /*-webkit-transform: translateY(-50%);
@@ -278,7 +274,6 @@ body {
 }
 
 .hexagon {
-  opacity: 1;
   position: absolute;
   width: 200px;
   height: 350px;
@@ -295,7 +290,6 @@ body {
 }
 
 .hexagon1 {
-  opacity: 1;
   width: 100%;
   height: 100%;
   //background-color: rgba(0, 218, 247, 0.7);
@@ -313,7 +307,6 @@ body {
 }
 
 .hexagon2 {
-  opacity: 1;
   width: 100%;
   height: 100%;
   //background-color: rgba(0, 218, 247, 0.7);

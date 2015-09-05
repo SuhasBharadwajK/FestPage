@@ -29,6 +29,21 @@ body {
   user-select: none;
 }
 
+#loadingoverlay {
+  position: fixed;
+	left: 0px;
+	top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 99999;
+  //background:rgba(0,0,0,0.9);
+  //transition: 1s 0.4s;
+  background-image: url("../images/preloader3.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 img {
   //visibility: collapse;
   width: 50px;
@@ -41,6 +56,11 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
+  -webkit-transition:background-image 1s ease-in-out;
+  -moz-transition:background-image 1s ease-in-out;
+  -o-transition:background-image 1s ease-in-out;
+  -ms-transition:background-image 1s ease-in-out;
+  transition:background-image 1s ease-in-out;
 }
 
 .overlay {
