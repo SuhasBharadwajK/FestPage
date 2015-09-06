@@ -183,7 +183,7 @@ body {
 
   //background-image: url("http://i.ytimg.com/vi/bk5368Y_DRo/maxresdefault.jpg");
   //background-image: url("");
-  background-image: url('../images/background.jpg');
+  //background-image: url('../images/background.jpg');
   background-size: contain;
   background-size: cover;
   background-position: right;
@@ -193,6 +193,35 @@ body {
   -ms-transition:background-image 1s ease-in-out;
   transition:background-image 1s ease-in-out;
 }
+
+.backgroundimage {
+  position: absolute;
+	right: -57.5%;
+	top: 0px;
+  height: 100%;
+  width: 57.5%;
+  background-image: url('../images/background.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  z-index: -14;
+
+}
+
+.backgroundimage1 {
+  position: absolute;
+	right: -57.5%;
+	top: 0px;
+  height: 100%;
+  width: 57.5%;
+  background-image: url('../images/pic.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  z-index: -15;
+
+}
+
 
 .overlay {
   height: inherit;

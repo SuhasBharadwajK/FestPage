@@ -1,0 +1,56 @@
+html {
+  background: #ff6461;
+}
+body {
+  position: absolute;
+  /*left: 10%;
+  top: 50%;*/
+  height: 525px;
+  width: 600px;
+  /*margin: -107px -168px;*/
+    margin-top: 150px;
+    margin-left: 80px;
+}
+
+input {
+  visibility: hidden;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  right: 350px;
+  background: white;
+  cursor: pointer;
+  -webkit-transition: left 0.33s 0.33s, right 0.33s 0.33s, top 0.33s, bottom 0.33s;
+          transition: left 0.33s 0.33s, right 0.33s 0.33s, top 0.33s, bottom 0.33s;
+}
+#li0 + label {
+  top: 25px;
+  bottom: 425px;
+}
+#li1 + label {
+  top: 125px;
+  bottom: 325px;
+}
+#li2 + label {
+  top: 225px;
+  bottom: 225px;
+}
+#li3 + label {
+  top: 325px;
+  bottom: 125px;
+}
+#li4 + label {
+  top: 425px;
+  bottom: 25px;
+}
+
+:checked + label {
+  left: 300px;
+  right: 0;
+  top: 25px !important;
+  bottom: 25px !important;
+  -webkit-transition: left 0.33s 0.33s, right 0.33s 0.33s, top 0.33s 0.66s, bottom 0.33s 0.66s;
+          transition: left 0.33s 0.33s, right 0.33s 0.33s, top 0.33s 0.66s, bottom 0.33s 0.66s;
+}

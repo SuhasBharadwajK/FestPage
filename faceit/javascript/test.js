@@ -4,8 +4,9 @@ TODO The loading screen doesn't show up in smaller screens
 MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!
 
 ***/
-var images = Array("background.jpg","pic.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg");
+var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
 var currentImage = 0;
+var currentBackground = 0;
 
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
@@ -36,17 +37,17 @@ function doneLoading() {
 
       $('.lefthalf').animate({
         marginLeft: '+=42.5%'
-      },
-        800, function() {
-        $('.firstLine').animate({
-          marginLeft: '+=400px'
-          }, 500);
-        $('.secondLine').animate({
-          marginLeft: '+=550px'
-          },
-          700, function() {
-            $("#clogo").fadeIn('slow');
-          });
+        },
+        800, 'easeOutCirc', function() {
+          $('.firstLine').animate({
+            marginLeft: '+=400px'
+            }, 500);
+          $('.secondLine').animate({
+            marginLeft: '+=550px'
+            },
+            700, function() {
+              $("#clogo").fadeIn('slow');
+            });
 
         $('.presents').animate({
           marginLeft: '+=600px'
@@ -65,10 +66,21 @@ function doneLoading() {
 
 
       });
+
+      $('.backgroundimage').animate({
+        right: '+=57.5%'
+        },
+        800, 'easeOutCirc');
+
+      $('.backgroundimage1').animate({
+        right: '+=57.5%'
+        },
+        800, 'easeOutCirc');
+
       $('.righthalf').animate({
         marginRight: '+=57.5%'
-      },
-        800, function() {
+        },
+        800, 'easeOutCirc', function() {
           $("#faceit").fadeTo('fast', 0.5, function() {
             $(this).fadeTo('fast', 1);
           });
@@ -158,21 +170,31 @@ $(document).load(function() {
 });
 $(document).ready(function() {
 
+
+  if (window.history && window.history.pushState) {
+
+   $(window).on('popstate', function() {
+     var hashLocation = location.hash;
+     var hashSplit = hashLocation.split("#!/");
+     var hashName = hashSplit[1];
+
+     if (hashName !== '') {
+       var hash = window.location.hash;
+       if (hash === '') {
+         alert('Back button was pressed.');
+       }
+     }
+   });
+
+   window.history.pushState('forward', null, './#suhas');
+ }
+
   //$(".lefthalf").height($(window).height());
   //$(".righthalf").height($(window).height());
   //makemobile()
   respond();
 
-  // $(".righthalf").delay(1000).queue(function(){
-  //               $(this).css({"background-image":"url('images/pic.jpg')"});
-  // });
 
-  // $(".righthalf").animate({
-  //   opacity: 0.5
-  // },
-  //   'slow', function() {
-  //   /* stuff to do after animation is complete */
-  // });
 
   $(window).ready(function() {
     /* Act on the event */
@@ -207,7 +229,7 @@ $(document).ready(function() {
   /**** TODO Without this, the elements in the smaller screens are fucked up for some reason  ****/
   setTimeout(function(){$(window).trigger('resize');} , 100);
 
-  setInterval(changeBackground, 4000);
+  setInterval(changeBackground, 3500);
 
 
   $(".socialbutton").hover(function() {
@@ -231,11 +253,61 @@ $(document).ready(function() {
 
 
 function changeBackground() {
-  if(currentImage > images.length-1) {
+  if (currentImage + 2 > images.length-1) {
     currentImage = 0;
   }
   displayImage =  images[currentImage];
-  $(".righthalf").css({"background-image":"url('images/" + displayImage + "')"});
+  nextDisplayImage = images[currentImage + 1];
+  if (currentBackground == 0) {
+    $('.backgroundimage1').css({
+      'background-image': "url('images/" + nextDisplayImage + "')",
+    });
+    $('.backgroundimage').fadeOut('slow', function() {
+      // $('.backgroundimage1').css({
+      //   'opacity': 0
+      // });
+      $(this).css({
+        'background-image': "url('images/" + displayImage + "')"
+      });
+      $('.backgroundimage1').fadeIn('slow', function() {
+        $(this).css({
+          'z-index': '-14'
+        });
+        $('.backgroundimage').css({
+          'z-index': '-15',
+          'display': "inline"
+        });
+      });
+
+    });
+    currentBackground = 1;
+  }
+  else {
+    $('.backgroundimage').css({
+      'background-image': "url('images/" + nextDisplayImage + "')"
+    });
+    $('.backgroundimage1').fadeOut('slow', function() {
+      // $('.backgroundimage').css({
+      //   'opacity': 0
+      // });
+      $(this).css({
+        'background-image': "url('images/" + displayImage + "')"
+      });
+      $('.backgroundimage').fadeIn('slow', function() {
+        $(this).css({
+          'z-index': '-14'
+        });
+        $('.backgroundimage1').css({
+          'z-index': '-15',
+          'display': "inline"
+        });
+      });
+
+    });
+    currentBackground = 0;
+  }
+
+  //$(".righthalf").css({"background-image":"url('images/" + displayImage + "')"});
   currentImage++;
 }
 
@@ -385,15 +457,18 @@ $(document).change(function(event) {
   //respond();
 });
 
+//window.onbeforeunload = function() { alert("You work will be lost."); };
+
 $(document).keydown(function(event) {
   if (($(".lefthalf").height()) > (($(window).height()))) {
     setHeight();
   }
   //respond();
-  if (event.which == 123) {
+  if (event.which == 116) {
     //respond();
+    //alert("Reload?!");
   }
-  //console.log(event.which);
+  console.log(event.which);
   setTimeout(function(){
       //do what you need here
       //alert("Timed out!");

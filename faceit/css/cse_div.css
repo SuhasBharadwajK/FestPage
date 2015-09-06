@@ -1,0 +1,92 @@
+body {
+  background-color: rgb(224, 83, 58);
+}
+
+pre {
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+}
+
+.container {
+  position: relative;
+  margin-left: 100px;
+}
+
+.events{
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    background-color: white;
+    border: 0px;
+
+    line-height: 80px;
+    left: 50px;
+    overflow: hidden;
+
+}
+
+.events > span {
+  position: absolute;
+  margin-top: 15px;
+  margin-left: -170px;
+  font-size: 18px;
+}
+
+#l1 {
+    top: 50px;
+}
+
+/*#l1 span{
+    top: 50px;
+}
+*/
+#l2 {
+   top: 150px;
+}
+
+/*#l2 span{
+    top: 50px;
+}*/
+
+#l3 {
+    top: 250px;
+}
+
+/*#l3 span{
+    top: 50px;
+}*/
+
+#l4 {
+    top: 350px;
+}
+
+/*#l4 span{
+    top: 50px;
+}*/
+
+
+#l5 {
+    top: 450px;
+}
+
+/*#l5 span{
+    top: 50px;
+}*/
+
+
+#l6 {
+    top: 550px;
+}
+
+/*#l6 span{
+    top: 50px;
+}*/
+
+
+#imgc{
+  //height: 40px;
+  width: 40px;
+  margin-left: 0px;
+  margin-top: 18px;
+}
