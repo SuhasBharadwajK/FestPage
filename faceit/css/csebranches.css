@@ -1,0 +1,56 @@
+body {
+  background-color: rgb(224, 83, 58);
+}
+
+.container {
+  width: 1000px;
+  height: auto;
+  margin: 60px auto;
+}
+
+.events {
+  //display: inline-block;
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  //margin-left: 10px;
+  background-color: white;
+  //display: block;
+}
+
+/*.events span {
+  position: relative;
+  margin: 10px auto;
+}*/
+
+#l1 {
+  /*margin-top: 100px;
+  width: 950px;
+  height: 480px;*/
+}
+
+#l2 {
+
+  margin-left: 160px;
+}
+
+#l3 {
+
+  margin-left: 320px;
+}
+
+#l4 {
+
+  margin-left: 480px;
+}
+
+#l5 {
+
+  margin-left: 640px;
+}
+
+
+#l6 {
+
+  margin-left: 800px;
+}
