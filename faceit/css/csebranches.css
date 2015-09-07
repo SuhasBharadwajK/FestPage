@@ -16,32 +16,85 @@ body {
   //margin-left: 10px;
   background-color: white;
   //display: block;
+  overflow:hidden;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
 }
 
-/*.events span {
-  position: relative;
-  margin: 10px auto;
-}*/
+.events span {
+  //position: relative;
+  //margin: 10px auto;
+  display: none;
+}
 
 #l1 {
   /*margin-top: 100px;
   width: 950px;
   height: 480px;*/
+  font-size: 20px;
+  //background-image: url('../images/clang.jpg');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+}
+
+#l1 .eventname {
+  line-height: 24px;
+  display: block;
+  margin-top: 2px;
+  font-size: 24px;
+  text-align: center;
+  align-items: center;
 }
 
 #l2 {
-
   margin-left: 160px;
+  //background-image: url('../images/java.png');
+}
+
+#l2 .eventname {
+  display: block;
+  margin-top: 5px;
+  font-size: 24px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
 }
 
 #l3 {
-
   margin-left: 320px;
+  //background-image: url('../images/lanparty.png');
 }
+
+#l3 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
 
 #l4 {
 
   margin-left: 480px;
+}
+
+#l4 .eventname {
+  margin-top: 10px;
+  font-size: 25px;
+  display: block;
+  text-align: center;
+  align-items: center;
+
 }
 
 #l5 {
@@ -49,13 +102,39 @@ body {
   margin-left: 640px;
 }
 
+#l5 .eventname {
+  display: block;
+  margin-top: 12px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
 
 #l6 {
 
   margin-left: 800px;
 }
 
+#l6 .eventname {
+  display: block;
+  margin-top: 5px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
 #l7 {
 
   margin-left: 960px;
+}
+
+#l7 .eventname {
+  display: block;
+  margin-top: 12px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
 }

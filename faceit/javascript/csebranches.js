@@ -1,4 +1,5 @@
 var currentId, activeId = "l1";
+eventImages = Array("clang.png", "java.png", "lanparty.png");
 
 $(document).ready(function() {
 
@@ -8,9 +9,12 @@ $(document).ready(function() {
       $(this).animate({
         width: '+=960px'},
         300, "easeOutCubic", function() {
+          $(this).children('span').fadeIn('400', function() {
 
+          });
       });
   });
+
 
   $('.events').click(eventClicked);
 
@@ -33,8 +37,15 @@ function eventClicked() {
 function revert(revertId, currentId) {
   var factor = parseInt(revertId[1]);
   var toLeft = "+=" + (160 * (factor-1)).toString() + "px";
+  var imageUrl = eventImages[factor-1];
+  console.log(imageUrl);
   console.log(factor);
 
+  // $("#" + revertId).children('span').fadeOut('fast', function() {
+  //
+  //
+  //
+  // });
   $("#" + revertId).animate({
     width: '-=960px',
     marginLeft: toLeft},
@@ -43,8 +54,13 @@ function revert(revertId, currentId) {
         marginTop: '-=100px', height: '-=400px'},
         400, "easeOutCubic", function() {
           expand(currentId);
+          // $(this).css({
+          //   'background-image': 'url("images/' + imageUrl + '")'
+          // });
       });
   });
+
+
 }
 
 function expand(expandId) {
@@ -52,14 +68,21 @@ function expand(expandId) {
   var factor = parseInt(expandId[1]);
   var toLeft = "-=" + (160 * (factor-1)).toString() + "px";
 
+  $("#" + expandId).css({
+    'background-image': 'none'
+  });
+
   $("#" + expandId).animate({
     marginTop: "+=100px", height: "+=400"},
-    200, "easeOutCubic", function() {
+    300, "easeOutCubic", function() {
       $(this).animate({
         marginLeft: toLeft,
         width: '+=960px'},
         400, "easeOutCubic", function() {
           $('.events').bind('click', eventClicked);
+          $("#" + expandId).children('span').fadeIn('slow', function() {
+
+          });
       });
   });
 }
