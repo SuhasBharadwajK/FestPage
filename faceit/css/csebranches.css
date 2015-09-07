@@ -3,9 +3,9 @@ body {
 }
 
 .container {
-  width: 1000px;
+  width: 1110px;
   height: auto;
-  margin: 60px auto;
+  margin: 70px auto;
 }
 
 .events {
@@ -53,4 +53,9 @@ body {
 #l6 {
 
   margin-left: 800px;
+}
+
+#l7 {
+
+  margin-left: 960px;
 }
