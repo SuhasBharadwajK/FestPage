@@ -28,6 +28,10 @@ body {
   cursor: default;
 }
 
+button {
+  display: none;
+}
+
 .events span {
   //position: relative;
   //margin: 10px auto;
@@ -46,10 +50,10 @@ body {
 }
 
 #l1 .eventname {
-  line-height: 24px;
+  line-height: 20px;
   display: block;
-  margin-top: 2px;
-  font-size: 24px;
+  margin-top: 6px;
+  font-size: 23px;
   text-align: center;
   align-items: center;
 }
@@ -75,13 +79,12 @@ body {
 
 #l3 .eventname {
   display: block;
-  margin-top: 25px;
-  font-size: 25px;
-  line-height: 23px;
+  margin-top: 30px;
+  font-size: 24px;
+  line-height: 20px;
   text-align: center;
   align-items: center;
 }
-
 
 #l4 {
 
@@ -137,4 +140,77 @@ body {
   line-height: 23px;
   text-align: center;
   align-items: center;
+}
+
+.register {
+  margin-left: 900px;
+  margin-top: 350px;
+}
+
+
+@-moz-document url-prefix() {
+
+  #l1 .eventname {
+    line-height: 20px;
+    display: block;
+    margin-top: 6px;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  #l2 .eventname {
+    display: block;
+    margin-top: 5px;
+    font-size: 22px;
+    line-height: 23px;
+    text-align: center;
+    align-items: center;
+  }
+
+  #l3 .eventname {
+    display: block;
+    margin-top: 27px;
+    font-size: 22px;
+    line-height: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  #l4 .eventname {
+    margin-top: 20px;
+    font-size: 23px;
+    line-height: 20px;
+    display: block;
+    text-align: center;
+    align-items: center;
+  }
+
+  #l5 .eventname {
+    display: block;
+    margin-top: 8px;
+    font-size: 22px;
+    line-height: 23px;
+    text-align: center;
+    align-items: center;
+  }
+
+  #l6 .eventname {
+    display: block;
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    align-items: center;
+  }
+
+  #l7 .eventname {
+    display: block;
+    margin-top: 12px;
+    font-size: 25px;
+    line-height: 26px;
+    text-align: center;
+    align-items: center;
+  }
+
 }
