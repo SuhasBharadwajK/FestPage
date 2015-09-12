@@ -41,6 +41,7 @@ body {
   //transition: 1s 0.4s;
   background-image: url("../images/preloader3.gif");
   background-position: center;
+  background-size: 50px;
   background-repeat: no-repeat;
 }
 
@@ -49,9 +50,18 @@ img {
   width: 50px;
 }
 
+.navdrawer {
+  position: absolute;
+  height: 100%;
+  width: 60%;
+  background-color: #1B1F2A;
+  z-index: 5;
+  left: -60%;
+}
+
 .righthalf {
   //float: left;
-  background-image: url('../images/background.jpg');
+  //background-image: url('../images/background.jpg');
   background-size: contain;
   background-size: cover;
   background-repeat: no-repeat;
@@ -63,39 +73,76 @@ img {
   transition:background-image 1s ease-in-out;
 }
 
+.backgroundimage {
+  position: absolute;
+	left: 0px;
+	top: 0px;
+  //height: calc(100% + 100px);
+  width: 100%;
+  background-image: url('../images/background.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  z-index: -14;
+
+}
+
+.backgroundimage1 {
+  position: absolute;
+	left: 0px;
+	top: 0px;
+  //height: calc(100% + 100px);
+  width: 100%;
+  background-image: url('../images/pic.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  z-index: -15;
+
+}
+
 .overlay {
-  height: inherit;
+  height: calc(100% + 100px);
+  position: absolute;
   width: 100%;
   //background-color: rgba(93, 182, 255, 0.56);
   //background-color: rgba(131, 134, 143, 0.5);
-  background-color: rgba(22, 125, 148, 0.5);
+  //background-color: rgba(22, 125, 148, 0.7);
+  background-color: rgba(19, 67, 78, 0.6);
   //margin-top: -50px;
 }
 
+.collegelogo {
+  width: 450px;
+}
+
 #clogo {
-  visibility: visible;
+  //visibility: collapse;
+  display: none;
   position: relative;
-  width: 80px;
+  //width: 500px;
   float: left;
   margin-left: 20px;
   margin-top: 20px;
 }
 
 #flogo {
+  display: none;
   visibility: visible;
   position: relative;
-  width: 450px;
+  width: 240px;
+  margin-left: 120px;
 }
 
 
 .firstLine {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'HelveticaNeue';
   padding-left: 260px;
   //margin-top: 10px;
   position: relative;
-
+  display: none;
 }
 
 .firstLine span {
@@ -106,25 +153,43 @@ img {
 .secondLine {
   position: relative;
   color: white;
-  font-size: 50px;
+  font-size: 40px;
   font-family: 'HelveticaNeueThin';
   //padding-left: 120px;
+  //margin-left: 180px;
   margin-top: -5px;
-
+  display: none;
 }
 
 .secondLine span {
+  //visibility: hidden;
   /*left: auto;
   right: auto;*/
 }
 
+.secondLine span::before {
+  content: "Engineering";
+  visibility: visible;
+  display: block;
+  position: relative;
+  margin-left: 85px;
+}
+
+.secondLine span::after {
+  content: "College";
+  display: block;
+  margin-left: 120px;
+}
+
+
 .presents {
   position: relative;
   color: white;
-  font-size: 120px;
+  font-size: 100px;
   font-family: 'Dense';
   //width: inherit;
-
+  //margin-left: 70px;
+  display: none;
   /*//padding-left: 200px;*/
   /*left: auto;
   right: auto;*/
@@ -137,19 +202,29 @@ img {
 }
 
 .socialbuttons {
-  margin-top: -200px;
+  //margin-top: 100px;
+  position: absolute;
+  bottom: -60px;
+  //display: none;
+
 }
 
 .socialbutton {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: white;
-  top: -15px;
+  float: left;
+  //position: absolute;
+  z-index: 1;
   transition: background-color 0.4s ease;
   -webkit-transition: background-color 0.4s ease;
   -moz-transition: background-color 0.4s ease;
   -o-transition: background-color 0.4s ease;
   -ms-transition: background-color 0.4s ease;
+}
+
+.socialbutton img {
+  width: 40px;
 }
 
 #facebook {
@@ -173,31 +248,34 @@ img {
 }
 
 #facebook img {
-  margin-top: 4px;
-  margin-left: 4px;
+  margin-top: 2px;
+  margin-left: 2px;
+  width: 35px;
 }
 
 #twitter img {
+  width: 30px;
   margin-top: 7px;
   margin-left: 5px;
 }
 
 #googleplus img {
+  width: 30px;
   margin-top: 6px;
   margin-left: 6px;
 }
 
 
 #instagram  img {
-  margin-top: 9px;
-  margin-left: 9px;
-  width: 40px;
+  margin-top: 8px;
+  margin-left: 7px;
+  width: 25px;
 }
 
 #youtube  img {
-  margin-top: 14.5px;
-  margin-left: 8px;
-  width: 40px;
+  margin-top: 9px;
+  margin-left: 5px;
+  width: 30px;
 }
 
 #facebook:hover, #twitter:hover, #googleplus:hover, #instagram:hover, #youtube:hover {

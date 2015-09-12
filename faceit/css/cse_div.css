@@ -1,5 +1,6 @@
 body {
   background-color: rgb(224, 83, 58);
+  overflow: hidden;
 }
 
 pre {
@@ -10,7 +11,7 @@ pre {
 
 .container {
   position: relative;
-  margin-left: 100px;
+  margin-left: 0px;
 }
 
 .events{

@@ -84,11 +84,9 @@ function revert(revertId, currentId) {
         $(this).animate({
           marginTop: '-=100px', height: '-=400px'},
           400, "easeOutCubic", function() {
-
-            $(this).children('span').fadeIn('fast', function() {
-
-            });
             expand(currentId);
+            $(this).children('span').fadeIn('fast');
+            //expand(currentId);
             // $(this).css({
             //   'background-image': 'url("images/' + imageUrl + '")'
             // });

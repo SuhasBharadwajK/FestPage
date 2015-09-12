@@ -49,6 +49,8 @@ body {
   user-select: none;
 }
 
+.navdrawer { display: none; }
+
 #loadingoverlay {
   position: fixed;
 	left: 0px;
@@ -363,7 +365,13 @@ body {
   display: none;
   margin-left: 151px;
   margin-top: 150px;
+}
 
+#faceit img {
+  display: none;
+  width: 150px;
+  margin-left: 25px;
+  margin-top: 101px;
 }
 
 #faceit span {
@@ -391,61 +399,6 @@ body {
 }
 
 #cse {
-  z-index: 10;
-  margin-left: 48px;
-  margin-top: -28px;
-}
-
-#cse a {
-  left: 28px;
-}
-
-#ece {
-  margin-left: 254px;
-  margin-top: -28px;
-}
-
-#mech {
-  margin-left: -55px;
-  margin-top: 150px;
-}
-
-#mech a {
-  font-size: 60px;
-  top: 145px;
-  left: 8px;
-}
-
-#civ {
-  margin-left: 357px;
-  margin-top: 150px;
-}
-
-#civ a {
-  font-size: 60px;
-  top: 145px;
-  left: 12px;
-}
-
-#it {
-  margin-left: 48px;
-  margin-top: 328px;
-}
-
-#it a {
-  left: 37px;
-}
-
-
-#eee {
-  margin-left: 254px;
-  margin-top: 328px;
-}
-
-#eee a {
-  left: 19px;
-}
-#cse {
   /*margin-left: 48px;
   margin-top: -28px;*/
   display: none;
@@ -457,6 +410,7 @@ body {
 
 #cse a {
   left: 28px;
+  top: 128px;
 }
 
 #ece {
@@ -466,6 +420,11 @@ body {
   margin-top: -60px;
   display: none;
 }
+
+#ece a {
+  top: 128px;
+}
+
 
 #mech {
   /*margin-left: -55px;
@@ -477,7 +436,7 @@ body {
 
 #mech a {
   font-size: 60px;
-  top: 145px;
+  top: 135px;
   left: 8px;
 }
 
@@ -491,7 +450,7 @@ body {
 
 #civ a {
   font-size: 60px;
-  top: 145px;
+  top: 135px;
   left: 12px;
 }
 
@@ -504,8 +463,8 @@ body {
 }
 
 #it a {
-  top: 145px;
-  left: 37px;
+  top: 130px;
+  left: 36px;
 }
 
 #eee {
@@ -514,9 +473,19 @@ body {
   display: none;
   margin-left: 274px;
   margin-top: 348px;
+
 }
 
 #eee a {
-  top: 140px;
-  left: 19px;
+  top: 132px;
+  left: 15px;
+  font-size: 35px;
+}
+
+#eee a span {
+  display: block;
+}
+
+#eee a #papers {
+  margin-left: 10px;
 }

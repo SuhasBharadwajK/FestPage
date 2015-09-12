@@ -49,6 +49,8 @@ body {
   user-select: none;
 }
 
+.navdrawer { display: none; }
+
 #loadingoverlay {
   position: fixed;
 	left: 0px;
@@ -295,7 +297,7 @@ body {
   //margin-right: auto;
   margin-top: 100px;
   position: absolute;
-  top: 10%;
+  top: 30px;
   /*-webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);*/
@@ -375,8 +377,15 @@ body {
   display: none;
   margin-left: 151px;
   margin-top: 150px;
-
 }
+
+#faceit img {
+  display: none;
+  width: 150px;
+  margin-left: 25px;
+  margin-top: 101px;
+}
+
 
 #faceit span {
   position: relative;
@@ -477,4 +486,13 @@ body {
 #eee a {
   top: 140px;
   left: 19px;
+  font-size: 35px;
+}
+
+#eee a span {
+  display: block;
+}
+
+#eee a #papers {
+  margin-left: 10px;
 }

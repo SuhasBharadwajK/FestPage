@@ -1,3 +1,5 @@
+//console.log("Aspect ratio: " + $(window).width()/$(window).height());
+
 /***
 
 TODO The loading screen doesn't show up in smaller screens
@@ -5,8 +7,10 @@ MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!
 
 ***/
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
+var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer");
 var currentImage = 0;
 var currentBackground = 0;
+var mobileDevice = false, navactive = false;
 
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
@@ -46,7 +50,7 @@ function doneLoading() {
             marginLeft: '+=550px'
             },
             700, function() {
-              $("#clogo").fadeIn('slow');
+              //$("#clogo").fadeIn('slow');
             });
 
         $('.presents').animate({
@@ -82,60 +86,69 @@ function doneLoading() {
         },
         800, 'easeOutCirc', function() {
           $("#faceit").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1);
-          });
-          $("#cse").fadeTo('fast', 0.5, function() {
             $(this).fadeTo('fast', 1, function() {
-              $(this).animate({
-                left: "+=18px",
-                top: "+=32px"
-                },
-                800);
+
+              $("#centerlogo").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 0.6);
               });
-          });
-          $("#ece").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1, function() {
-              $(this).animate({
-                left: "-=18px",
-                top: "+=32px"
-                },
-                800);
+
+
+              $("#cse").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 1, function() {
+                  $(this).animate({
+                    left: "+=18px",
+                    top: "+=32px"
+                    },
+                    800);
+                  });
               });
-          });
-          $("#mech").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1, function() {
-              $(this).animate({
-                left: "+=20px"
-                },
-                800);
+              $("#ece").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 1, function() {
+                  $(this).animate({
+                    left: "-=18px",
+                    top: "+=32px"
+                    },
+                    800);
+                  });
               });
-          });
-          $("#civ").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1, function() {
-              $(this).animate({
-                left: "-=20px"
-                },
-                800);
+              $("#mech").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 1, function() {
+                  $(this).animate({
+                    left: "+=20px"
+                    },
+                    800);
+                  });
               });
-          });
-          $("#it").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1, function() {
-              $(this).animate({
-                left: "+=20px",
-                top: "-=20px"
-                },
-                800);
+              $("#civ").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 1, function() {
+                  $(this).animate({
+                    left: "-=20px"
+                    },
+                    800);
+                  });
               });
-          });
-          $("#eee").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1, function() {
-              $(this).animate({
-                left: "-=20px",
-                top: "-=20px"
-                },
-                800);
+              $("#it").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 1, function() {
+                  $(this).animate({
+                    left: "+=20px",
+                    top: "-=20px"
+                    },
+                    800);
+                  });
               });
+              $("#eee").fadeTo('fast', 0.5, function() {
+                $(this).fadeTo('fast', 1, function() {
+                  $(this).animate({
+                    left: "-=20px",
+                    top: "-=20px"
+                    },
+                    800);
+                  });
+              });
+
+            });
           });
+
         });
       // $('.socialbuttons').animate({
       //   bottom: "+=60px"
@@ -161,11 +174,34 @@ function doneLoading() {
 // });
 
 function doneMobileLoading() {
-  $("#loadingoverlay").fadeOut('slow', function() {});
+  $("#loadingoverlay").fadeOut('slow', function() {
+    $(".firstLine").fadeIn(500, function() {
+
+    });
+    $("#clogo").fadeIn(500, function() {
+
+    });
+    $(".secondLine").fadeIn(500, function() {
+
+      $(".presents").fadeIn(800, function() {
+
+        $("#flogo").fadeIn(500, function() {
+          $('.socialbuttons').animate({
+            bottom: '+=60px'},
+            "fast", function() {
+            /* stuff to do after animation is complete */
+          });
+        });
+
+      });
+
+    });
+
+  });
+
 }
 
 $(document).load(function() {
-  /* Act on the event */
   //respond();
 });
 $(document).ready(function() {
@@ -188,33 +224,27 @@ $(document).ready(function() {
   setHeight();
 
   console.log("Ready!");
-  // var heightof = $(window).height();
-  // console.log(heightof);
-  // var left = document.getElementById('left');
-  // left.height(heightof);
-  // console.log(typeof $(window).height());
+
   $(window).resize(function(event) {
-    /* Act on the event */
-    respond();
+    respond(1);
+    if (parseInt($(window).width()) >= 1280) {
+      //respond();
+    }
+    else {
+      //location.reload();
+    }
+
   });
 
-  // $(window).click(function(event) {
-  //   /* Act on the event */
-  //   setHeight();
-  //   respond();
-  //   console.log("Clicked!");
-  //
-  // });
   setTimeout(function(){$(window).trigger('click');} , 100);
 
   /**** TODO Without this, the elements in the smaller screens are fucked up for some reason  ****/
-  setTimeout(function(){$(window).trigger('resize');} , 100);
+  //setTimeout(function(){$(window).trigger('resize');} , 100);
 
   setInterval(changeBackground, 3500);
 
 
   $(".socialbutton").hover(function() {
-    /* Stuff to do when the mouse enters the element */
     var id = $(this).attr("id");
     //console.log(id);
     $(this).find('img').fadeOut('fast', function() {
@@ -223,7 +253,6 @@ $(document).ready(function() {
     });
 
     }, function() {
-    /* Stuff to do when the mouse leaves the element */
       var id = $(this).attr("id");
       $(this).find('img').fadeOut('fast', function() {
         $(this).attr('src', 'images/' + id + 'white.png');
@@ -293,71 +322,146 @@ function changeBackground() {
 }
 
 function setHeight() {
-  $(".lefthalf").height($(window).height());
-  $(".righthalf").height($(window).height());
+
+  if(parseInt($(window).width()) >= 1280) {
+    $(".righthalf").height($(window).height());
+    $(".lefthalf").height($(window).height());
+  }
+  else {
+    $(".righthalf").height($(window).height() + 100);
+  }
 }
 
-function respond() {
+function respond(value) {
   var windowWidth = parseInt($(window).width());
   //alert(windowWidth);
   if (windowWidth >= 1920) {
+    setHeight();
     $("#responsive").attr("href", "css/homestyles1920.css");
     console.log("1600");
   }
   else if (windowWidth >= 1600) {
+    setHeight();
     $("#responsive").attr("href", "css/homestyles1600.css");
     console.log("1600");
   }
-  else if (windowWidth >= 1366) {
+  else if (windowWidth >= 1300) {
+    setHeight();
     $("#responsive").attr("href", "css/homestyles1366.css");
     console.log(windowWidth);
   }
   else if (windowWidth >= 1280) {
+    setHeight();
     $("#responsive").attr("href", "css/homestyles1280.css");
+
     console.log(windowWidth);
   }
   else if (windowWidth > 640) {
-    //$("#responsive").attr("href", "css/homestyles1280.css");
     $("#responsive").attr("href", "css/homestylesmobile.css");
     console.log(windowWidth);
-    makemobile();
+    mobileDevice = true;
+    makemobile(value);
   }
   else if (windowWidth <= 640){
     $("#responsive").attr("href", "css/homestylesmobile.css");
+    mobileDevice = true;
     console.log(windowWidth);
-    makemobile();
-    //$(window).trigger('click');
-
-
-    //$("#jssource").attr("src", "javascript/homemobilescript.js");
-    //console.log("Mobile!");
-    //alert("HO");
-
+    makemobile(value);
   }
 
-  // $('.righthalf').css({
-  //   "background-image": "url('images/background.jpg')",
-  //   "background-position": "right"
-  //   //property2: 'value2'
-  // });
 
-  setHeight();
+  if (windowWidth >= 1280) {
+    var socialLeft = ((((42.5 * windowWidth) / 100)) - 250)/2 - 40;
+    $(".socialbuttons").css({
+      'left': socialLeft
+    });
 
-  var socialLeft = ((((42.5 * windowWidth) / 100)) - 250)/2 - 40;
-  //socialLeft = socialLeft + "";
-  //console.log(socialLeft);
-  $(".socialbuttons").css({
-    'left': socialLeft
-  });
-
-  $(".socialaddress").css({
-    'left': socialLeft + 50
-  });
+    $(".socialaddress").css({
+      'left': socialLeft + 50
+    });
+  }
 
 }
 
-function makemobile() {
-  $(".righthalf").children().append($('.lefthalf').children());
+function doOnOrientationChange() {
+  // $('.backgroundimage').height($(window).height() + 60);
+  // $('.backgroundimage1').height($(window).height() + 60);
+  switch(window.orientation)
+  {
+    case -90:
+      // $('.backgroundimage').height($(window).height() + 60);
+      // $('.backgroundimage1').height($(window).height() + 60);
+      // $(".righthalf").height($(window).height() + 100);
+      // break;
+    case 90:
+      //alert('landscape');
+      // $('.backgroundimage').height($(window).height() + 60);
+      // $('.backgroundimage1').height($(window).height() + 60);
+      // $(".righthalf").height($(window).height() + 100);
+      // break;
+    default:
+      //alert('portrait');
+      break;
+  }
+}
+
+window.addEventListener('orientationchange', doOnOrientationChange);
+
+$(function() {
+  for(keyElement in keyElements) {
+    console.log(keyElements[keyElement]);
+    $(keyElements[keyElement]).swipe( {
+      swipeRight:openNav, swipeLeft:closeNav, threshold:10
+    });
+  }
+});
+
+$(function() {
+  for(keyElement in keyElements) {
+    if (keyElements[keyElement] != ".navdrawer") {
+      $(keyElements[keyElement]).click(function(event) {
+        closeNav();
+      });
+    }
+
+  }
+});
+
+function openNav() {
+  $(".navdrawer").animate({
+    'left': '0'},
+    200, 'easeOutCubic', function() {
+      navactive = true;
+  });
+}
+
+function closeNav() {
+  if (navactive) {
+    $(".navdrawer").animate({
+      'left': '-60%'},
+      200, 'easeOutCubic', function() {
+        navactive = false;
+    });
+  }
+}
+
+
+
+function makemobile(value) {
+
+  if (value != 1 || value === 2) {
+    $('.backgroundimage').height($(window).height() + 60);
+    $('.backgroundimage1').height($(window).height() + 60);
+  }
+
+
+  $(".secondLine span").html("");
+
+  $(".righthalf").css({
+    'height': (parseInt($(window).width()) + 100).toString() + "px"
+  });
+  $(".righthalf").append($('.lefthalf').children());
+  //console.log("Children: " + $('.lefthalf').children());
 
   $('.hexagon').remove();
   $('.hexagon1').remove();
@@ -365,43 +469,71 @@ function makemobile() {
   $('.hexagon-container').remove();
   $(".lefthalf").remove();
 
-  $(".secondLine").css({
-    'left': ($(window).width() - $(".secondLine").children('span').width())/2 - 80
-  });
 
-  console.log("College width");
+  // $(".secondLine").css({
+  //   'left': ($(window).width() - $(".secondLine").children('span').width())/2 - 80
+  // });
+
+  //console.log("College width");
   console.log($(".secondLine").children('span').width());
-  console.log(($(window).width() - $(".secondLine").children('span').width())/2);
+  console.log("Second Width! " + ($(window).width() - $(".secondLine").children('span').width())/2);
 
   $(".firstLine").css({
-    'left': ($(window).width() - $(this).children('span').width())/2 - 300
+    'left': ($(window).width() - $(this).children('span').width())/2 - 285
   });
 
-  presentsWidth = $(".presents").children('span').width();
-  console.log($(window).width());
-  presentsLeft = ($(window).width() - presentsWidth)/2;
-  console.log(presentsWidth);
-  console.log(presentsLeft);
-  $(".presents").css({
-    'left': presentsLeft
+  $(".secondLine").css({
+    'left': ($(window).width() - $(this).children('span').width())/2 - 180
   });
+
+  $(".presents").css({
+    'left': ($(window).width() - $(this).width()/2) - 105
+  });
+
+  $("#clogo").css({
+    'left': ($(window).width() - $("this").width())/2 - 180
+  });
+
+  $("#flogo").css({
+    'left': ($(window).width() - $("this").width())/2 - 240
+  });
+
+  $(".socialbuttons").css({
+    //'left': ($(window).height() - $(this).children('span').width())/2 - 285
+    //'top': $(window).height() - 40,
+    'left': ($(window).width() - $("this").width())/2 - 110
+  });
+
+
+  //$(".firstLine").css("left", Math.max(0, ((($(window).width() - $(this).children('span').outerWidth()) / 2)  - 285 )+ "px"));
+
+
+
+  // presentsWidth = $(".presents").children('span').width();
+  // console.log($(window).width());
+  // presentsLeft = ($(window).width() - presentsWidth)/2;
+  // console.log("Presents Width: " + presentsWidth);
+  // console.log("Presents Left: " + presentsLeft);
+
 
   $(".socialaddress").html("");
 
   console.log("Logo");
   console.log(($(window).width() - $("#flogo").width())/2);
 
-  $("#flogo").css({
-    'left': ($(window).width() - $("#flogo").width())/2 - 10
-  });
+  // $("#flogo").css({
+  //   'left': ($(window).width() - $("#flogo").width())/2 - 10
+  // });
 
   $("#clogo").css({
     'width': '10%'
   });
 
-  if ($(window).width() ) {
 
-  }
+
+  // if ($(window).width() ) {
+  //
+  // }
   // $('.presents').animate({
   //   'left': presentsLeft
   // },
@@ -433,12 +565,15 @@ function makemobile() {
 //     //alert("Timed out!");
 // }, 200);
 
+
+
 $(document).change(function(event) {
   /* Act on the event */
   //respond();
 });
 
 $(document).keydown(function(event) {
+
   if (($(".lefthalf").height()) > (($(window).height()))) {
     setHeight();
   }

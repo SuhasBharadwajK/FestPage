@@ -49,6 +49,8 @@ body {
   user-select: none;
 }
 
+.navdrawer { display: none; }
+
 #loadingoverlay {
   position: fixed;
 	left: 0px;
@@ -291,7 +293,7 @@ body {
   //margin-right: auto;
   //margin-top: 50px;
   position: absolute;
-  top: 8%;
+  top: 3px;
 
 }
 
@@ -371,6 +373,14 @@ body {
 
 }
 
+#faceit img {
+  display: none;
+  width: 150px;
+  margin-left: 24px;
+  margin-top: 101px;
+}
+
+
 #faceit span {
   position: relative;
   font-size: 70px;
@@ -407,6 +417,7 @@ body {
 
 #cse a {
   left: 28px;
+  top: 128px;
 }
 
 #ece {
@@ -415,6 +426,10 @@ body {
   margin-left: 272px;
   margin-top: -60px;
   display: none;
+}
+
+#ece a {
+  top: 128px;
 }
 
 #mech {
@@ -427,21 +442,22 @@ body {
 
 #mech a {
   font-size: 60px;
-  top: 145px;
+  top: 135px;
   left: 8px;
 }
 
 #civ {
   /*margin-left: 357px;
   margin-top: 150px;*/
+  display: none;
   margin-left: 377px;
   margin-top: 150px;
-  display: none;
+
 }
 
 #civ a {
   font-size: 60px;
-  top: 145px;
+  top: 135px;
   left: 12px;
 }
 
@@ -454,8 +470,8 @@ body {
 }
 
 #it a {
-  top: 145px;
-  left: 37px;
+  top: 130px;
+  left: 36px;
 }
 
 #eee {
@@ -467,6 +483,15 @@ body {
 }
 
 #eee a {
-  top: 140px;
-  left: 19px;
+  top: 132px;
+  left: 15px;
+  font-size: 35px;
+}
+
+#eee a span {
+  display: block;
+}
+
+#eee a #papers {
+  margin-left: 10px;
 }
