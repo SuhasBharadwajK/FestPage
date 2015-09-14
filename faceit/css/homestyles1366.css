@@ -49,6 +49,8 @@ body {
   user-select: none;
 }
 
+.drawericonholder { display: none; }
+
 .navdrawer { display: none; }
 
 #loadingoverlay {

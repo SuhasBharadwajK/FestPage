@@ -55,6 +55,7 @@ img {
 }
 
 .drawericonholder {
+  display: none;
   position: absolute;
   z-index: 60;
   height: 60px;
@@ -89,14 +90,14 @@ img {
 .branch {
   position: relative;
   font-size: 1.7em;
-  //left: 35px;
+  left: 35px;
   width: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
   //padding-left: 50px;
   padding-right: 40px;
   color: white;
-  border-top: 2px solid white;
+  border-top: 2px solid grey;
 }
 
 .branch span {

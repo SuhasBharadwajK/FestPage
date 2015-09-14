@@ -216,7 +216,7 @@ $(document).ready(function() {
   //$(".lefthalf").height($(window).height());
   //$(".righthalf").height($(window).height());
   //makemobile()
-  $('#flogo ').draggable().css("position", "absolute");
+  //$('#flogo ').draggable().css("position", "absolute");
 
   respond();
 
@@ -498,7 +498,7 @@ $(function() {
   });
 })
 
-$(function() {
+/*$(function() {
   $(document.body).on("mousemove", function(e) {
        if ($dragging) {
            $dragging.offset({
@@ -514,7 +514,7 @@ $(function() {
    $(document.body).on("mouseup", function (e) {
        $dragging = null;
    });
-})
+})*/
 
 
 $(function() {
@@ -560,7 +560,7 @@ function closeNav() {
     $(".drawericonholder").animate({
       'left': '0'},
       200, 'easeOutCubic', function() {
-        navactive = true;
+        navactive = false;
     });
   }
 }
