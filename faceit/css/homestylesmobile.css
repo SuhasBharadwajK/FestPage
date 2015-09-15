@@ -18,6 +18,17 @@
   src: url("fonts/HelveticaNeue-Thin.otf");
 }
 
+@keyframes ripple-animation {
+    from {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+    }
+}
+
 * { padding: 0; margin: 0; }
 
 body {
@@ -89,15 +100,19 @@ img {
 
 .branch {
   position: relative;
+  overflow: hidden;
   font-size: 1.7em;
-  left: 35px;
-  width: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  //left: 20px;
+  width: calc(100%);
+  padding-top: 20px;
+  padding-bottom: 20px;
   //padding-left: 50px;
-  padding-right: 40px;
+  //padding-right: 40px;
   color: white;
-  border-top: 2px solid grey;
+  background-color: #1B1F2A;
+  text-align: center;
+  border-top: 4px solid #22262f;
+  border-radius: 5px;
 }
 
 .branch span {
@@ -106,12 +121,32 @@ img {
   padding-bottom: 0;
 }
 
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: rgb(85, 85, 85);
+  animation: ripple-animation 2s;
+}
+
+.medium {
+  position:relative;
+  color:white;
+  margin: 20px auto;
+  height:400px;
+  width:500px;
+  background:#f45673;
+
+}
+
 .menucse {
   border-top: none;
 }
 
 .menupp {
-  padding-bottom: 0;
+  //padding-bottom: 0;
+  border-bottom: 4px solid #22262f;
 }
 
 .righthalf {

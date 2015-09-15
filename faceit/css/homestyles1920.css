@@ -50,6 +50,7 @@ body {
 }
 
 .navdrawer { display: none; }
+.drawericonholder { display: none; }
 
 #loadingoverlay {
   position: fixed;

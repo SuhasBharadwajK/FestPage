@@ -213,26 +213,15 @@ Document READY!!!
 */
 $(document).ready(function() {
 
-  //$(".lefthalf").height($(window).height());
-  //$(".righthalf").height($(window).height());
-  //makemobile()
-  //$('#flogo ').draggable().css("position", "absolute");
-
   respond();
 
-
-
-  $(window).ready(function() {
-    /* Act on the event */
-    //respond();
-  });
-
-
-  //mobileit();
-  //respond();
   setHeight();
 
   console.log("Ready!");
+
+  $('#centerlogo').click(function(event) {
+    window.open('http://aceec.ac.in', '_blank').location;
+  });
 
   $(window).resize(function(event) {
     respond(1);
@@ -267,6 +256,24 @@ $(document).ready(function() {
         $(this).attr('src', 'images/' + id + 'white.png');
         $(this).fadeIn('fast');
     });
+  });
+
+  $('.branch').click(function(event) {
+    event.preventDefault();
+    var $dummy = $('<div/>'), rippleOffset = $(this).offset(), x = event.pageX - rippleOffset.left, y = event.pageY - rippleOffset.top;
+    $dummy.addClass('ripple');
+    var $ripple = $('.ripple');
+    $ripple.css({
+      'height': $(this).height(),
+      'width': $(this).width()
+    });
+    $dummy.css({
+      'top': y - $ripple.height()/2,
+      'left': x - $ripple.width()/2
+    }).appendTo($(this));
+    window.setTimeout(function(){
+        $dummy.remove();
+    }, 2000);
   });
 });
 
@@ -476,27 +483,27 @@ window.addEventListener('orientationchange', doOnOrientationChange);
 //     }
 // })(jQuery);
 
-$(function() {
-  $('.drawericon').mousedown(function(event) {
-    if(event.which === 1) {
-      var drawer = $(this);
-      var left = parseInt(drawer.css('left'));
-      drawer.css({'left' : left + "px"});
-       var drag_start_xpos = event.clientX;
-      $(window).on('mousemove', function(e) {
-         var new_left = left + (e.clientX - drag_start_xpos);
-         drawer.css({'left' : new_left + 'px'});
-
-      });
-      $(window).on('mouseup',function(e) {
-                 if(e.which===1) {
-                    $('.drawericon').removeClass('drag');
-                    $(window).off('mouseup mousemove');
-                 }
-            });
-    }
-  });
-})
+// $(function() {
+//   $('.drawericon').mousedown(function(event) {
+//     if(event.which === 1) {
+//       var drawer = $(this);
+//       var left = parseInt(drawer.css('left'));
+//       drawer.css({'left' : left + "px"});
+//        var drag_start_xpos = event.clientX;
+//       $(window).on('mousemove', function(e) {
+//          var new_left = left + (e.clientX - drag_start_xpos);
+//          drawer.css({'left' : new_left + 'px'});
+//
+//       });
+//       $(window).on('mouseup',function(e) {
+//                  if(e.which===1) {
+//                     $('.drawericon').removeClass('drag');
+//                     $(window).off('mouseup mousemove');
+//                  }
+//             });
+//     }
+//   });
+// })
 
 /*$(function() {
   $(document.body).on("mousemove", function(e) {
@@ -521,7 +528,7 @@ $(function() {
   for(keyElement in keyElements) {
     console.log(keyElements[keyElement]);
     $(keyElements[keyElement]).swipe( {
-      swipeRight:openNav, swipeLeft:closeNav, threshold:10
+      swipeRight:openNav, swipeLeft:closeNav, threshold:80
     });
   }
 });
@@ -653,51 +660,10 @@ function makemobile(value) {
   console.log("Logo");
   console.log(($(window).width() - $("#flogo").width())/2);
 
-  // $("#flogo").css({
-  //   'left': ($(window).width() - $("#flogo").width())/2 - 10
-  // });
-
   $("#clogo").css({
     'width': '10%'
   });
-
-
-
-  // if ($(window).width() ) {
-  //
-  // }
-  // $('.presents').animate({
-  //   'left': presentsLeft
-  // },
-  //   'slow', function() {
-  //   /* stuff to do after animation is complete */
-  //   // $(".presents").css({
-  //   //   'left': presentsLeft
-  //   // });
-  // });
-  // $(".presents").click(function(event) {
-  //   $(this).animate({
-  //     'left': presentsLeft
-  //   },
-  //     'slow', function() {
-  //     /* stuff to do after animation is complete */
-  //     // $(".presents").css({
-  //     //   'left': presentsLeft
-  //     // });
-  //   });
-  // });
-  // $(".presents").css({
-  //   'left': presentsLeft
-  // });
-  //
 }
-
-// setTimeout(function(){
-//     //do what you need here
-//     //alert("Timed out!");
-// }, 200);
-
-
 
 $(document).change(function(event) {
   /* Act on the event */
