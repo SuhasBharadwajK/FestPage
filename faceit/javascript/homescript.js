@@ -11,6 +11,7 @@ var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#
 var currentImage = 0;
 var currentBackground = 0;
 var mobileDevice = false, navactive = false;
+var $dragging = null;
 
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
@@ -204,11 +205,19 @@ function doneMobileLoading() {
 $(document).load(function() {
   //respond();
 });
+
+/*
+--------------------------------------------------------------------------------------------------------------------
+Document READY!!!
+--------------------------------------------------------------------------------------------------------------------
+*/
 $(document).ready(function() {
 
   //$(".lefthalf").height($(window).height());
   //$(".righthalf").height($(window).height());
   //makemobile()
+  $('#flogo ').draggable().css("position", "absolute");
+
   respond();
 
 
@@ -407,6 +416,107 @@ function doOnOrientationChange() {
 
 window.addEventListener('orientationchange', doOnOrientationChange);
 
+// $(function() {
+//       $(".drawericon").swipe( {
+//         hold:function(event, target) {
+//
+//           //$("#textText").html("You held the tap until the longTapthreshold was reached" );
+//           $(".drawericon").swipe({
+//             swipeRight:function(event, target) {
+//               console.log("Holding");
+//
+//             }
+//           });
+//           alert("Held!");
+//         },
+//
+//         threshold:5000
+//       });
+// });
+
+// (function($) {
+//     $.fn.drags = function(opt) {
+//
+//         opt = $.extend({handle:"",cursor:"move"}, opt);
+//
+//         if(opt.handle === "") {
+//             var $el = this;
+//         } else {
+//             var $el = this.find(opt.handle);
+//         }
+//
+//         return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
+//             if(opt.handle === "") {
+//                 var $drag = $(this).addClass('draggable');
+//             } else {
+//                 var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
+//             }
+//             var z_idx = $drag.css('z-index'),
+//                 drg_h = $drag.outerHeight(),
+//                 drg_w = $drag.outerWidth(),
+//                 pos_y = $drag.offset().top + drg_h - e.pageY,
+//                 pos_x = $drag.offset().left + drg_w - e.pageX;
+//             $drag.css('z-index', 1000).parents().on("mousemove", function(e) {
+//                 $('.draggable').offset({
+//                     top:e.pageY + pos_y - drg_h,
+//                     left:e.pageX + pos_x - drg_w
+//                 }).on("mouseup", function() {
+//                     $(this).removeClass('draggable').css('z-index', z_idx);
+//                 });
+//             });
+//             e.preventDefault(); // disable selection
+//         }).on("mouseup", function() {
+//             if(opt.handle === "") {
+//                 $(this).removeClass('draggable');
+//             } else {
+//                 $(this).removeClass('active-handle').parent().removeClass('draggable');
+//             }
+//         });
+//
+//     }
+// })(jQuery);
+
+$(function() {
+  $('.drawericon').mousedown(function(event) {
+    if(event.which === 1) {
+      var drawer = $(this);
+      var left = parseInt(drawer.css('left'));
+      drawer.css({'left' : left + "px"});
+       var drag_start_xpos = event.clientX;
+      $(window).on('mousemove', function(e) {
+         var new_left = left + (e.clientX - drag_start_xpos);
+         drawer.css({'left' : new_left + 'px'});
+
+      });
+      $(window).on('mouseup',function(e) {
+                 if(e.which===1) {
+                    $('.drawericon').removeClass('drag');
+                    $(window).off('mouseup mousemove');
+                 }
+            });
+    }
+  });
+})
+
+$(function() {
+  $(document.body).on("mousemove", function(e) {
+       if ($dragging) {
+           $dragging.offset({
+               left: e.pageX
+           });
+       }
+   });
+
+   $(document.body).on("mousedown", ".drawericon", function (e) {
+       $dragging = $(e.target);
+   });
+
+   $(document.body).on("mouseup", function (e) {
+       $dragging = null;
+   });
+})
+
+
 $(function() {
   for(keyElement in keyElements) {
     console.log(keyElements[keyElement]);
@@ -433,6 +543,11 @@ function openNav() {
     200, 'easeOutCubic', function() {
       navactive = true;
   });
+  $(".drawericonholder").animate({
+    'left': '60%'},
+    200, 'easeOutCubic', function() {
+      navactive = true;
+  });
 }
 
 function closeNav() {
@@ -441,6 +556,11 @@ function closeNav() {
       'left': '-60%'},
       200, 'easeOutCubic', function() {
         navactive = false;
+    });
+    $(".drawericonholder").animate({
+      'left': '0'},
+      200, 'easeOutCubic', function() {
+        navactive = true;
     });
   }
 }
@@ -452,6 +572,10 @@ function makemobile(value) {
   if (value != 1 || value === 2) {
     $('.backgroundimage').height($(window).height() + 60);
     $('.backgroundimage1').height($(window).height() + 60);
+    $('.navdrawer').height($(window).height() + 60);
+    $('.drawericonholder').css({
+      'top': $(window).height() * 0.6
+    });
   }
 
 
@@ -477,6 +601,14 @@ function makemobile(value) {
   //console.log("College width");
   console.log($(".secondLine").children('span').width());
   console.log("Second Width! " + ($(window).width() - $(".secondLine").children('span').width())/2);
+
+  // $(".menucse").css({
+  //   'padding-left': ($('.navdrawer').width() - $(this).width())/2 + 20
+  // });
+  //
+  // $(".menumech").css({
+  //   'padding-left': ($('.navdrawer').width() - $(this).width())/2 + 10
+  // });
 
   $(".firstLine").css({
     'left': ($(window).width() - $(this).children('span').width())/2 - 285

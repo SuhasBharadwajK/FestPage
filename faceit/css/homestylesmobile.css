@@ -50,6 +50,25 @@ img {
   width: 50px;
 }
 
+.container {
+  position: relative;
+}
+
+.drawericonholder {
+  position: absolute;
+  z-index: 60;
+  height: 60px;
+  width: 20px;
+  left: 0;
+}
+
+.drawericon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  //top: 60%;
+}
+
 .navdrawer {
   position: absolute;
   height: 100%;
@@ -57,6 +76,41 @@ img {
   background-color: #1B1F2A;
   z-index: 5;
   left: -60%;
+}
+
+.closex img {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  width: 20px;
+}
+
+.branch {
+  position: relative;
+  font-size: 1.7em;
+  //left: 35px;
+  width: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  //padding-left: 50px;
+  padding-right: 40px;
+  color: white;
+  border-top: 2px solid white;
+}
+
+.branch span {
+  display: block;
+  padding: none;
+  padding-bottom: 0;
+}
+
+.menucse {
+  border-top: none;
+}
+
+.menupp {
+  padding-bottom: 0;
 }
 
 .righthalf {
