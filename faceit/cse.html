@@ -1,23 +1,177 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>CSE</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="1.css"
+        <link rel="stylesheet" type="text/css" href="css/cse.css">
+        <link rel="icon" href="images/logo.png"type="image/png"/>
+        <script src="javascript/jquery-2.1.4.js"></script>
+        <script src="javascript/jquery-ui.js" charset="utf-8"></script>
+        <script src="javascript/jquery-ui.min.js" charset="utf-8"></script>
+        <script src="javascript/cse.js" charset="utf-8"></script>
     </head>
     <body>
-        <input id="li0" name="foo" type="radio" />
-        <label for="li0"></label>
-        <input checked="" id="li1" name="foo" type="radio" />         <label for="li1"></label>
-        <input id="li2" name="foo" type="radio" />
-        <label for="li2"></label>
-        <input id="li3" name="foo" type="radio" />
-        <label for="li3"></label>
-        <input id="li4" name="foo" type="radio" />
-        <label for="li4"></label>
-        <!--<input id="li5" name="foo" type="radio" />
-        <label for="li5"></label> -->
-        
-        
-        
+        <div class="container">
+          <div id="l1" class="events">
+            <span class="eventname">C &nbsp;Programming Challenge</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch1" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l2" class="events">
+            <span class="eventname">Java "Debudding" Contest</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch2" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l3" class="events">
+            <span class="eventname">LAN Gaming</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch3" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l4" class="events">
+            <span class="eventname">Web Design Contest</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch4" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l5" class="events">
+            <span class="eventname">Technical Treasure Hunt</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch5" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l6" class="events">
+            <span class="eventname">Film Making on Green Computing</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch6" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l7" class="events">
+            <span class="eventname">Project Exhibition</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch7" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+          <div id="l8" class="events">
+            <span class="eventname">Paper Presentation</span>
+            <div class="bottompanel">
+              <div class="marker">
+                <div class="mark">Mark this event for registration</div>
+                <input type="checkbox" class="switch" id="switch8" />
+                <label for="switch" class="label"></label>
+                <div class="forff"></div>
+              </div>
+              <div class="register registerbutton">Register Now!</div>
+            </div>
+          </div>
+
+          <div class="popup">
+            <div class="group" id="namegroup">
+              <input class="forminput" id="name" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="formlabel">Name</label>
+            </div>
+
+            <div class="group" id="emailgroup">
+              <input class="forminput" id="email" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="formlabel">Email</label>
+            </div>
+
+            <div class="group" id="collegegroup">
+              <input class="forminput" id="college" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="formlabel">College</label>
+            </div>
+
+            <div class="group" id="rollnogroup">
+              <input class="forminput" id="rollno" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="formlabel">Roll Number</label>
+            </div>
+
+            <div class="group" id="yeargroup">
+              <!-- <select id="year">
+                <option value="" disabled selected>Year</option>
+                <option value="1">Fresher</option>
+                <option value="2">Sophomore</option>
+                <option value="3">Junior</option>
+                <option value="4">Senior</option>
+              </select> -->
+              <div class="" id="year">
+                <span>Year</span>
+                <div class="yearlist">
+                  <ul>
+                    <li class="whichyear" id="fresher" value="Fresher">Fresher</li>
+                    <li class="whichyear" id="sophomore" value="Sophomore">Sophomore</li>
+                    <li class="whichyear" id="junior" value="Junior">Junior</li>
+                    <li class="whichyear" id="senior" value="Senior">Senior</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="group" id="phnogroup">
+              <input class="forminput" id="phno" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="formlabel">Phone Number</label>
+            </div>
+
+            <div class="register" id="submitbutton">Cancel</div>
+
+          </div>
+
+        </div>
+
+
     </body>
 </html>

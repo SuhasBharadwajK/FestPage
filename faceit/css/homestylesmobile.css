@@ -81,6 +81,19 @@ img {
   //top: 60%;
 }
 
+.hamburger {
+  position: absolute;
+  background-image: url('../images/menu.png');
+  background-position: center;
+  z-index: 999;
+  width: 35px;
+  height: 35px;
+  top: 30px;
+  right: -50px;
+  background-size: 100%;
+  //display: none;
+}
+
 .navdrawer {
   position: absolute;
   height: 100%;
@@ -90,18 +103,11 @@ img {
   left: -60%;
 }
 
-.closex img {
-  display: none;
-  position: absolute;
-  top: 10px;
-  right: 8px;
-  width: 20px;
-}
-
 .branch {
   position: relative;
   overflow: hidden;
   font-size: 1.7em;
+  font-family: 'Bigjohn';
   //left: 20px;
   width: calc(100%);
   padding-top: 20px;
@@ -128,16 +134,6 @@ img {
   height: 50px;
   background: rgb(85, 85, 85);
   animation: ripple-animation 2s;
-}
-
-.medium {
-  position:relative;
-  color:white;
-  margin: 20px auto;
-  height:400px;
-  width:500px;
-  background:#f45673;
-
 }
 
 .menucse {

@@ -12,6 +12,7 @@ var currentImage = 0;
 var currentBackground = 0;
 var mobileDevice = false, navactive = false;
 var $dragging = null;
+var initialAspectRatio = $(window).width() / $(window).height();
 
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
@@ -86,69 +87,76 @@ function doneLoading() {
         marginRight: '+=57.5%'
         },
         800, 'easeOutCirc', function() {
-          $("#faceit").fadeTo('fast', 0.5, function() {
-            $(this).fadeTo('fast', 1, function() {
-
-              $("#centerlogo").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 0.6);
-              });
-
-
-              $("#cse").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 1, function() {
-                  $(this).animate({
-                    left: "+=18px",
-                    top: "+=32px"
-                    },
-                    800);
-                  });
-              });
-              $("#ece").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 1, function() {
-                  $(this).animate({
-                    left: "-=18px",
-                    top: "+=32px"
-                    },
-                    800);
-                  });
-              });
-              $("#mech").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 1, function() {
-                  $(this).animate({
-                    left: "+=20px"
-                    },
-                    800);
-                  });
-              });
-              $("#civ").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 1, function() {
-                  $(this).animate({
-                    left: "-=20px"
-                    },
-                    800);
-                  });
-              });
-              $("#it").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 1, function() {
-                  $(this).animate({
-                    left: "+=20px",
-                    top: "-=20px"
-                    },
-                    800);
-                  });
-              });
-              $("#eee").fadeTo('fast', 0.5, function() {
-                $(this).fadeTo('fast', 1, function() {
-                  $(this).animate({
-                    left: "-=20px",
-                    top: "-=20px"
-                    },
-                    800);
-                  });
-              });
-
+          $("#faceit").fadeTo('fast', 1, function() {
+            $("#centerlogo").fadeTo('fast', 0.6, function() {
+              // $(this).fadeTo('fast', 0.6);
             });
+
+
+            $("#cse").fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "+=18px",
+                top: "+=32px"
+                },
+                800);
+              });
+            //   $(this).fadeTo('fast', 1, function() {
+            //
+            // });
+            $("#ece").fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "-=18px",
+                top: "+=32px"
+                },
+                800);
+              });
+            //   $(this).fadeTo('fast', 1, function() {
+            //
+            // });
+            $("#mech").fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "+=20px"
+                },
+                800);
+              // $(this).fadeTo('fast', 1, function() {
+              //
+              //   });
+            });
+            $("#civ").fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "-=20px"
+                },
+                800);
+              });
+            //   $(this).fadeTo('fast', 1, function() {
+            //
+            // });
+            $("#it").fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "+=20px",
+                top: "-=20px"
+                },
+                800);
+              });
+            //   $(this).fadeTo('fast', 1, function() {
+            //
+            // });
+            $("#eee").fadeTo('fast', 1, function() {
+              $(this).animate({
+                left: "-=20px",
+                top: "-=20px"
+                },
+                800);
+              });
+            //   $(this).fadeTo('fast', 1, function() {
+            //
+            // });
+
           });
+          //   $(this).fadeTo('fast', 1, function() {
+          //
+          //
+          // });
 
         });
       // $('.socialbuttons').animate({
@@ -186,12 +194,16 @@ function doneMobileLoading() {
 
       $(".presents").fadeIn(800, function() {
 
+        $('.hamburger').animate({
+          'right': '+=70'}, 600);
+
         $("#flogo").fadeIn(500, function() {
           $('.socialbuttons').animate({
             bottom: '+=60px'},
             "fast", function() {
             /* stuff to do after animation is complete */
           });
+
         });
 
       });
@@ -224,7 +236,14 @@ $(document).ready(function() {
   });
 
   $(window).resize(function(event) {
-    respond(1);
+
+    var newAspectRatio = $(window).width() / $(window).height();
+    if (newAspectRatio < initialAspectRatio) {
+      makemobile(2);
+    }
+    else {
+      respond(1);
+    }
     if (parseInt($(window).width()) >= 1280) {
       //respond();
     }
@@ -233,6 +252,18 @@ $(document).ready(function() {
     }
 
   });
+
+  // $("#faceit").hover(function() {
+  //   $("#cse").css({
+  //     'margin-left': '20px',
+  //     'margin-top': '-80px'
+  //   });
+  // }, function() {
+  //   $("#cse").css({
+  //     'margin-left': '30px',
+  //     'margin-top': '-60px'
+  //   });
+  // });
 
   setTimeout(function(){$(window).trigger('click');} , 100);
 
@@ -274,6 +305,15 @@ $(document).ready(function() {
     window.setTimeout(function(){
         $dummy.remove();
     }, 2000);
+  });
+
+  $('.hamburger').click(function(event) {
+    if (navactive) {
+      closeNav();
+    }
+    else {
+      openNav();
+    }
   });
 });
 
@@ -408,13 +448,15 @@ function doOnOrientationChange() {
       // $('.backgroundimage').height($(window).height() + 60);
       // $('.backgroundimage1').height($(window).height() + 60);
       // $(".righthalf").height($(window).height() + 100);
-      // break;
+      //alert("-90");
+      break;
     case 90:
       //alert('landscape');
       // $('.backgroundimage').height($(window).height() + 60);
       // $('.backgroundimage1').height($(window).height() + 60);
       // $(".righthalf").height($(window).height() + 100);
-      // break;
+      //alert("90");
+      break;
     default:
       //alert('portrait');
       break;
@@ -555,6 +597,10 @@ function openNav() {
     200, 'easeOutCubic', function() {
       navactive = true;
   });
+  $('.hamburger').fadeOut('fast', function() {
+    $('.hamburger').css({ 'background-image': 'url("images/close.png")' });
+    $('.hamburger').fadeIn(200);
+  });
 }
 
 function closeNav() {
@@ -569,6 +615,11 @@ function closeNav() {
       200, 'easeOutCubic', function() {
         navactive = false;
     });
+    $('.hamburger').fadeOut('fast', function() {
+      $('.hamburger').css({ 'background-image': 'url("images/menu.png")' });
+      $('.hamburger').fadeIn(200);
+    });
+
   }
 }
 
@@ -645,9 +696,6 @@ function makemobile(value) {
 
 
   //$(".firstLine").css("left", Math.max(0, ((($(window).width() - $(this).children('span').outerWidth()) / 2)  - 285 )+ "px"));
-
-
-
   // presentsWidth = $(".presents").children('span').width();
   // console.log($(window).width());
   // presentsLeft = ($(window).width() - presentsWidth)/2;
