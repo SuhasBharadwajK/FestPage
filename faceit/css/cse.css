@@ -27,6 +27,38 @@ body {
   background-color: rgb(224, 83, 58);
 }
 
+.toast {
+  position: absolute;
+  text-align: center;
+  font-size: 19px;
+  font-family: Arial;
+  color: white;
+  width: 200px;
+  height: 90px;
+  /*padding-left: 10px;*/
+  padding-top: 10px;
+  bottom: -150px;
+  left: 40px;
+  background-color: rgba(27, 27, 27, 0.64);
+  overflow: hidden;
+  z-index: 999;
+}
+
+#topbar {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  background-color: rgba(112, 112, 112, 0.44);
+  top: 0;
+  left: 0;
+}
+
+#topbar .container {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100%;
+}
+
 .container {
   width: 1280px;
   height: auto;
@@ -39,8 +71,8 @@ body {
   overflow: hidden;
   //width: 800px;
   //height: 600px;
-  width: 100px;
-  height: 100px;
+  width: 0px;
+  height: 0px;
   border-radius: 50%;
   //margin-left: 235px;
   margin-left: 600px;
@@ -53,6 +85,22 @@ body {
   box-shadow: -1px 4px 15px 0px rgba(0,0,0,0.26);
   z-index: 400;
 }
+
+/*TODO Test code. Remove in the final build*/
+/*.popup {
+  position: absolute;
+  overflow: hidden;
+  width: 800px;
+  height: 600px;
+  margin-left: 235px;
+  margin-top: -10px;
+  background-color: white;
+  //border: 2px solid black;
+  -webkit-box-shadow: -1px 4px 15px 0px rgba(0,0,0,0.26);
+  -moz-box-shadow: -1px 4px 15px 0px rgba(0,0,0,0.26);
+  box-shadow: -1px 4px 15px 0px rgba(0,0,0,0.26);
+  z-index: 400;
+}*/
 
 .group {
   display: none;
@@ -89,13 +137,104 @@ body {
   margin-top: 212px;
 }
 
-#year {
+#branchgroup {
+  margin-top: 212px;
+  margin-left: 222px;
+}
+
+#markedeventsgroup {
+  margin-left: 50px;
+  margin-top: 289px;
+}
+
+.markedheading {
+  position: absolute;
+  font-size: 20px;
+  margin-left: 7px;
+  margin-top: -27px;
+}
+
+.markedevents {
+  background-color: transparent;
+  width: 663px;
+  height: 210px;
+  border: 1px solid rgba(0, 0, 0, 0.59);
+  border-radius: 5px;
+}
+
+.markedevent {
+  width: 653px;
+  //background-color: rgb(212, 249, 254);
+  padding-left: 10px;
+  padding-top: 2.5px;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  transition: background-color ease 500ms;
+  z-index: 555;
+}
+
+.deleteevent {
+  position: absolute;
+  font-size: 20px;
+  width: 25px;
+  height: 25px;
+  margin-top: -24px;
+  margin-left: 600px;
+  border-radius: 50px;
+  transition: background-color ease 500ms;
+  overflow: hidden;
+}
+
+.deleteevent img {
+  //position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 25px;
+}
+
+.markedevent:hover {
+  background-color: rgba(255, 97, 69, 0.79);
+}
+
+/*.markedevent {
+  display: block;
+  width: 653px;
+  //background-color: rgba(181, 181, 181, 0.7);
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  //border-bottom: 1px solid black;
+}*/
+
+
+/*TODO Only the last event in the marked events has special rules.*/
+.oneevent {
+  display: block;
+}
+
+
+.m8 {
+  border-radius: 0 0 5px 5px;
+}
+
+.e8 {
+  /*display: block;*/
+  //padding-top: 1.5px;
+  padding-bottom: 3px;
+  //z-index: 540;
+  overflow: hidden;
+}
+
+.listholder {
   font-size: inherit;
   background: none;
   outline: none;
   border: none;
   border-bottom: 1px solid #757575;
-  width: 315px;
+  width: 140px;
   font-size:18px;
   padding-left: 5px;
   -webkit-appearance: none;
@@ -106,7 +245,7 @@ body {
   z-index: 500;
 }
 
-.yearlist {
+.list {
   width: 100%;
   height: 50px;
   overflow: hidden;
@@ -121,7 +260,7 @@ body {
   box-shadow: -1px 4px 15px 0px rgba(0,0,0,0.26);
 }
 
-.yearlist ul {
+.list ul {
   list-style:none;
   padding: 0;
   margin: 0;
@@ -135,7 +274,7 @@ body {
   user-select: none;
 }
 
-.yearlist li {
+.list li {
   display: none;
   padding-left: 10px;
   padding-top: 10px;
@@ -143,23 +282,8 @@ body {
   font-size: 25px;
 }
 
-.yearlist li:hover {
+.list li:hover {
   background-color: rgba(230, 230, 230, 0.65);
-}
-
-#year option {
-  color: black !important;
-}
-
-#year option:hover, option:checked {
-  border: none;
-  outline: none;
-  color: black;
-  display: block;
-  /*-webkit-box-shadow: inset 0 0 10px 100px #dadada;
-  box-shadow: inset 0 0 10px 100px #dadada;
-  //box-shadow: 0 0 10px 100px #FED20F inset;
-  transition: all .2s ease-in-out;*/
 }
 
 .forminput {
@@ -254,6 +378,12 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+  /*-webkit-box-shadow: 0px 6px 9px -3px rgba(0,0,0,0.48);
+-moz-box-shadow: 0px 6px 9px -3px rgba(0,0,0,0.48);
+box-shadow: 0px 6px 9px -3px rgba(0,0,0,0.48);*/
+-webkit-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+-moz-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 }
 
 .events span {
@@ -398,12 +528,15 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
+  box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
 }
 
 #submitbutton {
   display: none;
   z-index: 500 !important;
-  margin-top: 500px;
+  margin-top: 510px;
   margin-left: 600px;
 }
 
@@ -413,7 +546,7 @@ body {
   width: 50px;
   height: 50px;
   background: white;
-  animation: ripple-animation 3s;
+  animation: ripple-animation 2s;
 }
 
 .marker {
@@ -588,7 +721,7 @@ body {
     box-shadow:inset 0 0 0 0 #F44336,0 0 5px 0 #000;
   }
 
-  .yearlist li {
+  .list li {
     display: none;
     padding-left: 10px;
     padding-top: 10px;
