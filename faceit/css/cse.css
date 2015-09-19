@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'Droid Sans';
+  src: url("fonts/DroidSans.ttf") ;
+}
+
+@font-face {
+  font-family: 'Anivers';
+  src: url("fonts/Anivers_Regular.ttf") ;
+}
+
+@font-face {
+  font-family: 'SlimJoe';
+  src: url("fonts/SlimJoe.otf") ;
+}
+
+@font-face {
+  font-family: 'AUdimat';
+  src: url("fonts/AUdimat-Regular.otf");
+}
+
+@font-face {
+  font-family: 'Aller';
+  src: url("fonts/Aller_Rg.ttf");
+}
+
+
 @keyframes ripple-animation {
     from {
       transform: scale(1);
@@ -30,8 +56,9 @@ body {
 .toast {
   position: absolute;
   text-align: center;
+  align-items: center;
   font-size: 19px;
-  font-family: Arial;
+  font-family: "Droid Sans";
   color: white;
   width: 200px;
   height: 90px;
@@ -40,6 +67,7 @@ body {
   bottom: -150px;
   left: 40px;
   background-color: rgba(27, 27, 27, 0.64);
+  border-radius: 3px;
   overflow: hidden;
   z-index: 999;
 }
@@ -181,7 +209,7 @@ body {
   width: 25px;
   height: 25px;
   margin-top: -24px;
-  margin-left: 600px;
+  margin-left: 620px;
   border-radius: 50px;
   transition: background-color ease 500ms;
   overflow: hidden;
@@ -363,6 +391,10 @@ body {
 .events {
   //display: inline-block;
   position: absolute;
+  font-family: 'Anivers';
+  font-size: 25px !important;
+  //font-family: 'AUdimat';
+  //font-weight: bold;
   width: 150px;
   height: 80px;
   //margin-left: 10px;
@@ -378,12 +410,9 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  /*-webkit-box-shadow: 0px 6px 9px -3px rgba(0,0,0,0.48);
--moz-box-shadow: 0px 6px 9px -3px rgba(0,0,0,0.48);
-box-shadow: 0px 6px 9px -3px rgba(0,0,0,0.48);*/
--webkit-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
--moz-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  -webkit-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 }
 
 .events span {
@@ -393,18 +422,133 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 }
 
 #l1 {
-  font-size: 20px;
+  font-size: 23px;
   background-position: left;
   background-size: contain;
 }
 
 #l1 .eventname {
-  line-height: 20px;
+  line-height: 23px;
   display: block;
-  margin-top: 6px;
-  font-size: 23px;
+  margin-top: 5px;
+  //margin-left: -5px;
+  font-size: 25px;
   text-align: center;
   align-items: center;
+}
+
+.eventdescription {
+  line-height: 30px;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 330px;
+  margin-top: 5px;
+  //background-color: rgb(121, 191, 255);
+  -moz-user-select: auto;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.eventdescription ul {
+  font-size: 19px;
+  margin: 0;
+  font-family: 'Aller';
+  //padding-left: 2px;
+  margin-bottom: 10px;
+}
+
+.descleft {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow-y: hidden;
+}
+
+.leftheading {
+  position: absolute;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.rules {
+  overflow-y: hidden;
+  height: 310px;
+  margin-top: 30px;
+}
+
+.rules ul {
+  //margin-top: 30px;
+  width: 90%;
+  overflow-y: hidden;
+}
+
+.rules::-webkit-scrollbar {
+  width: 5px;
+}
+
+.rules::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5px;
+  //outline: 1px solid slategrey;
+}
+
+.rules::-webkit-scrollbar-track {
+  display: none;
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.rules::-moz-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.rules:hover {
+  overflow-y: auto;
+}
+
+.descright {
+  right: 0;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow-y: hidden;
+}
+
+.descright ul {
+  width: 90%;
+}
+
+.descright::-webkit-scrollbar {
+  width: 5px;
+}
+
+.descright::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5px;
+  //outline: 1px solid slategrey;
+}
+
+.descright::-webkit-scrollbar-track {
+  display: none;
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.descright::-moz-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.descright:hover {
+  overflow-y: auto;
+}
+
+.rightheading {
+  margin-left: 200px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  font-size: 20px;
+  font-family: 'Aller';
 }
 
 #l2 {
@@ -415,7 +559,7 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
   display: block;
   margin-top: 5px;
   font-size: 24px;
-  line-height: 23px;
+  line-height: 24px;
   text-align: center;
   align-items: center;
 }
@@ -438,7 +582,7 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 }
 
 #l4 .eventname {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 25px;
   display: block;
   text-align: center;
@@ -452,22 +596,21 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 
 #l5 .eventname {
   display: block;
-  margin-top: 12px;
-  font-size: 25px;
+  margin-top: 15px;
+  font-size: 23px;
   line-height: 23px;
   text-align: center;
   align-items: center;
 }
 
 #l6 {
-
   margin-left: 800px;
 }
 
 #l6 .eventname {
   display: block;
   margin-top: 5px;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 23px;
   text-align: center;
   align-items: center;
@@ -479,7 +622,7 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 
 #l7 .eventname {
   display: block;
-  margin-top: 12px;
+  margin-top: 15px;
   font-size: 25px;
   line-height: 23px;
   text-align: center;
@@ -492,7 +635,7 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 
 #l8 .eventname {
   display: block;
-  margin-top: 12px;
+  margin-top: 15px;
   font-size: 25px;
   line-height: 23px;
   text-align: center;
@@ -505,14 +648,23 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
   bottom: 0;
   width: 100%;
   height: 100px;
+  background-color: white;
+}
+
+.price {
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 70px;
+  font-size: 18px;
+  font-family: "Droid Sans";
 }
 
 .register {
   position: absolute;
   overflow:hidden;
   font-size: 23px;
-  margin-left: 920px;
-  margin-top: -10px;
+  margin-left: 1085px;
+  margin-top: 10px;
   padding-top: 20px;
   height: 50px;
   width: 150px;
@@ -551,8 +703,8 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 
 .marker {
   position: absolute;
-  margin-left: 830px;
-  margin-top: 15px;
+  margin-left: 1000px;
+  margin-top: 35px;
 }
 
 .mark {
@@ -608,88 +760,16 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 
 @-moz-document url-prefix() {
 
-  #l1 .eventname {
-    line-height: 20px;
-    display: block;
-    margin-top: 6px;
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l2 .eventname {
-    display: block;
-    margin-top: 5px;
-    font-size: 22px;
-    line-height: 23px;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l3 .eventname {
-    display: block;
-    margin-top: 27px;
-    font-size: 22px;
-    line-height: 20px;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l4 .eventname {
-    margin-top: 20px;
-    font-size: 23px;
-    line-height: 20px;
-    display: block;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l5 .eventname {
-    display: block;
-    margin-top: 8px;
-    font-size: 22px;
-    line-height: 23px;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l6 .eventname {
-    display: block;
-    margin-top: 5px;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l7 .eventname {
-    display: block;
-    margin-top: 12px;
-    font-size: 25px;
-    line-height: 26px;
-    text-align: center;
-    align-items: center;
-  }
-
-  #l8 .eventname {
-    display: block;
-    margin-top: 12px;
-    font-size: 22px;
-    line-height: 26px;
-    text-align: center;
-    align-items: center;
-  }
-
-  .register {
+  /*.register {
     font-size: 20px;
     padding-top: 22px;
-  }
+  }*/
 
   .mark {
     margin-left: -170px;
     margin-top: -12px;
     width: 160px;
-    font-size: 18px;
+    //font-size: 18px;
   }
 
   .switch {
@@ -727,5 +807,24 @@ box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 22px;
+  }
+
+  /*.markedevent {
+    width: 653px;
+    //background-color: rgb(212, 249, 254);
+    padding-left: 10px;
+    padding-top: 2.5px;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    transition: background-color ease 500ms;
+    z-index: 555;
+  }*/
+
+  .markedevent {
+      font-size: 17px;
+      padding-bottom: 3px;
+      padding-top: 3px;
   }
 }

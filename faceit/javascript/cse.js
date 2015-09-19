@@ -3,17 +3,19 @@ TODO: Second opening animation takes way too much time. Find a fix ASAP. - DONE!
 */
 
 var currentId, activeId = "l1";
-var count = 0;
+var count = 0, tcount = 0;
 var yearActive = false, branchActive = false;
+var eventPage = true;
 var poppedup = false;
-var lastEvent;
 eventImages = Array("clang.png", "java.png", "lanparty.png");
-topMargins = Array(6, 5, 30, 10, 12, 5, 12, 12);
+topMargins = Array(5, 5, 30, 12, 15, 5, 15, 15);
 markedEvents = Array();
+toasts = Array();
+
 //console.log(navigator.userAgent);
 if (navigator.userAgent.indexOf("Firefox") > -1 || navigator.userAgent.indexOf("Iceweasel") > -1) {
   console.log("Fire-fucking-fox? Seriously? You couldn't get a better browser? Get Chrome. Get a life.");
-  topMargins = Array(6, 5, 27, 20, 8, 5, 12, 12);
+  //topMargins = Array(6, 5, 27, 20, 8, 5, 12, 12);
 }
 // else if (navigator.userAgent.indexOf("Chrome") > -1) {
 //   topMargins = Array(6, 5, 30, 10, 12, 5, 12, 12);
@@ -23,7 +25,7 @@ switches = Array("#switch1", "#switch2", "#switch3", "#switch4", "#switch5", "#s
 $(document).ready(function() {
 
   $("#l1").children('span').fadeOut('fast', function() {
-
+    eventPage = true;
     $("#l1").animate({
       marginTop: "+=100px", height: "+=400"},
       300, "easeOutCubic", function() {
@@ -32,12 +34,23 @@ $(document).ready(function() {
           300, "easeOutCubic", function() {
             //console.log("FIRRRSST");
             $("#l1").children('.eventname').css({ 'margin-top': 10 });
+            $("#l1").children('.eventdescription').fadeIn('slow');
             $("#l1").children('.bottompanel').fadeIn('fast', function() {
               //console.log("faded in");
             });
             $(this).children('span').fadeIn('400');
         });
     });
+
+    // $('.descright').hover(function() {
+    //   $('descright::-webkit-scrollbar').fadeIn('fast', function() {
+    //
+    //   });
+    // }, function() {
+    //   $('descright::-webkit-scrollbar').fadeOut('fast', function() {
+    //
+    //   });
+    // });
 
     $(".switch").change(function(event) {
 
@@ -268,7 +281,7 @@ function fillWithEvents($fillArea) {
         $("#l" + i).children('.bottompanel').children('.marker').children('.mark').html('Mark this event for registration');
         markedEvents.splice(markedEvents.indexOf($("#l" + i).children('.eventname').html()), 1);
         $("#l" + i).children('.bottompanel').children('.marker').children('.forff').animate( {'left': '-5px'}, 'fast');
-        toast($("#l" + i).children('.eventname').html());
+        //toast($("#l" + i).children('.eventname').html()); //TODO Ucomment after implementing proper toast mechanism.
       }
     }
   });
@@ -309,10 +322,12 @@ function revert(revertId, currentId) {
   var factor = parseInt(revertId[1]);
   var toLeft = "+=" + (160 * (factor-1)).toString() + "px";
   var imageUrl = eventImages[factor-1];
+  $("#" + revertId).children('.eventdescription').fadeOut('fast');
   // console.log(imageUrl);
   // console.log(factor);
 
   reversing(revertId);
+
 
   $("#" + revertId).children('span').fadeOut('fast', function() {
     $("#" + revertId).animate({
@@ -322,7 +337,9 @@ function revert(revertId, currentId) {
         $(this).animate({
           marginTop: '-=100px', height: '-=400px'},
           400, "easeOutCubic", function() {
-            expand(currentId);
+            if (eventPage) {
+              expand(currentId);
+            }
             $("#" + revertId).children('.eventname').css({ 'margin-top': topMargins[factor-1] });
             $(this).children('span').fadeIn('fast');
         });
@@ -336,7 +353,6 @@ function expand(expandId) {
   var toLeft = "-=" + (160 * (factor-1)).toString() + "px";
 
   $("#" + expandId).children('span').fadeOut('fast', function() {
-
     $("#" + expandId).animate({
       marginTop: "+=100px", height: "+=400"},
       300, "easeOutCubic", function() {
@@ -350,6 +366,8 @@ function expand(expandId) {
             $("#" + expandId).children('.eventname').css({ 'margin-top': 10 });
             $('.events').bind('click', eventClicked);
             $("#" + expandId).children('span').fadeIn('slow', function() {
+            });
+            $("#" + expandId).children('.eventdescription').fadeIn('slow', function() {
             });
             expanded(expandId);
         });
@@ -372,20 +390,6 @@ function expand(expandId) {
   // });
 }
 
-function toast($text) {
-  $('.toast').html("You've opted out of " + $text);
-  $('.toast').animate({
-    bottom: '50px'},
-    'fast', function() {
-    /* stuff to do after animation is complete */
-    window.setTimeout(function() {
-      $('.toast').animate({
-        bottom: '-150px'},
-        'fast');
-    },2000);
-  });
-}
-
 function reversing(revertId) {
   $("#" + revertId).children('.bottompanel').fadeOut('fast', function() {
 
@@ -398,12 +402,50 @@ function expanded(expandId) {
   });
 }
 
+function toast($text) {
+  if (toasts.indexOf($text) < 0) {
+    tcount++;
+    toasts.push($text);
+    $('body').append('<div class="toast" id="toast' + tcount +  '"></div>');
+  }
+  if (toasts.length == 1) {
+    tcount = 1;
+    emptyToats();
+  }
+  console.log(toasts);
+}
+
+function emptyToats() {
+  $text = toasts[0];
+  console.log(toasts.length);
+  while ( toasts.length > 0 ) {
+    console.log("INN");
+    $('#toast' + tcount).html("You've opted out of " + toasts[0]);
+    toasts.splice($text, 1);
+    $('#toast' + tcount).animate({
+      bottom: '50px'},
+      'fast', function() {
+      window.setTimeout(function() {
+        $('#toast' + tcount).animate({
+          bottom: '-150px'},
+          'fast', function() {$('#toast' + tcount).remove();});
+      },1000);
+    });
+  }
+}
+
+
+
 function marked() {
   if ($(this).parent().children('.switch').prop('checked')) {
     $(this).parent().children('.switch').prop('checked', false);
+    markedEvents.splice(markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()), 1);
   }
   else {
     $(this).parent().children('.switch').prop('checked', true);
+    if (markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()) < 0) {
+      markedEvents.push($(this).parent().parent().parent().children('.eventname').html());
+    }
   }
   if ($(this).parent().children('.switch').is(":checked")) {
 
