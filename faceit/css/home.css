@@ -20,7 +20,7 @@
 
 * { padding: 0; margin: 0; }
 
-ul { padding: 0 0 0 40px; margin: auto !important; }
+ul { padding: 0 0 0 40px; }
 
 html {
     height: 100%;
@@ -170,7 +170,6 @@ body {
   margin-right: -57.5%;
   width: 57.5%;
   //background-color: rgba(233, 97, 121, 0.56);
-
   //background-image: url("http://i.ytimg.com/vi/bk5368Y_DRo/maxresdefault.jpg");
   //background-image: url("");
   //background-image: url('../images/background.jpg');
@@ -183,6 +182,7 @@ body {
   -ms-transition:background-image 1s ease-in-out;
   transition:background-image 1s ease-in-out;
 }
+
 
 .backgroundimage {
   position: absolute;
@@ -229,6 +229,7 @@ body {
 
 .firstLine {
   color: white;
+  position: relative;
   font-size: 70px;
   font-family: 'HelveticaNeue';
   padding-left: 260px;
@@ -281,11 +282,11 @@ body {
 }
 
 .hexagon-container {
-  margin-left: 320px;
+  margin-left: 220px;
   //margin-right: auto;
-  margin-top: 100px;
+  //margin-top: 50px;
   position: absolute;
-  top: 30px;
+  top: 10%;
   /*-webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);*/
@@ -293,8 +294,9 @@ body {
 }
 
 .hexagon {
-  position: absolute;
+  //opacity: 1;
   display: none;
+  position: absolute;
   width: 200px;
   height: 350px;
   //background-color: rgba(0, 218, 247, 0.4);
@@ -312,9 +314,11 @@ body {
   -moz-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
+
 }
 
 .hexagon1 {
+  opacity: 1;
   width: 100%;
   height: 100%;
   //background-color: rgba(0, 218, 247, 0.7);
@@ -332,6 +336,7 @@ body {
 }
 
 .hexagon2 {
+  opacity: 1;
   width: 100%;
   height: 100%;
   //background-color: rgba(0, 218, 247, 0.7);
@@ -351,6 +356,8 @@ body {
 	-o-transform: rotate(-60deg);
 	-ms-transform: rotate(-60deg);
 	transform: rotate(-60deg);
+
+
 }
 
 .hexagon2 a {
@@ -371,6 +378,7 @@ body {
   display: none;
   margin-left: 151px;
   margin-top: 150px;
+
 }
 
 #faceit img {
@@ -380,8 +388,13 @@ body {
   margin-top: 101px;
 }
 
+#faceit a {
+  position: absolute;
+  margin-top: -150px;
+  padding: 0;
+}
 
-#faceit span {
+/*#faceit span {
   position: relative;
   font-size: 70px;
   color: white;
@@ -395,7 +408,7 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 
 #k15 {
   margin-left: 25px;
@@ -413,7 +426,6 @@ body {
   opacity: 0;
   margin-left: 30px;
   margin-top: -60px;
-
 }
 
 #cse a {
@@ -435,6 +447,7 @@ body {
   margin-left: -75px;
   margin-top: 150px;
 }
+
 
 #mech a {
   font-size: 60px;

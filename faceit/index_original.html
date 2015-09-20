@@ -6,12 +6,29 @@
     <!-- <link rel="stylesheet" href="css/homestyles1280.css" media="screen" title="no title" charset="utf-8"/> -->
     <!-- <link rel="stylesheet" href="css/homestyles1366.css" media="screen" title="no title" charset="utf-8"> -->
     <!-- <link rel="stylesheet" href="css/homestyles1600.css" media="screen" title="no title" charset="utf-8"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link id="responsive" rel="stylesheet" href="css/homestyles1366.css" media="screen" title="no title" charset="utf-8">
-    <link rel="icon" href="images/logo.png"type="image/png"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/style_p.css" media="screen and (orientation: portrait)"> -->
+    <link rel="icon" href="images/logo.png" type="image/png"/>
     <script type="text/javascript" src="javascript/jquery.js"></script>
     <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="javascript/swipe.js"></script>
+    <!--<script type="text/javascript" src="javascript/jquery.mobile.min.js"></script>-->
+    <script id="jssource" type="text/javascript" src="javascript/homescript.js"></script>
 
-    <script id="jssource" type="text/javascript" src="javascript/test.js"></script>
+
+    <script>
+      var ratio = window.devicePixelRatio || 1;
+      var w = screen.width * ratio;
+      var h = screen.height * ratio;
+      // if (window.devicePixelRatio == 1.5) {
+      //   alert("This is a high-density screen");
+      // } else if (window.devicePixelRatio == 0.75) {
+      //   alert("This is a low-density screen");
+      // }
+      //alert($(window).width() + ", " + $(window).height());
+      //alert(w + ", " + h);
+    </script>
   </head>
   <body>
     <div id="loadingoverlay">
@@ -26,7 +43,7 @@
             <div class="firstLine">
               <span>ACE</span>
             </div>
-            <div class="secondLine">
+            <div id="secondLine" class="secondLine">
               <span>Engineering College</span>
             </div>
           </div>
@@ -90,10 +107,36 @@
 
       </div>
 
+      <div class="drawericonholder">
+        <img id="drag" class="drawericon" src="images/drawer.png" alt="" />
+      </div>
+      <div class="hamburger">
+      </div>
+      <div class="navdrawer">
+        <div class="menu">
+          <div class="menucse branch">
+            CSE
+          </div>
+          <div class="menuece branch">
+            ECE
+          </div>
+          <div class="menumech branch">
+            MECH
+          </div>
+          <div class="menucivil branch">
+            CIVIL
+          </div>
+          <div class="menueee branch">
+            EEE
+          </div>
+          <div class="menupp branch">
+            <!-- <span>PRESENT</span><span>PAPERS</span> -->
+            IT
+          </div>
+        </div>
+      </div>
+
       <div class="righthalf half" id="right">
-
-
-
 
         <div class="overlay">
         </div>
@@ -102,16 +145,14 @@
         <div class="backgroundimage1">
         </div>
 
-
-
         <div class="hexagon-container">
           <div id="faceit" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
                 <!-- <span>FACEIT</span>
                 <span id ="k15" href="#">2K15</span> -->
+                <img id="centerlogo" src="images/collegelogo.png" alt="" />
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
-
                 </div>
               </div>
             </div>
@@ -121,7 +162,7 @@
 
             <div class="hexagon1">
               <div class="hexagon2">
-                <a target="_blank" href="http://www.faceit-2k15.com/computer-science-engineering/">CSE</a>
+                <a target="_blank" href="cse_div.html">CSE</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>
@@ -176,7 +217,8 @@
           <div id="eee" class="hexagon">
             <div class="hexagon1">
               <div class="hexagon2">
-                <a target="_blank" href="http://aceec.ac.in/">ACE</a>
+                <!-- <a target="_blank" href="http://aceec.ac.in/"><span>PRESENT</span><span id="papers">PAPERS</span> </a> -->
+                <a target="_blank" href="#">IT</a>
                 <div class="backgroundHolder" style="background-image: url('http://dribbble.s3.amazonaws.com/users/121576/screenshots/1111290/batman_logo_final.png');">
 
                 </div>

@@ -24,23 +24,6 @@ switches = Array("#switch1", "#switch2", "#switch3", "#switch4", "#switch5", "#s
 
 $(document).ready(function() {
 
-  $("#l1").children('span').fadeOut('fast', function() {
-    eventPage = true;
-    $("#l1").animate({
-      marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
-      300, "easeOutCubic", function() {
-        $(this).animate({
-          width: '+=1120px'},
-          300, "easeOutCubic", function() {
-            $("#l1").children('.eventname').css({ 'margin-top': 10 });
-            $("#l1").children('.eventdescription').fadeIn('slow');
-            $("#l1").children('.bottompanel').fadeIn('fast', function() {
-            });
-            $(this).children('span').fadeIn('400');
-        });
-      });
-  });
-
   // $("#l1").children('span').fadeOut('fast', function() {
   //   eventPage = true;
   //   $("#l1").animate({
@@ -191,7 +174,23 @@ $(document).ready(function() {
 });
 
 function expandFirst() {
-
+  $("#l1").children('span').fadeOut('fast', function() {
+    eventPage = true;
+    $("#l1").animate({
+      marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
+      300, "easeOutCubic", function() {
+        $(this).animate({
+          width: '+=1120px'},
+          300, "easeOutCubic", function() {
+            $("#l1").children('.eventname').css({ 'margin-top': 10 });
+            $("#l1").children('.eventdescription').fadeIn('slow');
+            $("#l1").children('.bottompanel').fadeIn('fast', function() {
+            });
+            $(this).children('span').fadeIn('400');
+            $('.events').bind('click', eventClicked);
+        });
+      });
+  });
 }
 
 function popitup() {

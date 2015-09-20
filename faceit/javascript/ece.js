@@ -32,70 +32,51 @@ $(document).ready(function() {
         $(this).animate({
           width: '+=1120px'},
           300, "easeOutCubic", function() {
+            //console.log("FIRRRSST");
             $("#l1").children('.eventname').css({ 'margin-top': 10 });
             $("#l1").children('.eventdescription').fadeIn('slow');
             $("#l1").children('.bottompanel').fadeIn('fast', function() {
+              //console.log("faded in");
             });
             $(this).children('span').fadeIn('400');
         });
-      });
-  });
+    });
 
-  // $("#l1").children('span').fadeOut('fast', function() {
-  //   eventPage = true;
-  //   $("#l1").animate({
-  //     marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
-  //     300, "easeOutCubic", function() {
-  //       $(this).animate({
-  //         width: '+=1120px'},
-  //         300, "easeOutCubic", function() {
-  //           //console.log("FIRRRSST");
-  //           $("#l1").children('.eventname').css({ 'margin-top': 10 });
-  //           $("#l1").children('.eventdescription').fadeIn('slow');
-  //           $("#l1").children('.bottompanel').fadeIn('fast', function() {
-  //             //console.log("faded in");
-  //           });
-  //           $(this).children('span').fadeIn('400');
-  //       });
-  //     });
-  //
-  //   // $('.descright').hover(function() {
-  //   //   $('descright::-webkit-scrollbar').fadeIn('fast', function() {
-  //   //
-  //   //   });
-  //   // }, function() {
-  //   //   $('descright::-webkit-scrollbar').fadeOut('fast', function() {
-  //   //
-  //   //   });
-  //   // });
-  //
-  //
-  // });
+    // $('.descright').hover(function() {
+    //   $('descright::-webkit-scrollbar').fadeIn('fast', function() {
+    //
+    //   });
+    // }, function() {
+    //   $('descright::-webkit-scrollbar').fadeOut('fast', function() {
+    //
+    //   });
+    // });
 
-  $(".switch").change(function(event) {
+    $(".switch").change(function(event) {
 
-    if ($(this).is(":checked")) {
-      $(this).parent().children('.mark').html("This event has been marked");
-      if (markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()) < 0) {
-        markedEvents.push($(this).parent().parent().parent().children('.eventname').html());
+      if ($(this).is(":checked")) {
+        $(this).parent().children('.mark').html("This event has been marked");
+        if (markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()) < 0) {
+          markedEvents.push($(this).parent().parent().parent().children('.eventname').html());
+        }
+        //lastEvent = $(this).parent().parent().parent().children('.eventname').html();
+        count++;
+        console.log(markedEvents);
       }
-      //lastEvent = $(this).parent().parent().parent().children('.eventname').html();
-      count++;
-      console.log(markedEvents);
-    }
 
-    else {
-      $(this).parent().children('.mark').html("Mark this event for registration");
-      markedEvents.splice(markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()), 1);
-      // if (lastEvent == $(this).parent().parent().parent().children('.eventname').html()) {
-      //   lastEvent = markedEvents.pop();
-      //   //markedEvents.push(lastEvent);
-      //
-      // }
+      else {
+        $(this).parent().children('.mark').html("Mark this event for registration");
+        markedEvents.splice(markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()), 1);
+        // if (lastEvent == $(this).parent().parent().parent().children('.eventname').html()) {
+        //   lastEvent = markedEvents.pop();
+        //   //markedEvents.push(lastEvent);
+        //
+        // }
 
-      count--;
-      console.log(markedEvents);
-    }
+        count--;
+        console.log(markedEvents);
+      }
+    });
   });
 
   $(".register").click(function(event) {
@@ -189,10 +170,6 @@ $(document).ready(function() {
   });
 
 });
-
-function expandFirst() {
-
-}
 
 function popitup() {
   //console.log($(this));

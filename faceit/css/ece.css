@@ -592,14 +592,9 @@ body {
 
 .leftcontent ul {
   //margin-top: 30px;
-  width: 600px;
+  width: 90%;
   overflow: hidden;
 }
-
-.pplc ul {
-  width: 590px;
-}
-
 
 .leftcontent::-webkit-scrollbar {
   width: 5px;
@@ -653,16 +648,16 @@ body {
   height: 325px;
 }
 
-.rightcontent ul {
+.descright ul {
   width: 90%;
 }
 
-.rightcontent ol {
+.descright ol {
   width: 90%;
   margin: 0;
 }
 
-.rightcontent ol > li {
+.descright ol > li {
   font-size: 22px;
   //font-family: "Droid Sans";
 }
@@ -692,7 +687,7 @@ body {
 }
 
 .rightinnerheading {
-  margin-left: 215px;
+  margin-left: 200px;
   margin-bottom: 5px;
   margin-top: 0px;
   font-size: 20px;
@@ -920,14 +915,4 @@ body {
       padding-bottom: 3px;
       padding-top: 3px;
   }
-}
-
-.topimage {
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.topimage img {
-  width: 100%;
 }
