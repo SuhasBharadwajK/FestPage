@@ -226,6 +226,7 @@ body {
 
 .firstLine {
   color: white;
+  position: relative;
   font-size: 50px;
   font-family: 'HelveticaNeue';
   padding-left: 240px;
@@ -283,12 +284,11 @@ body {
   //margin-top: 50px;
   position: absolute;
   top: 3px;
-
 }
 
 .hexagon {
-  position: absolute;
   display: none;
+  position: absolute;
   width: 200px;
   height: 350px;
   //background-color: rgba(0, 218, 247, 0.4);
@@ -360,12 +360,10 @@ body {
   color: white;
 }
 
-
 #faceit {
   display: none;
   margin-left: 151px;
   margin-top: 150px;
-
 }
 
 #faceit img {
@@ -376,7 +374,7 @@ body {
 }
 
 
-#faceit span {
+/*#faceit span {
   position: relative;
   font-size: 70px;
   color: white;
@@ -389,16 +387,16 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 
-#k15 {
+/*#k15 {
   margin-left: 25px;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 
 #cse {
   /*margin-left: 48px;

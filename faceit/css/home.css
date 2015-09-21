@@ -229,7 +229,7 @@ body {
 
 .firstLine {
   color: white;
-  position: relative;
+  //position: relative;
   font-size: 70px;
   font-family: 'HelveticaNeue';
   padding-left: 260px;
@@ -287,14 +287,9 @@ body {
   //margin-top: 50px;
   position: absolute;
   top: 10%;
-  /*-webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);*/
-
 }
 
 .hexagon {
-  //opacity: 1;
   display: none;
   position: absolute;
   width: 200px;
@@ -378,7 +373,6 @@ body {
   display: none;
   margin-left: 151px;
   margin-top: 150px;
-
 }
 
 #faceit img {
@@ -388,11 +382,11 @@ body {
   margin-top: 101px;
 }
 
-#faceit a {
+/*#faceit a {
   position: absolute;
   margin-top: -150px;
   padding: 0;
-}
+}*/
 
 /*#faceit span {
   position: relative;
@@ -410,20 +404,19 @@ body {
   user-select: none;
 }*/
 
-#k15 {
+/*#k15 {
   margin-left: 25px;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 
 #cse {
   /*margin-left: 48px;
   margin-top: -28px;*/
   display: none;
-  opacity: 0;
   margin-left: 30px;
   margin-top: -60px;
 }
@@ -555,14 +548,19 @@ body {
   margin-top: 368px;
 }
 
+.mobilebuttons {
+  display: none;
+}
+
 .cseevents {
+  display: none;
   position: absolute;
   width: 100%;
   //bottom: -50px;
 }
 
 .cseevents .events {
-  top: 1050px;
+  top: 1150px;
 }
 
 
@@ -576,4 +574,420 @@ body {
   top: 0;
   left: 0;
   z-index: -15;
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1400px) {
+  .firstLine {
+    font-size: 50px;
+    padding-left: 240px;
+  }
+  .secondLine {
+    font-size: 40px;
+    padding-left: 120px;
+  }
+  .presents {
+    font-size: 100px;
+    padding-left: 182px;
+  }
+  #clogo {
+    margin-top: 15px;
+  }
+  #flogo {
+    width: 500px;
+    margin-left: 30px;
+    margin-top: 50px;
+    display: none;
+  }
+  .hexagon-container {
+    margin-left: 145px;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1300px){
+  .firstLine {
+    font-size: 50px;
+    padding-left: 220px;
+  }
+  .secondLine {
+    font-size: 40px;
+    padding-left: 100px;
+  }
+  .presents {
+    font-size: 100px;
+    padding-left: 162px;
+  }
+  #clogo {
+    margin-top: 15px;
+  }
+  #flogo {
+    width: 480px;
+    margin-left: 30px;
+    margin-top: 50px;
+    display: none;
+  }
+  .hexagon-container {
+    margin-left: 145px;
+  }
+  #cse a {
+    top: 128px;
+  }
+  #ece a {
+    top: 128px;
+  }
+  #mech a {
+    top: 135px;
+  }
+  #civ a {
+    top: 135px;
+  }
+  #it a {
+    top: 130px;
+    left: 36px;
+  }
+  #eee a {
+    top: 130px;
+  }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1220px) {
+  .firstLine {
+    font-size: 50px;
+    padding-left: 220px;
+  }
+  .secondLine {
+    font-size: 40px;
+    padding-left: 100px;
+  }
+  .presents {
+    font-size: 100px;
+    padding-left: 162px;
+  }
+  /*#clogo {
+    margin-top: 15px;
+  }*/
+  #flogo {
+    width: 480px;
+    margin-left: 20px;
+    margin-top: 50px;
+    display: none;
+  }
+  .hexagon-container {
+    margin-left: 115px;
+  }
+}
+
+@media screen and (max-width: 1219px) {
+  .navdrawer {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    background-color: #1B1F2A;
+    z-index: 100;
+    left: -60%;
+    overflow-y: auto;
+  }
+  .branch {
+    position: relative;
+    overflow: hidden;
+    font-size: 1.7em;
+    font-family: 'Bigjohn';
+    //left: 20px;
+    width: calc(100%);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    //padding-left: 50px;
+    //padding-right: 40px;
+    color: white;
+    background-color: #1B1F2A;
+    text-align: center;
+    border-top: 4px solid #22262f;
+    border-radius: 5px;
+  }
+
+  .branch span {
+    display: block;
+    padding: none;
+    padding-bottom: 0;
+  }
+  .hamburger {
+    position: absolute;
+    background-image: url('../images/menu.png');
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    top: 30px;
+    right: 10px;
+    background-size: 100%;
+    z-index: 999;
+  }
+
+  .lefthalf {
+    background-color: transparent;
+    width: 0;
+    margin: 0;
+  }
+
+  .righthalf {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+  .backgroundimage {
+  	top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .backgroundimage1 {
+  	top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .hexagon {
+    display:none;
+  }
+  .hexagon-container {
+    visibility: collapse;
+  }
+  .socialbutton {
+    width: 40px;
+    height: 40px;
+  }
+  #facebook img {
+    margin-top: 2px;
+    margin-left: 2px;
+    width: 35px;
+  }
+
+  #twitter img {
+    width: 30px;
+    margin-top: 7px;
+    margin-left: 5px;
+  }
+
+  #googleplus img {
+    width: 30px;
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+
+  #instagram  img {
+    margin-top: 8px;
+    margin-left: 7px;
+    width: 25px;
+  }
+
+  #youtube  img {
+    margin-top: 9px;
+    margin-left: 5px;
+    width: 30px;
+  }
+  .socialbuttons {
+    position: absolute;
+    margin-left: 35%;
+    z-index: 99;
+  }
+
+}
+
+@media screen and (max-width: 1219px) and (min-width: 900px) {
+
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    width: 150px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    top: 250px;
+    left: 20%;
+    z-index: 9;
+  }
+  .firstLine span {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 20%;
+    z-index: 9;
+  }
+  .secondLine span {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 20%;
+    z-index: 9;
+  }
+  .presents span {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 20%;
+    z-index: 9;
+  }
+
+}
+
+@media screen and (max-width: 899px) and (min-width: 640px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 100px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    top: 200px;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 50px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 50px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 80px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 8%;
+    z-index: 9;
+  }
+}
+
+@media screen and (max-width: 639px) and (min-width: 480px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 70px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    width: 400px;
+    top: 200px;
+    left: 8%;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 50px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 1%;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 40px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 80px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 321px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 60px;
+    top: -15px;
+    width: 50px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    width: 300px;
+    top: 200px;
+    left: 0px;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 40px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -110px;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 30px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: -50px;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 80px;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: -90px;
+    z-index: 9;
+  }
+  .socialbuttons {
+    margin-left: 180px !important;
+  }
+}
+
+@media screen and (max-width: 320px) and (min-width: 240px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: -15px;
+    width: 50px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    width: 200px;
+    top: 180px;
+    left: 10%;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 30px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -120px;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 30px;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: -70px;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 60px;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: -90px;
+    z-index: 9;
+  }
 }

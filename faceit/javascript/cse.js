@@ -22,6 +22,11 @@ if (navigator.userAgent.indexOf("Firefox") > -1 || navigator.userAgent.indexOf("
 // }
 switches = Array("#switch1", "#switch2", "#switch3", "#switch4", "#switch5", "#switch6", "#switch7", "#switch8");
 
+$(document).keyup(function(e) {
+  if (e.keyCode == 13) closeBranches();
+  if (e.keyCode == 27) closeBranches();
+});
+
 $(document).ready(function() {
 
   $("#l1").children('span').fadeOut('fast', function() {
@@ -329,6 +334,7 @@ function fillWithEvents($fillArea) {
 }
 
 function eventClicked() {
+  closeBranches();
   currentId = $(this).attr('id');
   // console.log(currentId);
   // console.log(activeId);
@@ -487,4 +493,14 @@ function marked() {
     $(this).parent().children('.mark').html("Mark this event for registration");
   }
 
+}
+
+$(function() {
+  $('.branchlist').click(function(event) {
+    $(this).children('ul').fadeIn(400, "easeInOutCubic");
+  });
+})
+
+function closeBranches() {
+  $('.branchlist').children('ul').fadeOut(300, "easeInOutCubic");
 }

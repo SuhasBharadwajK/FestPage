@@ -8,9 +8,10 @@ var yearActive = false, branchActive = false;
 var eventPage = true;
 var poppedup = false;
 eventImages = Array("clang.png", "java.png", "lanparty.png");
-topMargins = Array(5, 5, 30, 12, 15, 5, 15, 15);
+topMargins = Array(25, 25, 25, 25, 25, 25, 15, 15);
 markedEvents = Array();
 toasts = Array();
+var widths = Array(1270, 1265, 1265);
 
 //console.log(navigator.userAgent);
 if (navigator.userAgent.indexOf("Firefox") > -1 || navigator.userAgent.indexOf("Iceweasel") > -1) {
@@ -30,7 +31,7 @@ $(document).ready(function() {
       marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
       300, "easeOutCubic", function() {
         $(this).animate({
-          width: '+=1120px'},
+          width: '1265'},
           300, "easeOutCubic", function() {
             //console.log("FIRRRSST");
             $("#l1").children('.eventname').css({ 'margin-top': 10 });
@@ -320,7 +321,7 @@ function eventClicked() {
 
 function revert(revertId, currentId) {
   var factor = parseInt(revertId[1]);
-  var toLeft = "+=" + (160 * (factor-1)).toString() + "px";
+  var toLeft = "+=" + (213 * (factor-1)).toString() + "px";
   var imageUrl = eventImages[factor-1];
   $("#" + revertId).children('.eventdescription').fadeOut('fast');
   // console.log(imageUrl);
@@ -331,7 +332,7 @@ function revert(revertId, currentId) {
 
   $("#" + revertId).children('span').fadeOut('fast', function() {
     $("#" + revertId).animate({
-      width: '-=1120px',
+      width: '200px',
       marginLeft: toLeft,
       backgroundColor: 'rgba(255, 255, 255, 1)'},
       200, function() {
@@ -351,7 +352,7 @@ function revert(revertId, currentId) {
 function expand(expandId) {
 
   var factor = parseInt(expandId[1]);
-  var toLeft = "-=" + (160 * (factor-1)).toString() + "px";
+  var toLeft = "-=" + (213 * (factor-1)).toString() + "px";
 
   $("#" + expandId).children('span').fadeOut('fast', function() {
     $("#" + expandId).animate({
@@ -362,7 +363,7 @@ function expand(expandId) {
         });
         $(this).animate({
           marginLeft: toLeft,
-          width: '+=1120px'},
+          width: '1265'},
           400, "easeOutCubic", function() {
             $("#" + expandId).children('.eventname').css({ 'margin-top': 10 });
             $('.events').bind('click', eventClicked);
