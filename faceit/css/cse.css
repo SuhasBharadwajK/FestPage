@@ -313,6 +313,7 @@ body {
 
 .list li {
   display: none;
+  font-family: "Droid Sans";
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -942,7 +943,7 @@ body {
   //right: 152px;
 }
 
-.branchlist {
+.branchlisttop {
   position: absolute;
   font-family: "Droid Sans";
   color: white;
@@ -960,9 +961,10 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+  z-index: 300;
 }
 
-.branchlist ul {
+.branchlisttop ul {
   display: none;
   position: relative;
   list-style: none;
@@ -980,7 +982,7 @@ body {
 box-shadow: 3px 6px 28px -4px rgba(0,0,0,0.75);
 }
 
-.branchlist li {
+.branchlisttop li {
   //margin-top: 10px;
   //background-color: red;
   padding-top: 5px;
@@ -988,7 +990,7 @@ box-shadow: 3px 6px 28px -4px rgba(0,0,0,0.75);
   transition: background-color linear 0.5s;
 }
 
-.branchlist li:hover {
+.branchlisttop li:hover {
   background-color:rgb(196, 196, 196);
 }
 

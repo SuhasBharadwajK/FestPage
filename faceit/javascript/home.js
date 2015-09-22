@@ -9,6 +9,9 @@ MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
 var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer");
 var elementsNumber = 8;
+var currentPage = "home";
+var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
+var pageStack = Array("home");
 var currentImage = 0;
 var currentBackground = 0;
 var mobileDevice = false, navactive = false;
@@ -227,10 +230,46 @@ $(document).ready(function() {
     }
   });
 
-  $('#cse').click(function(event) {
+  $('.hexagon').click(function(event) {
     event.preventDefault();
-    $('.events').unbind('click', eventClicked);
-    startEntry();
+    eventId = $(this).attr("id");
+    console.log("Bloody hell " + eventId);
+    if (eventId != "faceit") {
+      if (eventId == "it") {
+        //eventId = "cse";
+        currentPage = "cse";
+      }
+      else {
+        currentPage = eventId;
+      }
+      var client = new XMLHttpRequest();
+      client.open('GET', '/pages/' + eventId );
+      client.onreadystatechange = function() {
+        console.log(client.responseText);
+        $('.' + currentPage +'events').html(client.responseText);
+        console.log('These events .' + eventId +'events');
+        setHandlers();
+        $('.events').unbind('click', eventClicked);
+      }
+      client.send();
+    }
+    //alert($(this).attr("id").toUpperCase());
+    if (eventId != "faceit") {
+
+      //$('.events').unbind('click', eventClicked);
+      var branch = $(this).children('.hexagon1').children('.hexagon2').children('a').html();
+      event.preventDefault();
+      //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
+      $('.branchlisttop').children('span').html(branch);
+
+      //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
+      $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'none'});
+      pageStack.push(currentPage);
+      //alert(currentPage);
+      //$('.events').unbind('click', eventClicked);
+      var eventnum = "";
+      startEntry(currentPage, eventnum);
+    }
   });
 
   $('#centerlogo').click(function(event) {
@@ -302,47 +341,70 @@ $(document).ready(function() {
 
 
 
-function startEntry() {
-  $('.lefthalf').animate({
-    marginLeft: '-=42.5%'
-    },
-    600, function() {
-    /* stuff to do after animation is complete */
-  });
-  $('.backgroundimage').animate({
-    right: '-=57.5%'
-    },
-    800, 'easeOutCirc');
-
-  $('.social').fadeOut('fast', function() {
-
-  });
-
-  $('.backgroundimage1').animate({
-    right: '-=57.5%'
-    },
-    800, 'easeOutCirc');
-  $('.righthalf').animate({
-    marginRight: '-=57.5%'
-    },
-    800, 'easeOutCirc',function() {
-      $('body').animate({
-        backgroundColor: 'rgb(224, 83, 58);'
+function startEntry(page, num) {
+  // $.getScript( "javascript/cse1.js", function( data, textStatus, jqxhr ) {
+  //   console.log( data ); // Data returned
+  //   console.log( textStatus ); // Success
+  //   console.log( jqxhr.status ); // 200
+  //   console.log( "Load was performed." );
+  // });
+  var branchevent = "." + page + "events";
+  if (page != "home") {
+    $('.lefthalf').animate({
+      marginLeft: '-=42.5%'
       },
-        'slow', function() {
-          $(".cseevents").fadeIn('fast');
-          for (var i = 1; i <= 8; i++) {
-            $("#l" + i).animate({
-              top: '50px'},
-              500 + 100*i, function() {
-            });
-          }
-          $("#topbar").fadeIn(1400, function() {
-            expandFirst();
-          });
-          //expandFirst();
-          });
+      600, function() {
+      $(this).fadeOut('fast', function() {
+
       });
+    });
+    $('.backgroundimage').animate({
+      right: '-=57.5%'
+      },
+      800, 'easeOutCirc', function() {
+        $(this).fadeOut('fast', function() {
+
+        });
+      });
+
+    $('.social').fadeOut('fast', function() {
+
+    });
+
+    $('.backgroundimage1').animate({
+      right: '-=57.5%'
+      },
+      800, 'easeOutCirc');
+    $('.righthalf').animate({
+      marginRight: '-=57.5%'
+      },
+      800, 'easeOutCirc',function() {
+        $('body').animate({
+          backgroundColor: 'rgb(224, 83, 58);'
+        },
+          'slow', function() {
+            //$(".cseevents").fadeIn('fast');
+            $(branchevent).fadeIn('fast');
+            for (var i = 1; i <= 8; i++) {
+              console.log(branchevent);
+              $(branchevent + " #l" + i).animate({
+                top: '50px'},
+                500 + 100*i, function() {
+              });
+            }
+            $(".topbar").fadeIn(1400, function() {
+
+              expandFirst(branchevent);
+            });
+
+            });
+        });
+
+  }
+}
+
+function homeCloseIn() {
+  //Close in homepage if clicked on home
 }
 
 function changeBackground() {

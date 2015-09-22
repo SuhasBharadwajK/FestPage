@@ -1,11 +1,11 @@
-.eceevents .events {
+.eeeevents .events {
   //display: inline-block;
   position: absolute;
   font-family: 'Anivers';
   font-size: 25px !important;
   //font-family: 'AUdimat';
   //font-weight: bold;
-  width: 170px;
+  width: 200px;
   height: 80px;
   //margin-left: 10px;
   //background-color: rgba(179, 235, 252, 1);
@@ -26,33 +26,33 @@
   box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
 }
 
-.eceevents .events span {
+.eeeevents .events span {
   //position: relative;
   //margin: 10px auto;
   display: none;
 }
 
-.eceevents #l1 {
+.eeeevents #l1 {
   //font-size: 23px;
   background-position: left;
   background-size: contain;
 }
 
-.eceevents #l1 .eventname {
+.eeeevents #l1 .eventname {
   line-height: 23px;
   display: block;
-  margin-top: 15px;
+  margin-top: 25px;
   //margin-left: -5px;
   font-size: 25px;
   text-align: center;
   align-items: center;
 }
 
-.eceevents #l2 {
-  margin-left: 182px;
+.eeeevents #l2 {
+  margin-left: 213px;
 }
 
-.eceevents #l2 .eventname {
+.eeeevents #l2 .eventname {
   display: block;
   margin-top: 25px;
   font-size: 24px;
@@ -61,24 +61,24 @@
   align-items: center;
 }
 
-.eceevents #l3 {
-  margin-left: 364px;
+.eeeevents #l3 {
+  margin-left: 426px;
 }
 
-.eceevents #l3 .eventname {
+.eeeevents #l3 .eventname {
   display: block;
-  margin-top: 15px;
+  margin-top: 25px;
   font-size: 24px;
   line-height: 24px;
   text-align: center;
   align-items: center;
 }
 
-.eceevents #l4 {
-  margin-left: 546px;
+.eeeevents #l4 {
+  margin-left: 639px;
 }
 
-.eceevents #l4 .eventname {
+.eeeevents #l4 .eventname {
   margin-top: 25px;
   font-size: 24px;
   line-height: 24px;
@@ -88,24 +88,11 @@
 
 }
 
-.eceevents #l5 {
-  margin-left: 728px;
+.eeeevents #l5 {
+  margin-left: 852px;
 }
 
-.eceevents #l5 .eventname {
-  display: block;
-  margin-top: 15px;
-  font-size: 23px;
-  line-height: 24px;
-  text-align: center;
-  align-items: center;
-}
-
-.eceevents #l6 {
-  margin-left: 910px;
-}
-
-.eceevents #l6 .eventname {
+.eeeevents #l5 .eventname {
   display: block;
   margin-top: 25px;
   font-size: 23px;
@@ -114,11 +101,24 @@
   align-items: center;
 }
 
-.eceevents #l7 {
+.eeeevents #l6 {
+  margin-left: 1065px;
+}
+
+.eeeevents #l6 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 23px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.eeeevents #l7 {
   margin-left: 1092px;
 }
 
-.eceevents #l7 .eventname {
+.eeeevents #l7 .eventname {
   display: block;
   margin-top: 15px;
   font-size: 25px;
@@ -127,11 +127,11 @@
   align-items: center;
 }
 
-.eceevents #l8 {
+.eeeevents #l8 {
   margin-left: 1120px;
 }
 
-.eceevents #l8 .eventname {
+.eeeevents #l8 .eventname {
   display: block;
   margin-top: 15px;
   font-size: 25px;
@@ -140,7 +140,7 @@
   align-items: center;
 }
 
-.eceevents .eventdescription {
+.eeeevents .eventdescription {
   line-height: 30px;
   position: absolute;
   display: none;
@@ -155,7 +155,7 @@
   user-select: auto;
 }
 
-.eceevents .eventdescription ul {
+.eeeevents .eventdescription ul {
   font-size: 19px;
   margin: 0;
   font-family: 'Aller';
@@ -163,42 +163,42 @@
   margin-bottom: 10px;
 }
 
-.eceevents .eventheading {
+.eeeevents .eventheading {
   position: absolute;
   margin-left: 600px;
 }
 
-.eceevents .descleft {
+.eeeevents .descleft {
   position: absolute;
   height: 100%;
   width: 50%;
   overflow: hidden;
 }
 
-.eceevents .leftheading {
+.eeeevents .leftheading {
   position: absolute;
   margin-left: 240px;
   margin-bottom: 20px;
 }
 
-.eceevents .perules {
+.eeeevents .perules {
   margin-left: 600px;
   z-index: 9999;
 }
 
-.eceevents .leftcontent {
+.eeeevents .leftcontent {
   overflow: hidden;
   height: 300px;
   margin-top: 40px;
 }
 
-.eceevents .leftcontent ul {
+.eeeevents .leftcontent ul {
   //margin-top: 30px;
   width: 90%;
   overflow: hidden;
 }
 
-.eceevents .descright {
+.eeeevents .descright {
   right: 0;
   position: absolute;
   //margin-top: 15px;
@@ -208,40 +208,40 @@
   background-color: transparent;
 }
 
-.eceevents .rightheading {
+.eeeevents .rightheading {
   position: absolute;
   margin-left: 210px;
   //margin-top: -10px;
   margin-bottom: 50px;
 }
 
-.eceevents .rightcontent {
+.eeeevents .rightcontent {
   margin-top: 40px;
   height: 300px;
   overflow: hidden;
   background-color: transparent;
 }
 
-.eceevents .javadbrc {
+.eeeevents .javadbrc {
   margin-top: 10px;
   height: 325px;
 }
 
-.eceevents .descright ul {
+.eeeevents .descright ul {
   width: 90%;
 }
 
-.eceevents .descright ol {
+.eeeevents .descright ol {
   width: 90%;
   margin: 0;
 }
 
-.eceevents .descright ol > li {
+.eeeevents .descright ol > li {
   font-size: 22px;
   //font-family: "Droid Sans";
 }
 
-.eceevents .rightinnerheading {
+.eeeevents .rightinnerheading {
   margin-left: 200px;
   margin-bottom: 5px;
   margin-top: 0px;

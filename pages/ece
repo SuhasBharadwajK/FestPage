@@ -1,0 +1,238 @@
+<div class="container1">
+
+        <div id="l1" class="events">
+          <span class="eventname">Robotics Competition</span>
+          <div class="eventdescription">
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch1" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+        <div id="l2" class="events">
+          <span class="eventname">Project Expo</span>
+          <div class="eventdescription">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch2" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l3" class="events">
+          <span class="eventname">Circuit Debugging</span>
+          <div class="eventdescription">
+            <br/>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch3" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l4" class="events">
+          <span class="eventname">JAM</span>
+          <div class="eventdescription webded">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch4" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l5" class="events">
+          <span class="eventname">Poster Presentation</span>
+          <div class="eventdescription">
+            <br/>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch5" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l6" class="events">
+          <span class="eventname">Quiz Competition</span>
+          <div class="eventdescription">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch8" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+        <div id="l7" class="events">
+          <span class="eventname">Paper Presentation</span>
+          <div class="eventdescription">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch8" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+        <div class="popup">
+          <div class="group" id="namegroup">
+            <input class="forminput" id="name" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Name</label>
+          </div>
+
+          <div class="group" id="emailgroup">
+            <input class="forminput" id="email" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Email</label>
+          </div>
+
+          <div class="group" id="collegegroup">
+            <input class="forminput" id="college" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">College</label>
+          </div>
+
+          <div class="group" id="rollnogroup">
+            <input class="forminput" id="rollno" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Roll Number</label>
+          </div>
+
+          <div class="group" id="yeargroup">
+            <div class="listholder" id="year">
+              <span>Year</span>
+              <div class="yearlist list">
+                <ul>
+                  <li class="whichyear" id="fresher" value="Fresher">Fresher</li>
+                  <li class="whichyear" id="sophomore" value="Sophomore">Sophomore</li>
+                  <li class="whichyear" id="junior" value="Junior">Junior</li>
+                  <li class="whichyear" id="senior" value="Senior">Senior</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="group" id="branchgroup">
+            <div class="listholder" id="branch">
+              <span>Branch</span>
+              <div class="branchlist list">
+                <ul>
+                  <li class="whichbranch" id="csebranch" value="CSE">CSE</li>
+                  <li class="whichbranch" id="ecebranch" value="ECE">ECE</li>
+                  <li class="whichbranch" id="mechbranch" value="Mechanical">Mechanical</li>
+                  <li class="whichbranch" id="civbranch" value="Civil">Civil</li>
+                  <li class="whichbranch" id="eeebranch" value="EEE">EEE</li>
+                  <li class="whichbranch" id="itbranch" value="IT">IT</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="group" id="phnogroup">
+            <input class="forminput" id="phno" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Phone Number</label>
+          </div>
+
+          <div class="group" id="markedeventsgroup">
+            <div class="markedheading">You will be registered for:</div>
+            <div class="markedevents">
+
+            </div>
+          </div>
+
+          <div class="register" id="submitbutton">Cancel</div>
+
+        </div>
+
+      </div>
+

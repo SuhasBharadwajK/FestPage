@@ -11,7 +11,7 @@ eventImages = Array("clang.png", "java.png", "lanparty.png");
 topMargins = Array(25, 25, 25, 25, 25, 25, 15, 15);
 markedEvents = Array();
 toasts = Array();
-var widths = Array(1270, 1265, 1265, 1262);
+var widths = Array(1270, 1265, 1265);
 
 //console.log(navigator.userAgent);
 if (navigator.userAgent.indexOf("Firefox") > -1 || navigator.userAgent.indexOf("Iceweasel") > -1) {
@@ -25,23 +25,23 @@ switches = Array("#switch1", "#switch2", "#switch3", "#switch4", "#switch5", "#s
 
 $(document).ready(function() {
 
-  $("#l1").children('span').fadeOut('fast', function() {
-    eventPage = true;
-    $("#l1").animate({
-      marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
-      300, "easeOutCubic", function() {
-        $(this).animate({
-          width: '1262'},
-          300, "easeOutCubic", function() {
-            //console.log("FIRRRSST");
-            $("#l1").children('.eventname').css({ 'margin-top': 10 });
-            $("#l1").children('.eventdescription').fadeIn('slow');
-            $("#l1").children('.bottompanel').fadeIn('fast', function() {
-              //console.log("faded in");
-            });
-            $(this).children('span').fadeIn('400');
-        });
-    });
+  // $("#l1").children('span').fadeOut('fast', function() {
+  //   eventPage = true;
+  //   $("#l1").animate({
+  //     marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
+  //     300, "easeOutCubic", function() {
+  //       $(this).animate({
+  //         width: '1265'},
+  //         300, "easeOutCubic", function() {
+  //           //console.log("FIRRRSST");
+  //           $("#l1").children('.eventname').css({ 'margin-top': 10 });
+  //           $("#l1").children('.eventdescription').fadeIn('slow');
+  //           $("#l1").children('.bottompanel').fadeIn('fast', function() {
+  //             //console.log("faded in");
+  //           });
+  //           $(this).children('span').fadeIn('400');
+  //       });
+  //   });
 
     // $('.descright').hover(function() {
     //   $('descright::-webkit-scrollbar').fadeIn('fast', function() {
@@ -321,7 +321,7 @@ function eventClicked() {
 
 function revert(revertId, currentId) {
   var factor = parseInt(revertId[1]);
-  var toLeft = "+=" + (170 * (factor-1)).toString() + "px";
+  var toLeft = "+=" + (213 * (factor-1)).toString() + "px";
   var imageUrl = eventImages[factor-1];
   $("#" + revertId).children('.eventdescription').fadeOut('fast');
   // console.log(imageUrl);
@@ -352,7 +352,7 @@ function revert(revertId, currentId) {
 function expand(expandId) {
 
   var factor = parseInt(expandId[1]);
-  var toLeft = "-=" + (170 * (factor-1)).toString() + "px";
+  var toLeft = "-=" + (213 * (factor-1)).toString() + "px";
 
   $("#" + expandId).children('span').fadeOut('fast', function() {
     $("#" + expandId).animate({
@@ -363,7 +363,7 @@ function expand(expandId) {
         });
         $(this).animate({
           marginLeft: toLeft,
-          width: '1262'},
+          width: '1265'},
           400, "easeOutCubic", function() {
             $("#" + expandId).children('.eventname').css({ 'margin-top': 10 });
             $('.events').bind('click', eventClicked);

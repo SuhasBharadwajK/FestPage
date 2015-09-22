@@ -496,11 +496,11 @@ function marked() {
 }
 
 $(function() {
-  $('.branchlist').click(function(event) {
+  $('.branchlisttop').click(function(event) {
     $(this).children('ul').fadeIn(400, "easeInOutCubic");
   });
 })
 
 function closeBranches() {
-  $('.branchlist').children('ul').fadeOut(300, "easeInOutCubic");
+  $('.branchlisttop').children('ul').fadeOut(300, "easeInOutCubic");
 }

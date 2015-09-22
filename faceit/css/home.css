@@ -284,7 +284,7 @@ body {
 .hexagon-container {
   margin-left: 220px;
   //margin-right: auto;
-  //margin-top: 50px;
+  //margin-top: -50px;
   position: absolute;
   top: 10%;
 }
@@ -472,7 +472,7 @@ body {
 
 #it a {
   top: 145px;
-  left: 37px;
+  left: 65px;
 }
 
 #eee {
@@ -485,7 +485,7 @@ body {
 
 #eee a {
   top: 145px;
-  left: 65px;
+  left: 37px;
 }
 
 #eee a span {
@@ -553,18 +553,70 @@ body {
 }
 
 .cseevents {
-  display: none;
+  //display: none;
   position: absolute;
   width: 100%;
+  z-index: 15;
   //bottom: -50px;
 }
 
-.cseevents .events {
-  top: 1150px;
+.eceevents {
+  //display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+  //bottom: -50px;
+}
+
+.mechevents {
+  //display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+  //bottom: -50px;
+}
+
+.civevents {
+  //display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+  //bottom: -50px;
+}
+
+.eeeevents {
+  //display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+  //bottom: -50px;
+}
+
+.itevents {
+  //display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+  //bottom: -50px;
 }
 
 
-#topbar {
+/*.cseevents .events {
+  top: 1150px;
+}
+
+.eceevents .events {
+  top: 1150px;
+}
+
+.mechevents .events {
+  top: 1150px;
+}*/
+.events {
+  top: 1150px;
+}
+
+.topbar {
   display: none;
   position: absolute;
   height: 40px;
@@ -573,7 +625,7 @@ body {
   //background-color: white;
   top: 0;
   left: 0;
-  z-index: -15;
+  z-index: 18;
 }
 
 @media screen and (max-width: 1500px) and (min-width: 1400px) {
@@ -626,6 +678,7 @@ body {
     display: none;
   }
   .hexagon-container {
+    margin-top: -50px;
     margin-left: 145px;
   }
   #cse a {
@@ -642,10 +695,11 @@ body {
   }
   #it a {
     top: 130px;
-    left: 36px;
+
   }
   #eee a {
     top: 130px;
+    //left: 36px;
   }
 }
 
