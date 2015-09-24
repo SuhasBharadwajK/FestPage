@@ -11,13 +11,17 @@ var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#
 var elementsNumber = 8;
 var currentPage = "home";
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
+var activeIds = Array("l1", "l1", "l1", "l1", "l1", "l1");
+var currentIds = Array("", "", "", "", "", "");
 var pageStack = Array("home");
 var currentImage = 0;
-var currentBackground = 0;
+var currentBackground = 0, otherBackground = "";
+var lastPage = "";
 var mobileDevice = false, navactive = false;
 var $dragging = null;
 var initialAspectRatio = $(window).width() / $(window).height();
 var left = undefined;
+var backgroundChange;
 
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
@@ -231,6 +235,9 @@ $(document).ready(function() {
   });
 
   $('.hexagon').click(function(event) {
+    //clearInterval(backgroundChange);
+    //$(otherBackground).css({'display':'none'});
+    $('.topimage').unbind('click', closeHomeIn);
     event.preventDefault();
     eventId = $(this).attr("id");
     console.log("Bloody hell " + eventId);
@@ -242,10 +249,11 @@ $(document).ready(function() {
       else {
         currentPage = eventId;
       }
+      lastPage = pageStack[pageStack.length - 1];
       var client = new XMLHttpRequest();
-      client.open('GET', '/pages/' + eventId );
+      client.open('GET', '/pages/' + eventId + '2' );
       client.onreadystatechange = function() {
-        console.log(client.responseText);
+        //console.log(client.responseText);
         $('.' + currentPage +'events').html(client.responseText);
         console.log('These events .' + eventId +'events');
         setHandlers();
@@ -292,7 +300,7 @@ $(document).ready(function() {
   /**** TODO Without this, the elements in the smaller screens are fucked up for some reason  ****/
   //setTimeout(function(){$(window).trigger('resize');} , 100);
 
-  setInterval(changeBackground, 3500);
+  backgroundChange = setInterval(changeBackground, 3500);
 
 
   $(".socialbutton").hover(function() {
@@ -337,6 +345,7 @@ $(document).ready(function() {
       openNav();
     }
   });
+  //$('.topimage').click(closeHomeIn);
 });
 
 
@@ -348,10 +357,11 @@ function startEntry(page, num) {
   //   console.log( jqxhr.status ); // 200
   //   console.log( "Load was performed." );
   // });
+
   var branchevent = "." + page + "events";
   if (page != "home") {
     $('.lefthalf').animate({
-      marginLeft: '-=42.5%'
+      marginLeft: '-42.5%'
       },
       600, function() {
       $(this).fadeOut('fast', function() {
@@ -359,26 +369,27 @@ function startEntry(page, num) {
       });
     });
     $('.backgroundimage').animate({
-      right: '-=57.5%'
+      right: '-57.5%'
       },
-      800, 'easeOutCirc', function() {
-        $(this).fadeOut('fast', function() {
-
-        });
+      800, 'easeInOutCirc', function() {
+        // $(this).fadeOut('fast', function() {
+        //
+        // });
       });
+    $('.backgroundimage1').animate({
+      right: '-57.5%'
+      },
+      800, 'easeInOutCirc');
 
     $('.social').fadeOut('fast', function() {
 
     });
 
-    $('.backgroundimage1').animate({
-      right: '-=57.5%'
-      },
-      800, 'easeOutCirc');
+
     $('.righthalf').animate({
-      marginRight: '-=57.5%'
+      marginRight: '-57.5%'
       },
-      800, 'easeOutCirc',function() {
+      800, 'easeInOutCirc',function() {
         $('body').animate({
           backgroundColor: 'rgb(224, 83, 58);'
         },
@@ -390,22 +401,218 @@ function startEntry(page, num) {
               $(branchevent + " #l" + i).animate({
                 top: '50px'},
                 500 + 100*i, function() {
+
               });
             }
             $(".topbar").fadeIn(1400, function() {
-
-              expandFirst(branchevent);
-            });
+                $('div').finish();
+                expandFirst(branchevent);
+              });
 
             });
         });
-
   }
 }
 
-function homeCloseIn() {
-  //Close in homepage if clicked on home
+function closeHomeIn() {
+  //eventPage = false;
+  $('.topimage').unbind('click', closeHomeIn);
+  closeBranches();
+  //eventPage = false;
+  if (poppedup) {
+    $(".popup").children().fadeOut('fast', function() {
+      $('.popup').animate({
+        height: 0,
+        width: 0,
+        marginTop:300,
+        marginLeft:640,
+        borderRadius: 50},
+        'slow', "easeInOutQuint");
+      $('.popup').fadeOut('fast', function() {onlyRevert(activeId, false); $('div').clearQueue();});
+
+      poppedup = false;
+    });
+    hideYear();
+    hideBranch();
+  }
+
+  else {
+    onlyRevert(activeId, false);
+  }
+
 }
+
+function fadeThemOut() {
+  //eventPage = false;
+
+  console.log("currentPage: " + eventId);
+  // $("." + currentPage + "events").fadeOut('slow', function() {
+  //   $(this).children('.events').css({top: '1150px'});
+  // });
+  $('.topbar').fadeOut('slow', function() {
+  });
+  $('body').animate({
+    backgroundColor: 'black'},
+    'slow', function() {
+      //lefthalf, righthalf, backgroundimage, backgroundimage1, social
+      $('.lefthalf').fadeIn('fast', function() {
+        $(this).animate({
+          marginLeft: '0'},
+          800, 'easeOutCubic', function() {
+          /* stuff to do after animation is complete */
+        });
+      });
+      $('.righthalf').fadeIn('fast', function() {
+        $(this).animate({
+          marginRight: '0'},
+          900, 'easeOutCubic', function() {
+          /* stuff to do after animation is complete */
+        });
+      });
+      $('.backgroundimage').animate({
+        right: '0px'},
+        900, 'easeOutCubic', function() {
+        /* stuff to do after animation is complete */
+      });
+      $('.backgroundimage1').animate({
+        right: '0px'},
+        900, 'easeOutCubic', function() {
+        /* stuff to do after animation is complete */
+        $('.social').fadeIn(300, function() {
+          currentPage = "home";
+          pageStack.push(currentPage);
+          activeId = "l1";
+          //activeIds[pages.indexOf(eventId)] = activeId;
+          $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
+          //$(otherBackground).css({'display':'block'});
+          //backgroundChange = setInterval(changeBackground, 3500);
+
+        });
+      });
+
+  });
+}
+
+
+function onlyRevert(revertId, fromList) {
+  var factor = parseInt(revertId[1]);
+  //alert(pages.indexOf(currentPage) + "," + topMargins[pages.indexOf(currentPage)][factor-1]);
+  var toLeft = "" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
+  var imageUrl = eventImages[factor-1];
+  $(branchevent + " #" + revertId).children('.eventdescription').fadeOut('fast');
+  // console.log(imageUrl);
+  // console.log(factor);
+
+  reversing(revertId);
+
+
+  $(branchevent + " #" + revertId).children('span').fadeOut('fast', function() {
+    $(branchevent + " #" + revertId).animate({
+      width:  factors[pages.indexOf(currentPage)] - subtracts[pages.indexOf(currentPage)],
+      marginLeft: toLeft,
+      backgroundColor: 'rgba(255, 255, 255, 1)'},
+      200, function() {
+        $(this).animate({
+          marginTop: '0px', height: '80px'},
+          400, "easeOutCubic", function() {
+            $(branchevent + " #" + revertId).children('.eventname').css({ 'margin-top': topMargins[pages.indexOf(currentPage)][factor-1] });
+            $(this).children('span').fadeIn('slow', function(){
+              activeId = "l1";
+              $('div').clearQueue();
+              $('div').finish();
+              $('div').stop();
+              // setTimeout(function(){
+              //   for (var i = 1; i <= 8; i++) {
+              //     //$(branchevent + " #" + revertId).finish();
+              //     //console.log(branchevent);
+              //     $(branchevent + " #l" + i).css({'display':'block'});
+              //     $(branchevent + " #l" + i).animate({
+              //       top: '-350px'},
+              //       800 + 100*(i), function() {
+              //     });
+              //   }
+              //   fadeThemOut();
+              // }, 100);
+              //$(branchevent + " #" + revertId).finish();
+              // $(branchevent + " #" + revertId).clearQueue();
+              // $(branchevent + " #" + revertId).stop();
+              //$(branchevent + " #" + revertId).clearQueue();
+              // setTimeout(function(){
+              //   fadeThemOut();
+              // }, 1);
+            }).promise().done(
+              function() {
+                for (var i = 1; i <= 8; i++) {
+                    //$(branchevent + " #" + revertId).finish();
+                    //console.log(branchevent);
+                    $(branchevent + " #l" + i).css({'display':'block'});
+                    $(branchevent + " #l" + i).animate({
+                      top: '-350px'},
+                      500 + 100*(i), function() {
+                    });
+                  }
+                  $('div').clearQueue();
+                  if (!fromList) {
+                    fadeThemOut();
+                  }
+              });
+        });
+    });
+  });
+}
+
+
+// function fadeoutbranch() {
+//   console.log("currentPage: " + eventId);
+//   $("." + currentPage + "events").fadeOut('slow', function() {
+//     $(this).children('.events').css({top: '1150px'});
+//   });
+//   $('.topbar').fadeOut('slow', function() {
+//     $('body').animate({
+//       backgroundColor: 'black'},
+//       'slow', function() {
+//         //lefthalf, righthalf, backgroundimage, backgroundimage1, social
+//         $('.lefthalf').fadeIn('fast', function() {
+//           $(this).animate({
+//             marginLeft: '+=42.5%'},
+//             800, 'easeOutCubic', function() {
+//             /* stuff to do after animation is complete */
+//           });
+//         });
+//         $('.righthalf').fadeIn('fast', function() {
+//           $(this).animate({
+//             marginRight: '+=57.5%'},
+//             900, 'easeOutCubic', function() {
+//             /* stuff to do after animation is complete */
+//           });
+//         });
+//         $('.backgroundimage').fadeIn('fast', function() {
+//           $(this).animate({
+//             marginRight: '+=57.5%'},
+//             900, 'easeOutCubic', function() {
+//             /* stuff to do after animation is complete */
+//           });
+//         });
+//         $('.backgroundimage1').fadeIn('fast', function() {
+//           $(this).animate({
+//             marginRight: '+=57.5%'},
+//             900, 'easeOutCubic', function() {
+//             /* stuff to do after animation is complete */
+//             $('.social').fadeIn(300, function() {
+//               currentPage = "home";
+//               pageStack.push(currentPage);
+//               activeId = "l1";
+//               //activeIds[pages.indexOf(eventId)] = activeId;
+//               $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
+//
+//             });
+//           });
+//         });
+//
+//     });
+//
+//   });
+// }
 
 function changeBackground() {
   if (currentImage + 2 > images.length-1) {
@@ -414,6 +621,7 @@ function changeBackground() {
   displayImage =  images[currentImage];
   nextDisplayImage = images[currentImage + 1];
   if (currentBackground == 0) {
+    otherBackground = '.backgroundimage1';
     $('.backgroundimage1').css({
       'background-image': "url('images/" + nextDisplayImage + "')",
     });
@@ -438,6 +646,7 @@ function changeBackground() {
     currentBackground = 1;
   }
   else {
+    otherBackground = '.backgroundimage';
     $('.backgroundimage').css({
       'background-image': "url('images/" + nextDisplayImage + "')"
     });

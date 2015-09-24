@@ -614,6 +614,7 @@ body {
 }*/
 .events {
   top: 1150px;
+  cursor: pointer !important;
 }
 
 .topbar {

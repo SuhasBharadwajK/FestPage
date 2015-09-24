@@ -111,15 +111,17 @@ body * {
   display: none;
   position: absolute;
   overflow: hidden;
-  //width: 800px;
-  //height: 600px;
+  /*width: 800px;
+  height: 600px;*/
   width: 0px;
   height: 0px;
-  border-radius: 50%;
+  //border-radius: 50%;
   //margin-left: 235px;
-  margin-left: 600px;
+  //margin-left: 400px;
   //margin-top: -10px;
   margin-top: 300px;
+  margin-left: 640px;
+  //margin-top: 300px;
   background-color: white;
   //border: 2px solid black;
   -webkit-box-shadow: -1px 4px 15px 0px rgba(0,0,0,0.26);
@@ -935,6 +937,7 @@ body * {
   width: 200px;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 .topimage img {

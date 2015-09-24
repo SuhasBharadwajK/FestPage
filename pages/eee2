@@ -1,0 +1,145 @@
+<div class="container1">
+        <div id="l1" class="events">
+          <span class="eventname">Technical Quiz</span>
+          <div class="eventdescription">
+            <div class="desleft">
+              <div class="leftheading">JAM:</div>
+              <div class="rules leftcontent">
+                <ul>
+                  <li>This is a test element.</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch1" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+        <div id="l2" class="events">
+          <span class="eventname">Power JAM</span>
+          <div class="eventdescription">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch2" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l3" class="events">
+          <span class="eventname">ELECTRA</span>
+          <div class="eventdescription">
+            <br/>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch3" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l4" class="events">
+          <span class="eventname">Project Expo</span>
+          <div class="eventdescription webded">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch4" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l5" class="events">
+          <span class="eventname">Poster Presentation</span>
+          <div class="eventdescription">
+            <br/>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch5" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l6" class="events">
+          <span class="eventname">Paper Presentation</span>
+          <div class="eventdescription">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">Name Name 9999999999</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch8" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+      </div>

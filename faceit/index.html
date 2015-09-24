@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>fACEit 2k15 - A National Level Technical Symposium</title>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
     <!-- <link rel="stylesheet" href="css/homestyles1280.css" media="screen" title="no title" charset="utf-8"/> -->
     <!-- <link rel="stylesheet" href="css/homestyles1366.css" media="screen" title="no title" charset="utf-8"> -->
     <!-- <link rel="stylesheet" href="css/homestyles1600.css" media="screen" title="no title" charset="utf-8"> -->
@@ -235,6 +240,7 @@
         </div>
 
       </div>
+
     </div>
 
     <div class="topbar"  tabindex="-1">
@@ -246,15 +252,92 @@
           <div class="branchlisttop">
             <span>Branch</span>
             <ul>
-              <li id="cseselect">CSE</li>
-              <li id="eceselect">ECE</li>
-              <li id="mechselect">MECH</li>
-              <li id="civselect">CIVIL</li>
-              <li id="eeeselect">EEE</li>
-              <li id="itselect">IT</li>
+              <li class="branchfromlist" id="cseselect">CSE</li>
+              <li class="branchfromlist" id="eceselect">ECE</li>
+              <li class="branchfromlist" id="mechselect">MECH</li>
+              <li class="branchfromlist" id="civselect">CIVIL</li>
+              <li class="branchfromlist" id="eeeselect">EEE</li>
+              <li class="branchfromlist" id="itselect">IT</li>
             </ul>
           </div>
         </div>
+
+        <div class="popup">
+          <div class="group" id="namegroup">
+            <input class="forminput" id="name" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Name</label>
+          </div>
+
+          <div class="group" id="emailgroup">
+            <input class="forminput" id="email" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Email</label>
+          </div>
+
+          <div class="group" id="collegegroup">
+            <input class="forminput" id="college" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">College</label>
+          </div>
+
+          <div class="group" id="rollnogroup">
+            <input class="forminput" id="rollno" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Roll Number</label>
+          </div>
+
+          <div class="group" id="yeargroup">
+            <div class="listholder" id="year">
+              <span>Year</span>
+              <div class="yearlist list">
+                <ul>
+                  <li class="whichyear" id="fresher" value="Fresher">Fresher</li>
+                  <li class="whichyear" id="sophomore" value="Sophomore">Sophomore</li>
+                  <li class="whichyear" id="junior" value="Junior">Junior</li>
+                  <li class="whichyear" id="senior" value="Senior">Senior</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="group" id="branchgroup">
+            <div class="listholder" id="branch">
+              <span>Branch</span>
+              <div class="branchlist list">
+                <ul>
+                  <li class="whichbranch" id="csebranch" value="CSE">CSE</li>
+                  <li class="whichbranch" id="ecebranch" value="ECE">ECE</li>
+                  <li class="whichbranch" id="mechbranch" value="Mechanical">Mechanical</li>
+                  <li class="whichbranch" id="civbranch" value="Civil">Civil</li>
+                  <li class="whichbranch" id="eeebranch" value="EEE">EEE</li>
+                  <li class="whichbranch" id="itbranch" value="IT">IT</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="group" id="phnogroup">
+            <input class="forminput" id="phno" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="formlabel">Phone Number</label>
+          </div>
+
+          <div class="group" id="markedeventsgroup">
+            <div class="markedheading">You will be registered for:</div>
+            <div class="markedevents">
+            </div>
+          </div>
+
+          <div class="register" id="submitbutton">Cancel</div>
+
+        </div>
+
       </div>
     </div>
     <div class="backgroundholder1">

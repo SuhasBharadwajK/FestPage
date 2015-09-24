@@ -1,5 +1,5 @@
 /*
-TODO: Second opening animation takes way too much time. Find a fix ASAP. - DONE!!
+TODO: Page specific active IDs so that when the previous page is opened again, it should open the event which was open when the user left.
 */
 
 var currentId, activeId = "l1";
@@ -18,6 +18,7 @@ var widths = Array(1270, 1262, 1265, 1270, 1265, 1270);
 var factors = Array(160, 182, 213, 160, 213, 160);
 var subtracts = Array(10, 12, 13, 10, 13, 10);
 var branchevent;
+var closingIn = false;
 markedEvents = Array();
 toasts = Array();
 
@@ -193,20 +194,25 @@ function setHandlers() {
 function expandFirst(bevent) {
   branchevent = bevent
   //alert(widths[pages.indexOf(currentPage)]);
+  //var factor = parseInt(activeIds[pages.indexOf(eventId)][1]);
+  var factor = parseInt(activeId[1]);
   var thisWidth = widths[pages.indexOf(currentPage)];
-  elementToExpand = branchevent +" #l1";
+  //var toLeft = "-=" + (factors[pages.indexOf(currentPage)] * (factor-1)).toString() + "px";
+  var toLeft = "0px";
+  elementToExpand = branchevent +" #" + activeIds[pages.indexOf(eventId)];
   $(elementToExpand).children('span').fadeOut('fast', function() {
     eventPage = true;
     $(elementToExpand).animate({
-      marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
+      marginTop: "100px", height: "480px", backgroundColor: 'white'},
       300, "easeOutCubic", function() {
         $(this).animate({
+          marginLeft: toLeft,
           width: thisWidth},
           300, "easeOutCubic", function() {
             $(elementToExpand).children('.eventname').css({ 'margin-top': 10 });
             $(elementToExpand).children('.eventdescription').fadeIn('slow');
             $(elementToExpand).children('.bottompanel').fadeIn('fast');
-            $(this).children('span').fadeIn('400');
+            $(this).children('span').fadeIn('400', function(){$('.topimage').bind('click', closeHomeIn);});
             $('.events').bind('click', eventClicked);
         });
       });
@@ -227,14 +233,13 @@ function popitup() {
     $(".popup").fadeIn().animate({
       height: 600,
       width: 800,
-      marginTop:-10,
-      marginLeft:235,
+      marginTop:20,
+      marginLeft:240,
       borderRadius: 0},
       'slow', "easeInOutQuint", function() {
         $(this).children().fadeIn('fast');
         poppedup = true;
     });
-
   }
 }
 
@@ -245,7 +250,7 @@ function popitdown() {
         height: 0,
         width: 0,
         marginTop:300,
-        marginLeft:600,
+        marginLeft:640,
         borderRadius: 50},
         'slow', "easeInOutQuint");
       $('.popup').fadeOut('fast');
@@ -349,10 +354,12 @@ function fillWithEvents($fillArea) {
 }
 
 function eventClicked() {
+  $('.topimage').unbind('click', closeHomeIn);
   closeBranches();
   currentId = $(this).attr('id');
   // console.log(currentId);
   // console.log(activeId);
+  //activeId = activeIds[pages.indexOf(eventId)];
   if (activeId != currentId) {
     $('.events').unbind('click', eventClicked);
     revert(activeId, currentId);
@@ -365,7 +372,8 @@ function eventClicked() {
 function revert(revertId, currentId) {
   var factor = parseInt(revertId[1]);
   //alert(pages.indexOf(currentPage) + "," + topMargins[pages.indexOf(currentPage)][factor-1]);
-  var toLeft = "+=" + (factors[pages.indexOf(currentPage)] * (factor-1)).toString() + "px";
+  //var toLeft = "+=" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
+  var toLeft = "" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
   var imageUrl = eventImages[factor-1];
   $(branchevent + " #" + revertId).children('.eventdescription').fadeOut('fast');
   // console.log(imageUrl);
@@ -381,13 +389,17 @@ function revert(revertId, currentId) {
       backgroundColor: 'rgba(255, 255, 255, 1)'},
       200, function() {
         $(this).animate({
-          marginTop: '-=100px', height: '-=400px'},
+          marginTop: '0px', height: '80px'},
           400, "easeOutCubic", function() {
             if (eventPage) {
               expand(currentId);
             }
             $(branchevent + " #" + revertId).children('.eventname').css({ 'margin-top': topMargins[pages.indexOf(currentPage)][factor-1] });
-            $(this).children('span').fadeIn('fast');
+            $(this).children('span').fadeIn('fast', function(){
+              $(branchevent + " #" + currentId).css({
+                'cursor': 'pointer'
+              });
+            });
         });
     });
   });
@@ -396,12 +408,16 @@ function revert(revertId, currentId) {
 function expand(expandId) {
   //alert(widths[pages.indexOf(currentPage)] - subtracts[pages.indexOf(currentPage)]);
   var factor = parseInt(expandId[1]);
-  var toLeft = "-=" + (factors[pages.indexOf(currentPage)] * (factor-1)).toString() + "px";
+  //var toLeft = "-=" + (factors[pages.indexOf(currentPage)] * (factor-1)).toString() + "px";
+  var toLeft = "0px";
 
   $(branchevent + " #" + expandId).children('span').fadeOut('fast', function() {
     $(branchevent + " #" + expandId).animate({
-      marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
+      marginTop: "100px", height: "480", backgroundColor: 'white'},
       300, "easeOutCubic", function() {
+        $(branchevent + " #" + currentId).css({
+          'cursor': 'default !important'
+        });
         $(branchevent + " #" + currentId).children('span').css({
           //'margin-top': '20px'
         });
@@ -409,11 +425,16 @@ function expand(expandId) {
           marginLeft: toLeft,
           width: widths[pages.indexOf(currentPage)]},
           400, "easeOutCubic", function() {
+            $(this).css({
+              'cursor': 'default !important'
+            });
             $(branchevent + " #" + expandId).children('.eventname').css({ 'margin-top': 10 });
             $('.events').bind('click', eventClicked);
+
             $(branchevent + " #" + expandId).children('span').fadeIn('slow', function() {
             });
             $(branchevent + " #" + expandId).children('.eventdescription').fadeIn('slow', function() {
+              $('.topimage').bind('click', closeHomeIn);
             });
             expanded(expandId);
         });
