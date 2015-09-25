@@ -3,7 +3,9 @@
 /***
 
 TODO The loading screen doesn't show up in smaller screens
-MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!
+MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!  - Done. Fuck you Firefox.
+
+MAJOR TODO: Check the expanding after going back from closed home
 
 ***/
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
@@ -11,9 +13,11 @@ var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#
 var elementsNumber = 8;
 var currentPage = "home";
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
+var branchNames = Array("CSE", "ECE", "MECH", "CIVIL", "EEE", "IT");
 var activeIds = Array("l1", "l1", "l1", "l1", "l1", "l1");
 var currentIds = Array("", "", "", "", "", "");
-var pageStack = Array("home");
+var pageStack = Array();
+var forwardStack = Array();
 var currentImage = 0;
 var currentBackground = 0, otherBackground = "";
 var lastPage = "";
@@ -22,6 +26,10 @@ var $dragging = null;
 var initialAspectRatio = $(window).width() / $(window).height();
 var left = undefined;
 var backgroundChange;
+var eventId, nexteventId;
+var goingBack = false;
+var animating = true;
+
 
 function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
@@ -215,6 +223,42 @@ $(document).load(function() {
   //respond();
 });
 
+
+window.onbeforeunload = function() { preventDefault(); };
+
+window.onload = function () {
+    if (typeof history.pushState === "function") {
+        history.pushState("jibberish", null, null);
+        window.onpopstate = function () {
+            history.pushState('newjibberish', null, null);
+            //alert("Backed up!");
+            if (!animating) {
+              console.log("Going Back!");
+              goBack();
+            }
+            //animating = true;
+            // Handle the back (or forward) buttons here
+            // Will NOT handle refresh, use onbeforeunload for this.
+        };
+    }
+    else {
+        var ignoreHashChange = true;
+        window.onhashchange = function () {
+            if (!ignoreHashChange) {
+                ignoreHashChange = true;
+                window.location.hash = Math.random();
+
+                // Detect and redirect change here
+                // Works in older FF and IE9
+                // * it does mess with your hash symbol (anchor?) pound sign
+                // delimiter on the end of the URL
+            }
+            else {
+                ignoreHashChange = false;
+            }
+        };
+    }
+}
 /*
 --------------------------------------------------------------------------------------------------------------------
 Document READY!!!
@@ -235,8 +279,10 @@ $(document).ready(function() {
   });
 
   $('.hexagon').click(function(event) {
-    //clearInterval(backgroundChange);
-    //$(otherBackground).css({'display':'none'});
+    animating = true;
+    //openBranch();
+    console.log("Pushing into stack..................................................................");
+    pageStack.push(currentPage);
     $('.topimage').unbind('click', closeHomeIn);
     event.preventDefault();
     eventId = $(this).attr("id");
@@ -244,11 +290,14 @@ $(document).ready(function() {
     if (eventId != "faceit") {
       if (eventId == "it") {
         //eventId = "cse";
-        currentPage = "cse";
+        currentPage = "it";
       }
       else {
         currentPage = eventId;
       }
+      // if (currentPage != "home") {
+      //   pageStack.push(currentPage);
+      // }
       lastPage = pageStack[pageStack.length - 1];
       var client = new XMLHttpRequest();
       client.open('GET', '/pages/' + eventId + '2' );
@@ -272,13 +321,46 @@ $(document).ready(function() {
 
       //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
       $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'none'});
-      pageStack.push(currentPage);
+      //pageStack.push(currentPage);
       //alert(currentPage);
       //$('.events').unbind('click', eventClicked);
-      var eventnum = "";
-      startEntry(currentPage, eventnum);
+      if (currentPage != "home") {
+        var eventnum = "";
+        $('.lefthalf').animate({
+          marginLeft: '-42.5%'
+          },
+          600, function() {
+          $(this).fadeOut('fast', function() {
+
+          });
+        });
+        $('.backgroundimage').animate({
+          right: '-57.5%'
+          },
+          800, 'easeInOutCirc', function() {
+            // $(this).fadeOut('fast', function() {
+            //
+            // });
+          });
+        $('.backgroundimage1').animate({
+          right: '-57.5%'
+          },
+          800, 'easeInOutCirc');
+
+        $('.social').fadeOut('fast', function() {
+
+        });
+        $('.righthalf').animate({
+          marginRight: '-57.5%'
+          },
+          800, 'easeInOutCirc',function() {
+            startEntry(currentPage, eventnum);
+          });
+      }
     }
   });
+
+  $('.branchfromlist').click(selectFromList);
 
   $('#centerlogo').click(function(event) {
     window.open('http://aceec.ac.in', '_blank').location;
@@ -346,11 +428,35 @@ $(document).ready(function() {
     }
   });
   //$('.topimage').click(closeHomeIn);
+
+
+  // if (window.history && window.history.pushState) {
+  //
+  //   $(window).on('popstate', function() {
+  //     var hashLocation = location.hash;
+  //     var hashSplit = hashLocation.split("#!/");
+  //     var hashName = hashSplit[1];
+  //
+  //     if (hashName !== '') {
+  //       var hash = window.location.hash;
+  //       if (hash === '') {
+  //         alert('Back button was pressed.');
+  //       }
+  //     }
+  //   });
+  //
+  //   window.history.pushState('forward', null, './#forward');
+  // }
+
 });
 
-
+function openBranch() {
+  //clearInterval(backgroundChange);
+  //$(otherBackground).css({'display':'none'});
+}
 
 function startEntry(page, num) {
+  animating = true;
   // $.getScript( "javascript/cse1.js", function( data, textStatus, jqxhr ) {
   //   console.log( data ); // Data returned
   //   console.log( textStatus ); // Success
@@ -360,62 +466,34 @@ function startEntry(page, num) {
 
   var branchevent = "." + page + "events";
   if (page != "home") {
-    $('.lefthalf').animate({
-      marginLeft: '-42.5%'
-      },
-      600, function() {
-      $(this).fadeOut('fast', function() {
-
-      });
-    });
-    $('.backgroundimage').animate({
-      right: '-57.5%'
-      },
-      800, 'easeInOutCirc', function() {
-        // $(this).fadeOut('fast', function() {
-        //
-        // });
-      });
-    $('.backgroundimage1').animate({
-      right: '-57.5%'
-      },
-      800, 'easeInOutCirc');
-
-    $('.social').fadeOut('fast', function() {
-
-    });
-
-
-    $('.righthalf').animate({
-      marginRight: '-57.5%'
-      },
-      800, 'easeInOutCirc',function() {
-        $('body').animate({
-          backgroundColor: 'rgb(224, 83, 58);'
+      $('body').animate({
+        backgroundColor: 'rgb(224, 83, 58);'
         },
-          'slow', function() {
-            //$(".cseevents").fadeIn('fast');
-            $(branchevent).fadeIn('fast');
-            for (var i = 1; i <= 8; i++) {
-              console.log(branchevent);
-              $(branchevent + " #l" + i).animate({
-                top: '50px'},
-                500 + 100*i, function() {
-
-              });
-            }
-            $(".topbar").fadeIn(1400, function() {
-                $('div').finish();
-                expandFirst(branchevent);
-              });
-
-            });
+        'slow', function() {
+          //$(".cseevents").fadeIn('fast');
+          $(branchevent).fadeIn('fast');
+          for (var i = 1; i <= 8; i++) {
+            console.log(branchevent);
+            $(branchevent + " #l" + i).animate({
+              top: '50px'},
+              500 + 100*i);
+          }
+          $(".topbar").fadeIn(1400, function() {
+              $('div').finish();
+              expandFirst(branchevent);
+          });
         });
   }
 }
 
 function closeHomeIn() {
+  animating = true;
   //eventPage = false;
+  if (!goingBack && pageStack[pageStack.length - 1] != currentPage) {
+    console.log("Pushing into stack..................................................................");
+    pageStack.push(currentPage);
+    goingBack = false;
+  }
   $('.topimage').unbind('click', closeHomeIn);
   closeBranches();
   //eventPage = false;
@@ -442,9 +520,97 @@ function closeHomeIn() {
 
 }
 
+
+function openHome(previousPage) {
+  animating = true;
+  //openBranch();
+  // console.log("Pushing into stack..................................................................");
+  // pageStack.push(currentPage);
+  $('.topimage').unbind('click', closeHomeIn);
+  $('.events').unbind('click', eventClicked);
+  //event.preventDefault();
+
+  $('.lefthalf').animate({
+    marginLeft: '-42.5%'
+    },
+    600, function() {
+    $(this).fadeOut('fast', function() {
+
+    });
+  });
+  $('.backgroundimage').animate({
+    right: '-57.5%'
+    },
+    800, 'easeInOutCirc', function() {
+      // $(this).fadeOut('fast', function() {
+      //
+      // });
+    });
+  $('.backgroundimage1').animate({
+    right: '-57.5%'
+    },
+    800, 'easeInOutCirc');
+
+  $('.social').fadeOut('fast', function() {
+
+  });
+  $('.righthalf').animate({
+    marginRight: '-57.5%'
+    },
+    800, 'easeInOutCirc',function() {
+      startEntry(previousPage, 1);
+    });
+
+  /*
+  eventId = $(this).attr("id");
+  console.log("Bloody hell " + eventId);
+  if (eventId != "faceit") {
+    if (eventId == "it") {
+      //eventId = "cse";
+      currentPage = "it";
+    }
+    else {
+      currentPage = eventId;
+    }
+    // if (currentPage != "home") {
+    //   pageStack.push(currentPage);
+    // }
+    lastPage = pageStack[pageStack.length - 1];
+    var client = new XMLHttpRequest();
+    client.open('GET', '/pages/' + eventId + '2' );
+    client.onreadystatechange = function() {
+      //console.log(client.responseText);
+      $('.' + currentPage +'events').html(client.responseText);
+      console.log('These events .' + eventId +'events');
+      setHandlers();
+      $('.events').unbind('click', eventClicked);
+    }
+    client.send();
+  }
+  //alert($(this).attr("id").toUpperCase());
+  if (eventId != "faceit") {
+
+    //$('.events').unbind('click', eventClicked);
+    var branch = $(this).children('.hexagon1').children('.hexagon2').children('a').html();
+    event.preventDefault();
+    //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
+    $('.branchlisttop').children('span').html(branch);
+
+    //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
+    $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'none'});
+    //pageStack.push(currentPage);
+    //alert(currentPage);
+    //$('.events').unbind('click', eventClicked);
+    if (currentPage != "home") {
+      var eventnum = "";
+
+    }
+  }*/
+}
+
 function fadeThemOut() {
   //eventPage = false;
-
+  animating = true;
   console.log("currentPage: " + eventId);
   // $("." + currentPage + "events").fadeOut('slow', function() {
   //   $(this).children('.events').css({top: '1150px'});
@@ -480,12 +646,13 @@ function fadeThemOut() {
         /* stuff to do after animation is complete */
         $('.social').fadeIn(300, function() {
           currentPage = "home";
-          pageStack.push(currentPage);
+          //pageStack.push(currentPage);
           activeId = "l1";
           //activeIds[pages.indexOf(eventId)] = activeId;
           $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
           //$(otherBackground).css({'display':'block'});
           //backgroundChange = setInterval(changeBackground, 3500);
+          animating = false;
 
         });
       });
@@ -494,7 +661,9 @@ function fadeThemOut() {
 }
 
 
-function onlyRevert(revertId, fromList) {
+function onlyRevert(revertId, fromList, nextBranch) {
+  animating = true;
+  console.log("Only rever called!");
   var factor = parseInt(revertId[1]);
   //alert(pages.indexOf(currentPage) + "," + topMargins[pages.indexOf(currentPage)][factor-1]);
   var toLeft = "" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
@@ -503,9 +672,9 @@ function onlyRevert(revertId, fromList) {
   // console.log(imageUrl);
   // console.log(factor);
 
-  reversing(revertId);
+  //reversing(revertId);
 
-
+  $(branchevent + " #" + revertId).children('.bottompanel').fadeOut('fast');
   $(branchevent + " #" + revertId).children('span').fadeOut('fast', function() {
     $(branchevent + " #" + revertId).animate({
       width:  factors[pages.indexOf(currentPage)] - subtracts[pages.indexOf(currentPage)],
@@ -521,25 +690,6 @@ function onlyRevert(revertId, fromList) {
               $('div').clearQueue();
               $('div').finish();
               $('div').stop();
-              // setTimeout(function(){
-              //   for (var i = 1; i <= 8; i++) {
-              //     //$(branchevent + " #" + revertId).finish();
-              //     //console.log(branchevent);
-              //     $(branchevent + " #l" + i).css({'display':'block'});
-              //     $(branchevent + " #l" + i).animate({
-              //       top: '-350px'},
-              //       800 + 100*(i), function() {
-              //     });
-              //   }
-              //   fadeThemOut();
-              // }, 100);
-              //$(branchevent + " #" + revertId).finish();
-              // $(branchevent + " #" + revertId).clearQueue();
-              // $(branchevent + " #" + revertId).stop();
-              //$(branchevent + " #" + revertId).clearQueue();
-              // setTimeout(function(){
-              //   fadeThemOut();
-              // }, 1);
             }).promise().done(
               function() {
                 for (var i = 1; i <= 8; i++) {
@@ -549,70 +699,26 @@ function onlyRevert(revertId, fromList) {
                     $(branchevent + " #l" + i).animate({
                       top: '-350px'},
                       500 + 100*(i), function() {
+
                     });
+                    if ($(branchevent + " #l" + i).attr('id') == undefined) {
+                      break;
+                    }
                   }
                   $('div').clearQueue();
                   if (!fromList) {
                     fadeThemOut();
+                    //animating = false;
+                  }
+                  else {
+                    startEntryFromBranch(nextBranch);
+                    //animating = false;
                   }
               });
         });
     });
   });
 }
-
-
-// function fadeoutbranch() {
-//   console.log("currentPage: " + eventId);
-//   $("." + currentPage + "events").fadeOut('slow', function() {
-//     $(this).children('.events').css({top: '1150px'});
-//   });
-//   $('.topbar').fadeOut('slow', function() {
-//     $('body').animate({
-//       backgroundColor: 'black'},
-//       'slow', function() {
-//         //lefthalf, righthalf, backgroundimage, backgroundimage1, social
-//         $('.lefthalf').fadeIn('fast', function() {
-//           $(this).animate({
-//             marginLeft: '+=42.5%'},
-//             800, 'easeOutCubic', function() {
-//             /* stuff to do after animation is complete */
-//           });
-//         });
-//         $('.righthalf').fadeIn('fast', function() {
-//           $(this).animate({
-//             marginRight: '+=57.5%'},
-//             900, 'easeOutCubic', function() {
-//             /* stuff to do after animation is complete */
-//           });
-//         });
-//         $('.backgroundimage').fadeIn('fast', function() {
-//           $(this).animate({
-//             marginRight: '+=57.5%'},
-//             900, 'easeOutCubic', function() {
-//             /* stuff to do after animation is complete */
-//           });
-//         });
-//         $('.backgroundimage1').fadeIn('fast', function() {
-//           $(this).animate({
-//             marginRight: '+=57.5%'},
-//             900, 'easeOutCubic', function() {
-//             /* stuff to do after animation is complete */
-//             $('.social').fadeIn(300, function() {
-//               currentPage = "home";
-//               pageStack.push(currentPage);
-//               activeId = "l1";
-//               //activeIds[pages.indexOf(eventId)] = activeId;
-//               $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
-//
-//             });
-//           });
-//         });
-//
-//     });
-//
-//   });
-// }
 
 function changeBackground() {
   if (currentImage + 2 > images.length-1) {
@@ -878,3 +984,114 @@ $(document).keydown(function(event) {
   }
 
 });
+
+function selectFromList() {
+  animating = true;
+  popitdown();
+  setTimeout(function() {closeBranches();}, 100);
+
+  nexteventId = $(this).attr('value');
+
+  //alert($(this).attr('value'));
+  nextBranch = '.' + $(this).attr('value') + 'events';
+  onlyRevert(activeId, true, nextBranch);
+  // $(branchevent).fadeIn('fast');
+  // for (var i = 1; i <= 8; i++) {
+  //   //console.log(branchevent);
+  //   $(branchevent + " #l" + i).animate({
+  //     top: '50px'},
+  //     500 + 100*i);
+  // }
+  // //startEntry($(this).attr('value'), 1);
+  //animating = false;
+}
+
+function startEntryFromBranch(nextBranch) {
+  if (!animating) {
+
+  }
+  animating = true;
+  var reachedEnd = false;
+  var time = 0;
+  var client = new XMLHttpRequest();
+  client.open('GET', '/pages/' + nexteventId + '2' );
+  client.onreadystatechange = function() {
+    //console.log(client.responseText);
+    $(nextBranch).html(client.responseText);
+    console.log('These events .' + nexteventId +'events');
+    setHandlers();
+    $('.events').unbind('click', eventClicked);
+
+    $(nextBranch).fadeIn('fast');
+
+    for (var i = 1; i <= 8; i++) {
+      //console.log(branchevent);
+      $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
+      console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
+      if ($(nextBranch + " #l" + i).attr('id') == undefined) {
+        reachedEnd = true;
+        // animating = false;
+        time = 500 + 100*i;
+        break;
+      }
+    }
+    $('div').clearQueue();
+    //checkUntilEnd = setInterval(function(){}, )
+
+    var branch = branchNames[pages.indexOf(nexteventId)]
+    $('.branchlisttop').children('span').html(branch);
+    $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
+    $('.branchlisttop').children('ul').children('#' + nexteventId + 'select').css({'display':'none'});
+
+    eventId = nexteventId;
+    currentPage = nexteventId;
+
+  }
+  client.send();
+
+  $('div').clearQueue();
+  setTimeout(function() {expandFirst(nextBranch);}, 1100);
+
+  // var branch = branchNames[pages.indexOf(nexteventId)]
+  // event.preventDefault();
+  // //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
+  // $('.branchlisttop').children('span').html(branch);
+
+  //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
+  if (!goingBack) {
+    console.log("Pushing into stack..................................................................");
+    pageStack.push(currentPage);
+    goingBack = false;
+  }
+
+}
+
+
+function goBack() {
+  console.log(pageStack);
+  if (pageStack.length >= 1) {
+    //Custom comebacks
+    var previousPage = pageStack.pop();
+    if (currentPage != "home") {
+
+      previousBranch = '.' + previousPage + 'events';
+      nexteventId = previousPage;
+      forwardStack.push(currentPage);
+      if (previousPage != "home") {
+        goingBack = true;
+        onlyRevert(activeId, true, previousBranch);
+      }
+      else {
+        closeHomeIn();
+        $(previousBranch).html("");
+      }
+    }
+    else {
+      openHome(previousPage);
+      //startEntry(previousPage, 1);
+    }
+  }
+  else {
+    history.go(-2);
+  }
+}

@@ -11,7 +11,7 @@ eventImages = Array("clang.png", "java.png", "lanparty.png");
 topMargins = [[5, 5, 30, 12, 15, 5, 15, 15]     //CSE
             , [15, 25, 15, 25, 15, 25, 15, 15]  //ECE
             , [15, 25, 25, 25, 15, 25, 15, 15]  //MECH
-            , [15, 25, 25, 10, 18, 25, 15, 15]  //CIVIL
+            , [15, 25, 25, 13, 18, 15, 15, 15]  //CIVIL
             , [25, 25, 25, 25, 15, 25, 15, 15]  //EEE
             , [5, 5, 30, 12, 15, 5, 15, 15]];   //IT
 var widths = Array(1270, 1262, 1265, 1270, 1265, 1270);
@@ -192,14 +192,16 @@ function setHandlers() {
 }
 
 function expandFirst(bevent) {
+  animating = true;
   branchevent = bevent
   //alert(widths[pages.indexOf(currentPage)]);
-  //var factor = parseInt(activeIds[pages.indexOf(eventId)][1]);
+  //var factor = parseInt(activeIds[pages.indexOf(eventId)][1]); //TODO!! Important. Extend from here.
   var factor = parseInt(activeId[1]);
   var thisWidth = widths[pages.indexOf(currentPage)];
   //var toLeft = "-=" + (factors[pages.indexOf(currentPage)] * (factor-1)).toString() + "px";
   var toLeft = "0px";
-  elementToExpand = branchevent +" #" + activeIds[pages.indexOf(eventId)];
+  //elementToExpand = branchevent +" #" + activeIds[pages.indexOf(eventId)];
+  elementToExpand = branchevent +" #" + activeId;
   $(elementToExpand).children('span').fadeOut('fast', function() {
     eventPage = true;
     $(elementToExpand).animate({
@@ -214,6 +216,7 @@ function expandFirst(bevent) {
             $(elementToExpand).children('.bottompanel').fadeIn('fast');
             $(this).children('span').fadeIn('400', function(){$('.topimage').bind('click', closeHomeIn);});
             $('.events').bind('click', eventClicked);
+            animating = false;
         });
       });
   });
@@ -230,6 +233,7 @@ function popitup() {
   fillWithEvents($(this));
 
   if (!poppedup) {
+    animating = true;
     $(".popup").fadeIn().animate({
       height: 600,
       width: 800,
@@ -239,12 +243,14 @@ function popitup() {
       'slow', "easeInOutQuint", function() {
         $(this).children().fadeIn('fast');
         poppedup = true;
+        animating = false;
     });
   }
 }
 
 function popitdown() {
   if (poppedup) {
+    animating = true;
     $(".popup").children().fadeOut('fast', function() {
       $('.popup').animate({
         height: 0,
@@ -256,6 +262,7 @@ function popitdown() {
       $('.popup').fadeOut('fast');
       $('div').clearQueue();
       poppedup = false;
+      animating = false;
     });
     hideYear();
     hideBranch();
@@ -354,6 +361,7 @@ function fillWithEvents($fillArea) {
 }
 
 function eventClicked() {
+  animating = true;
   $('.topimage').unbind('click', closeHomeIn);
   closeBranches();
   currentId = $(this).attr('id');
@@ -370,6 +378,7 @@ function eventClicked() {
 }
 
 function revert(revertId, currentId) {
+  animating = true;
   var factor = parseInt(revertId[1]);
   //alert(pages.indexOf(currentPage) + "," + topMargins[pages.indexOf(currentPage)][factor-1]);
   //var toLeft = "+=" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
@@ -394,6 +403,9 @@ function revert(revertId, currentId) {
             if (eventPage) {
               expand(currentId);
             }
+            else {
+              animating = false;
+            }
             $(branchevent + " #" + revertId).children('.eventname').css({ 'margin-top': topMargins[pages.indexOf(currentPage)][factor-1] });
             $(this).children('span').fadeIn('fast', function(){
               $(branchevent + " #" + currentId).css({
@@ -406,6 +418,7 @@ function revert(revertId, currentId) {
 }
 
 function expand(expandId) {
+  animating = true;
   //alert(widths[pages.indexOf(currentPage)] - subtracts[pages.indexOf(currentPage)]);
   var factor = parseInt(expandId[1]);
   //var toLeft = "-=" + (factors[pages.indexOf(currentPage)] * (factor-1)).toString() + "px";
@@ -435,6 +448,7 @@ function expand(expandId) {
             });
             $(branchevent + " #" + expandId).children('.eventdescription').fadeIn('slow', function() {
               $('.topimage').bind('click', closeHomeIn);
+              animating = false;
             });
             expanded(expandId);
         });

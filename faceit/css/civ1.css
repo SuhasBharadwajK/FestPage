@@ -39,11 +39,11 @@
 }
 
 .civevents #l1 .eventname {
-  line-height: 23px;
+  line-height: 25px;
   display: block;
   margin-top: 15px;
   //margin-left: -5px;
-  font-size: 25px;
+  font-size: 26px;
   text-align: center;
   align-items: center;
 }
@@ -67,7 +67,7 @@
 
 .civevents #l3 .eventname {
   display: block;
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 24px;
   line-height: 24px;
   text-align: center;
@@ -79,7 +79,7 @@
 }
 
 .civevents #l4 .eventname {
-  margin-top: 10px;
+  margin-top: 13px;
   font-size: 25px;
   line-height: 24px;
   display: block;
@@ -107,8 +107,8 @@
 
 .civevents #l6 .eventname {
   display: block;
-  margin-top: 25px;
-  font-size: 23px;
+  margin-top: 15px;
+  font-size: 25px;
   line-height: 24px;
   text-align: center;
   align-items: center;
