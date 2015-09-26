@@ -14,6 +14,13 @@ var elementsNumber = 8;
 var currentPage = "home";
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
 var branchNames = Array("CSE", "ECE", "MECH", "CIVIL", "EEE", "IT");
+var festTitle = "fACEit 2k15 - A National Level Technical Symposium";
+var branchTitles = [["Department of Computer Science and Engineering"],
+                    ["Department of Electronics and Communication Engineering"],
+                    ["Department of Mechanical Engineering"],
+                    ["Department of Civil Engineering"],
+                    ["Department of Electrical and Electronics Engineering"],
+                    ["Deparment of Information Technology"]];
 var activeIds = Array("l1", "l1", "l1", "l1", "l1", "l1");
 var currentIds = Array("", "", "", "", "", "");
 var pageStack = Array();
@@ -274,20 +281,33 @@ $(document).ready(function() {
 
   $(window).keydown(function(event) {
     if (event.keyCode == 9) {
-      event.preventDefault();
+      if ($('.group').children('input').is(":focus")) {
+        return true;
+      }
+      else {
+        event.preventDefault();
+      }
     }
   });
+
+  // $('.popup').keydown(function(event) {
+  //   if (event.keyCode == 9) {
+  //     return true;
+  //   }
+  // });
 
   $('.hexagon').click(function(event) {
     animating = true;
     //openBranch();
     console.log("Pushing into stack..................................................................");
-    pageStack.push(currentPage);
     $('.topimage').unbind('click', closeHomeIn);
     event.preventDefault();
     eventId = $(this).attr("id");
     console.log("Bloody hell " + eventId);
     if (eventId != "faceit") {
+      if (pageStack[pageStack.length - 1] != currentPage) {
+        pageStack.push(currentPage);
+      }
       if (eventId == "it") {
         //eventId = "cse";
         currentPage = "it";
@@ -295,6 +315,7 @@ $(document).ready(function() {
       else {
         currentPage = eventId;
       }
+      document.title = branchTitles[pages.indexOf(currentPage)];
       // if (currentPage != "home") {
       //   pageStack.push(currentPage);
       // }
@@ -486,13 +507,22 @@ function startEntry(page, num) {
   }
 }
 
-function closeHomeIn() {
+function closeHomeIn(backStatus) {
+  document.title = festTitle;
+  $('.topimage').unbind('click', closeHomeIn);
   animating = true;
   //eventPage = false;
+  //goingBack = backStatus;
   if (!goingBack && pageStack[pageStack.length - 1] != currentPage) {
     console.log("Pushing into stack..................................................................");
-    pageStack.push(currentPage);
+    if (pageStack[pageStack.length - 1] != currentPage) {
+      pageStack.push(currentPage);
+    }
     goingBack = false;
+  }
+  else {
+    console.log(goingBack);
+    console.log(".............................NOT PUSHING..............................................");
   }
   $('.topimage').unbind('click', closeHomeIn);
   closeBranches();
@@ -523,6 +553,7 @@ function closeHomeIn() {
 
 function openHome(previousPage) {
   animating = true;
+  currentPage = previousPage;
   //openBranch();
   // console.log("Pushing into stack..................................................................");
   // pageStack.push(currentPage);
@@ -652,6 +683,7 @@ function fadeThemOut() {
           $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
           //$(otherBackground).css({'display':'block'});
           //backgroundChange = setInterval(changeBackground, 3500);
+          $('.topimage').bind('click', closeHomeIn);
           animating = false;
 
         });
@@ -1021,7 +1053,7 @@ function startEntryFromBranch(nextBranch) {
     console.log('These events .' + nexteventId +'events');
     setHandlers();
     $('.events').unbind('click', eventClicked);
-
+    document.title = branchTitles[pages.indexOf(nexteventId)];
     $(nextBranch).fadeIn('fast');
 
     for (var i = 1; i <= 8; i++) {
@@ -1060,7 +1092,9 @@ function startEntryFromBranch(nextBranch) {
   //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
   if (!goingBack) {
     console.log("Pushing into stack..................................................................");
-    pageStack.push(currentPage);
+    if (pageStack[pageStack.length - 1] != currentPage) {
+      pageStack.push(currentPage);
+    }
     goingBack = false;
   }
 
@@ -1072,22 +1106,23 @@ function goBack() {
   if (pageStack.length >= 1) {
     //Custom comebacks
     var previousPage = pageStack.pop();
+    goingBack = true;
     if (currentPage != "home") {
-
       previousBranch = '.' + previousPage + 'events';
       nexteventId = previousPage;
       forwardStack.push(currentPage);
       if (previousPage != "home") {
-        goingBack = true;
         onlyRevert(activeId, true, previousBranch);
       }
       else {
-        closeHomeIn();
-        $(previousBranch).html("");
+        closeHomeIn(true);
+        //$(previousBranch).html("");
       }
     }
     else {
+      $('.topimage').unbind('click', closeHomeIn);
       openHome(previousPage);
+      document.title = branchTitles[pages.indexOf(currentPage)];
       //startEntry(previousPage, 1);
     }
   }

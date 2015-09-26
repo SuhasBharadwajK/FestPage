@@ -33,8 +33,13 @@ if (navigator.userAgent.indexOf("Firefox") > -1 || navigator.userAgent.indexOf("
 switches = Array("#switch1", "#switch2", "#switch3", "#switch4", "#switch5", "#switch6", "#switch7", "#switch8");
 
 $(document).keyup(function(e) {
-  if (e.keyCode == 13) closeBranches();
-  if (e.keyCode == 27) closeBranches();
+  if (e.keyCode == 13) {
+    closeBranches();
+    if (poppedup) {
+      popitdown();
+    }
+  }
+  //if (e.keyCode == 27) closeBranches();
 });
 
 // $(document).ready(function() {
@@ -217,6 +222,7 @@ function expandFirst(bevent) {
             $(this).children('span').fadeIn('400', function(){$('.topimage').bind('click', closeHomeIn);});
             $('.events').bind('click', eventClicked);
             animating = false;
+            goingBack = false;
         });
       });
   });
@@ -237,7 +243,7 @@ function popitup() {
     $(".popup").fadeIn().animate({
       height: 600,
       width: 800,
-      marginTop:20,
+      marginTop:0,
       marginLeft:240,
       borderRadius: 0},
       'slow', "easeInOutQuint", function() {
@@ -405,6 +411,7 @@ function revert(revertId, currentId) {
             }
             else {
               animating = false;
+              $('.topimage').unbind('click', closeHomeIn);
             }
             $(branchevent + " #" + revertId).children('.eventname').css({ 'margin-top': topMargins[pages.indexOf(currentPage)][factor-1] });
             $(this).children('span').fadeIn('fast', function(){
