@@ -1,7 +1,7 @@
 <div class="container1">
 
         <div id="l1" class="events">
-          <span class="eventname">Robotics Competition</span>
+          <span class="eventname" value="mecrbc">Robotics Competition</span>
           <div class="eventdescription">
             <br>
           </div>
@@ -23,7 +23,7 @@
         </div>
 
         <div id="l2" class="events">
-          <span class="eventname">Model Presentation</span>
+          <span class="eventname" value="mecmod">Model Presentation</span>
           <div class="eventdescription">
             <br>
           </div>
@@ -46,7 +46,7 @@
 
 
         <div id="l3" class="events">
-          <span class="eventname">Poster Presentation</span>
+          <span class="eventname"value="mecpop">Poster Presentation</span>
           <div class="eventdescription">
             <br/>
           </div>
@@ -69,7 +69,7 @@
 
 
         <div id="l4" class="events">
-          <span class="eventname">Technical Quiz</span>
+          <span class="eventname"value="mecteq">Technical Quiz</span>
           <div class="eventdescription webded">
             <br>
           </div>
@@ -92,7 +92,7 @@
 
 
         <div id="l5" class="events">
-          <span class="eventname">Make in India Debate</span>
+          <span class="eventname"value="mecmid">Make in India Debate</span>
           <div class="eventdescription">
             <br/>
           </div>
@@ -115,7 +115,7 @@
 
 
         <div id="l6" class="events">
-          <span class="eventname">Paper Presentation</span>
+          <span class="eventname"value="mecppr">Paper Presentation</span>
           <div class="eventdescription">
             <br>
           </div>

@@ -1,7 +1,7 @@
 <div class="container1"  tabindex="-1">
 
         <div id="l1" class="events"  tabindex="-1">
-          <span class="eventname">C &nbsp;Programming Challenge</span>
+          <span class="eventname" value="csecpc">C &nbsp;Programming Challenge</span>
           <div class="eventdescription">
             <br>
           </div>
@@ -23,7 +23,7 @@
         </div>
 
         <div id="l2" class="events" tabindex="-1">
-          <span class="eventname">Java Debugging Contest</span>
+          <span class="eventname" value="csejdc">Java Debugging Contest</span>
           <div class="eventdescription">
             <div class="descleft">
               <div class="leftheading">Rules:</div>
@@ -84,7 +84,7 @@
 
 
         <div id="l3" class="events">
-          <span class="eventname">LAN Gaming</span>
+          <span class="eventname" value="cselag">LAN Gaming</span>
           <div class="eventdescription">
             <br/>
           </div>
@@ -107,7 +107,7 @@
 
 
         <div id="l4" class="events">
-          <span class="eventname">Web Design Contest</span>
+          <span class="eventname"  value="csewdc">Web Design Contest</span>
           <div class="eventdescription webded">
             <div class="descleft">
               <div class="leftheading">Rules:</div>
@@ -187,7 +187,7 @@
 
 
         <div id="l5" class="events">
-          <span class="eventname">Technical Treasure Hunt</span>
+          <span class="eventname" value="csetth">Technical Treasure Hunt</span>
           <div class="eventdescription">
             <br/>
           </div>
@@ -210,7 +210,7 @@
 
 
         <div id="l6" class="events">
-          <span class="eventname">Film Making on Green Computing</span>
+          <span class="eventname" value="csecfgc">Film Making on Green Computing</span>
           <div class="eventdescription">
             <div class="descleft">
               <div class="leftheading">Rules: </div>
@@ -254,7 +254,7 @@
 
 
         <div id="l7" class="events">
-          <span class="eventname">Project Exhibition</span>
+          <span class="eventname"  value="csepex">Project Exhibition</span>
           <div class="eventdescription">
             <div class="eventheading">Rules:</div>
             <div class="descleft">
@@ -303,7 +303,7 @@
 
 
         <div id="l8" class="events">
-          <span class="eventname">Paper Presentation</span>
+          <span class="eventname" value="cseppr">Paper Presentation</span>
           <div class="eventdescription">
             <!-- <div class="eventheading">Rules:</div> -->
             <div class="descleft">

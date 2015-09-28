@@ -120,7 +120,7 @@ body * {
   //margin-left: 400px;
   //margin-top: -10px;
   margin-top: 300px;
-  margin-left: 640px;
+  margin-left: 650px;
   //margin-top: 300px;
   background-color: white;
   //border: 2px solid black;
@@ -149,6 +149,7 @@ body * {
 .group {
   display: none;
   position:absolute;
+  font-family: "Droid Sans";
 }
 
 #namegroup {
@@ -182,8 +183,8 @@ body * {
 }
 
 #branchgroup {
-  margin-top: 212px;
   margin-left: 222px;
+  margin-top: 212px;
 }
 
 #markedeventsgroup {
@@ -202,7 +203,7 @@ body * {
   background-color: transparent;
   width: 663px;
   height: 210px;
-  overflow: auto;
+  overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.59);
   border-radius: 5px;
 }
@@ -220,16 +221,43 @@ body * {
   z-index: 555;
 }
 
+.markedevents:hover {
+  overflow-y: auto;
+}
+
+.markedevents::-webkit-scrollbar {
+  width: 5px;
+}
+
+.markedevents::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5px;
+  //outline: 1px solid slategrey;
+}
+
+.markedevents::-webkit-scrollbar-track {
+  display: none;
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.markedevents::-moz-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+
 .deleteevent {
-  position: absolute;
+  //position: absolute;
+  float: right;
   font-size: 20px;
   width: 25px;
   height: 25px;
   margin-top: -24px;
-  margin-left: 620px;
+  margin-left: 610px;
+  margin-right: 10px;
   border-radius: 50px;
   transition: background-color ease 500ms;
   overflow: hidden;
+  z-index: 550 !important;
 }
 
 .deleteevent img {
@@ -762,6 +790,7 @@ body * {
 }
 
 .register {
+
   position: absolute;
   overflow:hidden;
   font-size: 23px;
@@ -787,11 +816,46 @@ body * {
   box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
 }
 
-#submitbutton {
+.registercancel {
+  position: absolute;
+  overflow:hidden;
+  font-size: 23px;
+  margin-left: 1085px;
+  margin-top: 10px;
+  padding-top: 20px;
+  height: 50px;
+  width: 150px;
+  background-color: #F44336;
+  //background-color: white;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 400;
+  cursor: pointer;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
+  box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.48);
+}
+
+#minimizebutton {
+  font-family: 'Anivers';
   display: none;
   z-index: 500 !important;
   margin-top: 510px;
-  margin-left: 600px;
+  margin-left: 566px;
+}
+
+#submitbutton {
+  font-family: 'Anivers';
+  display: none;
+  z-index: 500 !important;
+  margin-top: 510px !important;
+  margin-left: 48px !important;
 }
 
 .ripple {
@@ -800,7 +864,7 @@ body * {
   width: 50px;
   height: 50px;
   background: white;
-  animation: ripple-animation 2s;
+  animation: ripple-animation 0.5s;
 }
 
 .marker {

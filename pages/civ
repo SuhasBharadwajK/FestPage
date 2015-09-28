@@ -1,9 +1,9 @@
-
-      <div class="container1">
+<div class="container1">
 
         <div id="l1" class="events">
-          <span class="eventname">Robotics Competition</span>
+          <span class="eventname" value="civteq">Technical Quiz</span>
           <div class="eventdescription">
+            <br>
           </div>
           <div class="bottompanel">
             <div class="coordinators">
@@ -23,7 +23,7 @@
         </div>
 
         <div id="l2" class="events">
-          <span class="eventname">Project Expo</span>
+          <span class="eventname" value="civccb">Cubo Casting</span>
           <div class="eventdescription">
             <br>
           </div>
@@ -46,7 +46,7 @@
 
 
         <div id="l3" class="events">
-          <span class="eventname">Circuit Debugging</span>
+          <span class="eventname" value="civccr">Code Cracking</span>
           <div class="eventdescription">
             <br/>
           </div>
@@ -69,7 +69,7 @@
 
 
         <div id="l4" class="events">
-          <span class="eventname">JAM</span>
+          <span class="eventname" value="civcad">CAD Modelling</span>
           <div class="eventdescription webded">
             <br>
           </div>
@@ -92,7 +92,7 @@
 
 
         <div id="l5" class="events">
-          <span class="eventname">Poster Presentation</span>
+          <span class="eventname" value="civhfc">Hassle Free City</span>
           <div class="eventdescription">
             <br/>
           </div>
@@ -115,7 +115,30 @@
 
 
         <div id="l6" class="events">
-          <span class="eventname">Quiz Competition</span>
+          <span class="eventname" value="civsrc">Survey Contest</span>
+          <div class="eventdescription">
+            <br>
+          </div>
+          <div class="bottompanel">
+            <div class="coordinators">
+              <div class="coordinatorsare">Coordinators:</div>
+              <div class="coordinator1 coordinator">A. Pramod Kumar 9908892577</div>
+              <div class="coordinator2 coordinator">Name Name 9999999999</div>
+            </div>
+            <div class="price">Registration fee for this event is Rs. 100 per team.</div>
+            <div class="marker">
+              <div class="mark">Mark this event for registration</div>
+              <input type="checkbox" class="switch" id="switch6" />
+              <label for="switch" class="label"></label>
+              <div class="forff"></div>
+            </div>
+            <div class="register registerbutton">Register Now!</div>
+          </div>
+        </div>
+
+
+        <div id="l7" class="events">
+          <span class="eventname" value="civspm">Spot Modelling</span>
           <div class="eventdescription">
             <br>
           </div>
@@ -128,7 +151,7 @@
             <div class="price">Registration fee for this event is Rs. 100 per team.</div>
             <div class="marker">
               <div class="mark">Mark this event for registration</div>
-              <input type="checkbox" class="switch" id="switch8" />
+              <input type="checkbox" class="switch" id="switch7" />
               <label for="switch" class="label"></label>
               <div class="forff"></div>
             </div>
@@ -136,10 +159,44 @@
           </div>
         </div>
 
-        <div id="l7" class="events">
-          <span class="eventname">Paper Presentation</span>
+
+        <div id="l8" class="events">
+          <span class="eventname" value="civppr">Paper Presentation</span>
           <div class="eventdescription">
-            <br>
+            <!-- <div class="eventheading">Rules:</div> -->
+            <div class="descleft">
+              <div class="leftheading">Rules:</div>
+              <div class="leftcontent pplc">
+                <ul>
+                  <li>Maximum team size is 2.</li>
+                  <li>Any number of teams from a college can present their papers.</li>
+                  <li>The paper should be in IEEE double column format.</li>
+                  <li>Total number of pages per paper is limited to 5.</li>
+                  <li>Paper should be the original contribution of the authors and it should not have been presented in any other symposium.</li>
+                  <li>One soft copy of a paper (with email and contact number) should be sent to faceit-2k15.civil@aceec.ac.in</li>
+                  <li>Presentation should be made using Microsoft Office PowerPoint.</li>
+                  <li>Time allotted for  presentation is 12 minutes and for question answering, 3 minutes.</li>
+                  <li>Participant should have valid identity card of their college.</li>
+                  <li>The participants are required to come with hard and soft copies of the paper on the day of presentation.</li>
+                  <li>Teams should regularly visit our website for any changes or updates made by the coordinators.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="descright">
+              <div class="rightheading">Topics:</div>
+              <div class="rightcontent">
+                <ul>
+                  <li>Structural Experiments</li>
+                  <li>Water Resources Engergy</li>
+                  <li>Geotechnical and Transport Engineering</li>
+                  <li>Environmental Engineering</li>
+                </ul>
+                <div class="rightinnerheading">Deadline:</div>
+                <ul>
+                  <li>Last date for sumbission of soft copies is 28<sup>th</sup> of September, 2015 and the date of intimation is 1<sup>st</sup> of October, 2015.</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="bottompanel">
             <div class="coordinators">
@@ -158,5 +215,3 @@
           </div>
         </div>
       </div>
-
-

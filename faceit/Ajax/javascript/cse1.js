@@ -21,7 +21,6 @@ var subtracts = Array(10, 12, 13, 10, 13, 10);
 var branchevent;
 var closingIn = false;
 var markedEvents = Array();
-var markedEventCodes = Array();
 var registeredEventIds = Array();
 toasts = Array();
 
@@ -86,9 +85,6 @@ function setHandlers() {
       currentPageEvent = "." + currentPage + "events" + " #" + currentId;
       if ($(this).is(":checked")) {
         $(this).parent().children('.mark').html("This event has been marked");
-        if (markedEventCodes.indexOf($(this).parent().parent().parent().children('.eventname').attr('value')) < 0) {
-          markedEventCodes.push($(this).parent().parent().parent().children('.eventname').attr('value'));
-        }
         if (markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()) < 0) {
           markedEvents.push($(this).parent().parent().parent().children('.eventname').html());
           if (registeredEventIds.indexOf(currentPageEvent) < 0) {
@@ -104,7 +100,6 @@ function setHandlers() {
         $(this).parent().children('.mark').html("Mark this event for registration");
         markedEvents.splice(markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()), 1);
         registeredEventIds.splice(registeredEventIds.indexOf(currentPageEvent), 1);
-        markedEventCodes.splice($(this).parent().parent().parent().children('.eventname').attr('value'), 1);
         // if (lastEvent == $(this).parent().parent().parent().children('.eventname').html()) {
         //   lastEvent = markedEvents.pop();
         //   //markedEvents.push(lastEvent);
@@ -160,7 +155,7 @@ function setHandlers() {
       window.setTimeout(function(){
         $div.remove();
         //popitup();
-      }, 500);
+      }, 1000);
 
     });
 
@@ -169,18 +164,11 @@ function setHandlers() {
       //$(this).
 
       var $eventName = $(this).parent().parent().children('.eventname').html()
-      currentPageEvent = "." + currentPage + "events" + " #" + currentId;
       // console.log("THIS" + $eventName);
       // console.log("THIS" + $(this));
-      if (markedEventCodes.indexOf($(this).parent().parent().children('.eventname').attr('value')) < 0) {
-        markedEventCodes.push($(this).parent().parent().children('.eventname').attr('value'));
-      }
       if (markedEvents.indexOf($eventName) < 0) {
         markedEvents.push($eventName);
         count++;
-        if (registeredEventIds.indexOf(currentPageEvent) < 0) {
-          registeredEventIds.push(currentPageEvent);
-        }
         //console.log("WWW" + $(this));
       }
       $(this).parent().children('.marker').children('.switch').prop('checked', true);
@@ -231,13 +219,11 @@ function setHandlers() {
     /*
                   DELETE EVENT
     */
-    // $('.deleteevent').click(function(event) {
-    //   //alert("Will Close!");
-    //   var $eventToDelete = $(this);
-    //   $eventToDelete.parent().fadeOut(400, function() {$eventToDelete.parent().remove();});
-    //   // markedEvents.splice();
-    //   console.log($eventToDelete.parent().children('selector').html());
-    // });
+    $('.deleteevent').click(function(event) {
+      //alert("Will Close!");
+      var $eventToDelete = $(this);
+      $eventToDelete.parent().fadeOut(400, function() {$eventToDelete.parent().remove();});
+    });
 }
 
 function expandFirst(bevent) {
@@ -283,9 +269,6 @@ function popitup() {
   fillWithEvents($(this));
 
   if (!poppedup) {
-    $('.popup').css({
-      'background-color': 'white'
-    });
     animating = true;
     $(".popup").fadeIn().animate({
       height: 600,
@@ -305,8 +288,6 @@ function popitdown() {
   if (poppedup) {
     animating = true;
     $(".popup").children().fadeOut('fast', function() {
-      $('.successtext').remove();
-      $('.successtick').remove();
       $('.popup').animate({
         height: 0,
         width: 0,
@@ -314,11 +295,7 @@ function popitdown() {
         marginLeft:640,
         borderRadius: 50},
         'slow', "easeInOutQuint");
-      $('.popup').fadeOut('fast', function() {
-        $('.popup').css({
-          'background-color': 'white'
-        });
-      });
+      $('.popup').fadeOut('fast');
       $('div').clearQueue();
       poppedup = false;
       animating = false;
@@ -400,7 +377,6 @@ function fillWithEvents($fillArea) {
         $(branchevent + " #l" + i).children('.bottompanel').children('.marker').children('.switch').prop('checked', false);
         $(branchevent + " #l" + i).children('.bottompanel').children('.marker').children('.mark').html('Mark this event for registration');
         markedEvents.splice(markedEvents.indexOf($(branchevent + "#l" + i).children('.eventname').html()), 1);
-        markedEventCodes.splice($(branchevent + "#l" + i).children('.eventname').attr('value'), 1);
         $(branchevent + " #l" + i).children('.bottompanel').children('.marker').children('.forff').animate( {'left': '-5px'}, 'fast');
         //toast($("#l" + i).children('.eventname').html()); //TODO Ucomment after implementing proper toast mechanism.
       }
@@ -593,13 +569,9 @@ function marked() {
     $(this).parent().children('.switch').prop('checked', false);
     markedEvents.splice(markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()), 1);
     registeredEventIds.splice(registeredEventIds.indexOf(currentPageEvent));
-    markedEventCodes.splice(markedEventCodes.indexOf($(this).parent().parent().parent().children('.eventname').attr("value")), 1);
   }
   else {
     $(this).parent().children('.switch').prop('checked', true);
-    if (markedEventCodes.indexOf($(this).parent().parent().parent().children('.eventname').attr('value')) < 0) {
-      markedEventCodes.push($(this).parent().parent().parent().children('.eventname').attr('value'));
-    }
     if (markedEvents.indexOf($(this).parent().parent().parent().children('.eventname').html()) < 0) {
       markedEvents.push($(this).parent().parent().parent().children('.eventname').html());
       if (registeredEventIds.indexOf(currentPageEvent) < 0) {

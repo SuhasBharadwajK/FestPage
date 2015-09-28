@@ -325,7 +325,7 @@ $(document).ready(function() {
       // }
       lastPage = pageStack[pageStack.length - 1];
       var client = new XMLHttpRequest();
-      client.open('GET', '/pages/' + eventId);
+      client.open('GET', '/pages/' + eventId + '2' );
       client.onreadystatechange = function() {
         //console.log(client.responseText);
         $('.' + currentPage +'events').html(client.responseText);
@@ -396,7 +396,7 @@ $(document).ready(function() {
   });
 
   $(window).resize(function(event) {
-    //console.log("resizing");
+    console.log("resizing");
     respond();
   });
 
@@ -476,7 +476,6 @@ $(document).ready(function() {
   //
   //   window.history.pushState('forward', null, './#forward');
   // }
-  $('#submitbutton').click(register);
 
 });
 
@@ -510,9 +509,6 @@ function startEntry(page, num) {
                 if (registeredEventIds.indexOf(branchevent + " #l" + i) >= 0) {
                   console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
                   $(branchevent + " #l" + i + " .switch").prop('checked', true);
-                  $(branchevent + " #l" + i + " .forff").css({'left':'30px'});
-                  $(branchevent + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
-                  //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
                 }
               });
           }
@@ -1062,7 +1058,7 @@ function startEntryFromBranch(nextBranch) {
   var reachedEnd = false;
   var time = 0;
   var client = new XMLHttpRequest();
-  client.open('GET', '/pages/' + nexteventId);
+  client.open('GET', '/pages/' + nexteventId + '2' );
   client.onreadystatechange = function() {
     //console.log(client.responseText);
     $(nextBranch).html(client.responseText);
@@ -1080,9 +1076,7 @@ function startEntryFromBranch(nextBranch) {
       if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
         console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
         $(nextBranch + " #l" + i + " .switch").prop('checked', true);
-        $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
         $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
-        //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
       }
       if ($(nextBranch + " #l" + i).attr('id') == undefined) {
         reachedEnd = true;
@@ -1153,148 +1147,5 @@ function goBack() {
   }
   else {
     history.go(-2);
-  }
-}
-
-function register() {
-  var validCount = 0;
-  //successfulRegister("Suhas");
-  name = $("#name").val();
-  email = $("#email").val();
-  college = $("#college").val();
-  rollnum = $("#rollno").val();
-  year = $("#year").children('span').html();
-  branch = $("#branch").children('span').html();
-  phonenum = $("#phno").val();
-  allEvents = "";
-  eventCodes = JSON.stringify(markedEventCodes);
-  refcode = $(".refcodetext").val();
-  var dataToSend
-
-  if (name == "") {
-    setTimeout(function(){
-      alert("You wanted to register without a name? Come on! You can't be serious!");
-    }, 550);
-  }
-  else if (!/^([A-Z]{1}[.]?[a-z]*[^!_@#$%\^\-0-9]*[\s]?)([A-Z]{1}[.]?[a-z]*[^!_@#$%\^\-0-9]*[\s]?)+$/.test(name)) {
-    alert("Would you mind entering your name properly? It's your name after all, isn't it? So, please.")
-  }
-  else {
-    validCount++;
-    if (!/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(email)) {
-      setTimeout(function(){
-        alert("Email should be in the form: someone@somesite.com. See what you typed, again. Please. For the love of Batman.");
-      }, 550);
-    }
-    else {
-      validCount++;
-      if (college == "") {
-        //Semi regex for proper name /^([A-Z]{1}[.]?[a-z]*[\s]?)([A-Z]{1}[.]?[a-z]*[\s]?)*$/
-        setTimeout(function(){
-          alert("You don't go to a college? Isn't that sad? Well, if you do, then enter your college's name.")
-        }, 550);
-      }
-      else {
-        validCount++;
-        if (rollnum == "") {
-          setTimeout(function(){
-            alert("Didn't your college give you a roll number? Isn't that sadder? Then enter your roll number!")
-          }, 550);
-        }
-        else {
-          validCount++;
-          if (year == "Year") {
-            setTimeout(function(){
-              alert("You've studied for a year, at the least, haven't you? Select your year then!");
-            }, 550);
-          }
-          else {
-            validCount++;
-            if (branch == "Branch") {
-              setTimeout(function(){
-                alert("Do you even engineering bro? Then select your branch mister/miss/whatever.");
-              }, 550);
-            }
-            else {
-              validCount++;
-              if (!/^[7-9]{1}\d{9}$/.test(phonenum)) {
-                setTimeout(function(){
-                  alert("An Indian mobile phone number contains 10 digits, starting with 9, 8 or 7. What age are you from? The Stone one?");
-                }, 550);
-              }
-              else {
-                validCount++;
-                if (markedEvents.length == 0) {
-                  setTimeout(function(){
-                    alert("Oh! So you want to register but don't want to participate in any event. Then what exactly are you registering for? Just tinker around with this beautiful website and go mind your business.");
-                  }, 550);
-                }
-                else {
-                  validCount++;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  if (validCount == 8) {
-    //successfulRegister(name);
-    for (anEvent in markedEvents) {
-      if (anEvent == markedEvents.length - 1) {
-        allEvents += markedEvents[anEvent].replace("&nbsp;", "");
-      }
-      else {
-        allEvents += markedEvents[anEvent].replace("&nbsp;", "") + ",";
-      }
-    }
-
-    dataToSend = 'name=' + name + '&email=' + email + '&college=' + college + '&rollnum=' + rollnum + '&year=' + year + '&branch=' + branch + '&phonenum=' + phonenum + '&allevents=' + allEvents + '&eventCodes=' + eventCodes + '&refcode=' + refcode;
-
-    $.ajax({
-      url: 'register.php',
-      type: 'POST',
-      data: dataToSend,
-      cache: false,
-      success: function(result) {
-        //console.log(result);
-        if (result.indexOf("Duplicate") >= 0) {
-          setTimeout(function() {alert("It appears you, or someone else, has already registered for these events with that email. Try something else.")}, 550);
-        }
-        else {
-          successfulRegister(name);
-          console.log(result);
-        }
-        //successfulRegister(name);
-        // console.log("The inserttion was a " + result);
-        // if (result == "success") {
-        //
-        // }
-      },
-      error: function(result) {
-        console.log(result);
-      }
-    });
-
-  }
-}
-
-function successfulRegister(name) {
-  if (poppedup) {
-    $('.popup').children().fadeOut('fast', function() {
-    });
-    $('.popup').animate({
-      backgroundColor: 'rgb(4, 179, 68)'},
-      800, function() {
-        $('.popup').append("<img class='successtick' src='images/tick.png' /> <div class='successtext'>Thank you, " + name + ", for your registration. See you soon!</div>");
-        $('.successtext').fadeIn(500);
-        $('.successtick').css({
-          '-webkit-transform': 'rotateY(0deg)',
-          '-o-transform': 'rotateY(0deg)',
-          '-ms-transform': 'rotateY(0deg)',
-          '-moz-transform': 'rotateY(0deg)'
-        });
-    });
   }
 }

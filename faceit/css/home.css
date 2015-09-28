@@ -554,6 +554,60 @@ body {
   display: none;
 }
 
+.errortext {
+  display: none;
+  position: relative;
+  font-size: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 280px;
+  cursor: default;
+  font-family: "Droid Sans";
+}
+
+.refcode {
+  display: none;
+}
+
+.refcodetext {
+  font-family: "Droid Sans";
+  position: absolute;
+  margin-top: 520px;
+  margin-left: 300px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgb(73, 73, 73);
+  text-align: center;
+}
+
+.successtick {
+  width: 300px;
+  margin-left: 230px;
+  margin-top: 40px;
+
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+  -webkit-transform: rotateY(90deg);
+  -o-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -moz-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+
+.successtext {
+  display: none;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: 'Anivers';
+}
+
 .cseevents {
   //display: none;
   position: absolute;
