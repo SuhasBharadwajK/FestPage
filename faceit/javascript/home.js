@@ -126,9 +126,7 @@ function doneLoading() {
                 },
                 800);
               });
-            //   $(this).fadeTo('fast', 1, function() {
-            //
-            // });
+
             $("#ece").fadeTo('fast', 1, function() {
               $(this).animate({
                 left: "-=18px",
@@ -136,17 +134,13 @@ function doneLoading() {
                 },
                 800);
               });
-            //   $(this).fadeTo('fast', 1, function() {
-            //
-            // });
+
             $("#mech").fadeTo('fast', 1, function() {
               $(this).animate({
                 left: "+=20px"
                 },
                 800);
-              // $(this).fadeTo('fast', 1, function() {
-              //
-              //   });
+
             });
             $("#civ").fadeTo('fast', 1, function() {
               $(this).animate({
@@ -154,9 +148,7 @@ function doneLoading() {
                 },
                 800);
               });
-            //   $(this).fadeTo('fast', 1, function() {
-            //
-            // });
+
             $("#it").fadeTo('fast', 1, function() {
               $(this).animate({
                 left: "+=20px",
@@ -164,9 +156,7 @@ function doneLoading() {
                 },
                 800);
               });
-            //   $(this).fadeTo('fast', 1, function() {
-            //
-            // });
+
             $("#eee").fadeTo('fast', 1, function() {
               $(this).animate({
                 left: "-=20px",
@@ -174,15 +164,10 @@ function doneLoading() {
                 },
                 800);
               });
-            //   $(this).fadeTo('fast', 1, function() {
-            //
-            // });
+
 
           });
-          //   $(this).fadeTo('fast', 1, function() {
-          //
-          //
-          // });
+
 
         });
     });
@@ -248,7 +233,6 @@ window.onload = function () {
             }
             //animating = true;
             // Handle the back (or forward) buttons here
-            // Will NOT handle refresh, use onbeforeunload for this.
         };
     }
     else {
@@ -257,11 +241,6 @@ window.onload = function () {
             if (!ignoreHashChange) {
                 ignoreHashChange = true;
                 window.location.hash = Math.random();
-
-                // Detect and redirect change here
-                // Works in older FF and IE9
-                // * it does mess with your hash symbol (anchor?) pound sign
-                // delimiter on the end of the URL
             }
             else {
                 ignoreHashChange = false;
@@ -341,14 +320,8 @@ $(document).ready(function() {
       //$('.events').unbind('click', eventClicked);
       var branch = $(this).children('.hexagon1').children('.hexagon2').children('a').html();
       event.preventDefault();
-      //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
       $('.branchlisttop').children('span').html(branch);
-
-      //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
       $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'none'});
-      //pageStack.push(currentPage);
-      //alert(currentPage);
-      //$('.events').unbind('click', eventClicked);
       if (currentPage != "home") {
         var eventnum = "";
         $('.lefthalf').animate({
@@ -363,9 +336,6 @@ $(document).ready(function() {
           right: '-57.5%'
           },
           800, 'easeInOutCirc', function() {
-            // $(this).fadeOut('fast', function() {
-            //
-            // });
           });
         $('.backgroundimage1').animate({
           right: '-57.5%'
@@ -384,10 +354,6 @@ $(document).ready(function() {
       }
     }
   });
-
-  // $('.branchlisttop').click(function(event) {
-  //
-  // });
 
   $('.branchfromlist').click(selectFromList);
 
@@ -456,26 +422,6 @@ $(document).ready(function() {
       openNav();
     }
   });
-  //$('.topimage').click(closeHomeIn);
-
-
-  // if (window.history && window.history.pushState) {
-  //
-  //   $(window).on('popstate', function() {
-  //     var hashLocation = location.hash;
-  //     var hashSplit = hashLocation.split("#!/");
-  //     var hashName = hashSplit[1];
-  //
-  //     if (hashName !== '') {
-  //       var hash = window.location.hash;
-  //       if (hash === '') {
-  //         alert('Back button was pressed.');
-  //       }
-  //     }
-  //   });
-  //
-  //   window.history.pushState('forward', null, './#forward');
-  // }
   $('#submitbutton').click(register);
 
 });
@@ -487,12 +433,6 @@ function openBranch() {
 
 function startEntry(page, num) {
   animating = true;
-  // $.getScript( "javascript/cse1.js", function( data, textStatus, jqxhr ) {
-  //   console.log( data ); // Data returned
-  //   console.log( textStatus ); // Success
-  //   console.log( jqxhr.status ); // 200
-  //   console.log( "Load was performed." );
-  // });
 
   var branchevent = "." + page + "events";
   if (page != "home") {
@@ -609,52 +549,6 @@ function openHome(previousPage) {
     800, 'easeInOutCirc',function() {
       startEntry(previousPage, 1);
     });
-
-  /*
-  eventId = $(this).attr("id");
-  console.log("Bloody hell " + eventId);
-  if (eventId != "faceit") {
-    if (eventId == "it") {
-      //eventId = "cse";
-      currentPage = "it";
-    }
-    else {
-      currentPage = eventId;
-    }
-    // if (currentPage != "home") {
-    //   pageStack.push(currentPage);
-    // }
-    lastPage = pageStack[pageStack.length - 1];
-    var client = new XMLHttpRequest();
-    client.open('GET', '/pages/' + eventId + '2' );
-    client.onreadystatechange = function() {
-      //console.log(client.responseText);
-      $('.' + currentPage +'events').html(client.responseText);
-      console.log('These events .' + eventId +'events');
-      setHandlers();
-      $('.events').unbind('click', eventClicked);
-    }
-    client.send();
-  }
-  //alert($(this).attr("id").toUpperCase());
-  if (eventId != "faceit") {
-
-    //$('.events').unbind('click', eventClicked);
-    var branch = $(this).children('.hexagon1').children('.hexagon2').children('a').html();
-    event.preventDefault();
-    //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
-    $('.branchlisttop').children('span').html(branch);
-
-    //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
-    $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'none'});
-    //pageStack.push(currentPage);
-    //alert(currentPage);
-    //$('.events').unbind('click', eventClicked);
-    if (currentPage != "home") {
-      var eventnum = "";
-
-    }
-  }*/
 }
 
 function fadeThemOut() {
@@ -687,20 +581,19 @@ function fadeThemOut() {
       $('.backgroundimage').animate({
         right: '0px'},
         900, 'easeOutCubic', function() {
-        /* stuff to do after animation is complete */
+
       });
       $('.backgroundimage1').animate({
         right: '0px'},
         900, 'easeOutCubic', function() {
-        /* stuff to do after animation is complete */
+
         $('.social').fadeIn(300, function() {
           currentPage = "home";
-          //pageStack.push(currentPage);
+
           activeId = "l1";
-          //activeIds[pages.indexOf(eventId)] = activeId;
+
           $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
-          //$(otherBackground).css({'display':'block'});
-          //backgroundChange = setInterval(changeBackground, 3500);
+
           $('.topimage').bind('click', closeHomeIn);
           animating = false;
 

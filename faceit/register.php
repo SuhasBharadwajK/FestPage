@@ -68,36 +68,24 @@
   $branches = array("cse" => $cse, "ece" => $ece, "mec" => $mec, "civ" => $civ, "eee" => $eee);
 
   foreach ($branches as $abranch => $branchevs) {
+    $deptentered = FALSE;
     $branchconn = new mysqli($servername, $username, $password, $dbname);
     if ($branchconn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    # code...
     $eventsToPushBranch = "";
     foreach ($branchevs as $eventname => $eventcode) {
       $eventconn = new mysqli($servername, $username, $password, $dbname);
       if ($eventconn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
-      # code...
       if (in_array($eventcode, $eventCodes)) {
-        # code...
         $eventsToPushBranch .= $eventname . ',';
         $eventsToPush .= $eventname . ',';
-
-        $branchquery = "INSERT INTO {$abranch}(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPushBranch')";
-        if ($branchconn->query($branchquery) === TRUE) {
-          # code...
-          //echo "Successfully Registered";
-        }
-        else {
-          echo "Error: " . $branchquery . "<br>" . $branchconn->error;
-        }
-
+        $deptentered = TRUE;
         $eventquery = "INSERT INTO {$eventcode}(name, email, college, year, branch, rollnum, phonenum, refcode) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode')";
-        if ($eventconn->query($eventquery) === TRUE) {
-          # code...
-          //echo "Successfully Registered";
+        $eventquerybool = $eventconn->query($eventquery);
+        if ($eventquerybool === TRUE) {
         }
         else {
           echo "Error: " . $eventquery . "<br>" . $eventconn->error;
@@ -105,9 +93,18 @@
       }
       $eventconn->close();
     }
+    if ($deptentered === TRUE) {
+      # code...
+      $branchquery = "INSERT INTO {$abranch}(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPushBranch')";
+      $branchquerybool = $branchconn->query($branchquery);
+      if ($branchquerybool === TRUE) {
+      }
+      else {
+        echo "Error: " . $branchquery . "<br>" . $branchconn->error;
+      }
+    }
     echo json_encode($branchquery);
     $branchconn->close();
-    //echo json_encode($eventsToPush);
   }
   echo json_encode($eventsToPush);
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -115,120 +112,11 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
-  //echo "Connected successfully";
   $sqlquery = "INSERT INTO registrations(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$events')";
   if ($conn->query($sqlquery) === TRUE) {
-    # code...
-    //echo "Successfully Registered";
   }
   else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
   $conn->close();
-  // foreach ($branches as $abranch => $branchevs) {
-  //   //$branchconn = new mysqli($servername, $username, $password, $dbname);
-  //   # code...
-  //   $eventsToPush = "";
-  //   foreach ($branchevs as $eventname => $eventcode) {
-  //     # code...
-  //     // foreach ($eventArray as $anevent) {
-  //     //   # code...
-  //     //
-  //     // }
-  //     if (in_array($eventname, $eventArray)) {
-  //       # code...
-  //       $eventsToPush = $eventsToPush . $eventname . ',';
-  //       $eventArray = array_merge(array_diff($eventArray, array($eventname)));
-  //       // echo json_encode($abranch);
-  //       // echo json_encode($eventname);
-  //       // echo json_encode($eventcode);
-  //       // echo json_encode($eventArray);
-  //       // echo json_encode($eventsToPush);
-  //
-  //       //$eventquery = "INSERT INTO `{$eventcode}`(name, email, college, year, branch, rollnum, phonenum, refcode) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode')";
-  //       // if ($eventconn->query($eventquery) === TRUE) {
-  //       //   # code...
-  //       //   echo "Registered for event: " . $eventname;
-  //       // }
-  //       // else {
-  //       //   echo "Error: " . $eventquery . "<br>" . $eventconn->error;
-  //       // }
-  //     }
-  //     // //array_merge($eventArray);
-  //   }
-
-
-    //$branchquery = "INSERT INTO '$abranch'(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPush')";
-    // if ($branchconn->query($branchquery) === TRUE) {
-    //   # code...
-    //   echo "Registered for events in: " . $abranch;
-    // }
-    // else {
-    //   echo "Error: " . $branchquery . "<br>" . $branchconn->error;
-    // }
-    //$branchconn.close();
-    //$branchquery = "INSERT INTO " . $abranch . "(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPush')";
-    // if ($branchconn->query($branchquery) === TRUE) {
-    //   # code...
-    //   #echo "Registered for events in: " . $abranch;
-    // }
-    // else {
-    //   echo json_encode("Error: " . $branchquery . "<br>" . $branchconn->error);
-    // }
-    // $branchconn.close();
-  /*
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
-  //echo "Connected successfully";
-  $sqlquery = "INSERT INTO registrations(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$events')";
-  if ($conn->query($sqlquery) === TRUE) {
-    # code...
-    //echo "Successfully Registered";
-  }
-  else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-  $conn->close();
-  foreach ($branches as $abranch => $branchevs) {
-    $branchconn = new mysqli($servername, $username, $password, $dbname);
-    # code...
-    $eventsToPush = "";
-    foreach ($branchevs as $eventname => $eventcode) {
-      $eventconn = new mysqli($servername, $username, $password, $dbname);
-      # code...
-      // foreach ($eventArray as $anevent) {
-      //   # code...
-      //
-      // }
-      if (in_array($eventname, $eventArray)) {
-        # code...
-        $eventsToPush = $eventsToPush . ',' . $eventname;
-        $eventArray = array_merge(array_diff($eventArray, array($eventname)));
-        $eventquery = "INSERT INTO $eventcode(name, email, college, year, branch, rollnum, phonenum, refcode) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode')";
-        if ($eventconn->query($eventquery) === TRUE) {
-          # code...
-          echo "Registered for event: " . $eventname;
-        }
-        else {
-          echo "Error: " . $eventquery . "<br>" . $eventconn->error;
-        }
-      }
-      //array_merge($eventArray);
-      $eventconn.close();
-    }
-    $branchquery = "INSERT INTO '$abranch'(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPush')";
-    if ($branchconn->query($branchquery) === TRUE) {
-      # code...
-      echo "Registered for events in: " . $abranch;
-    }
-    else {
-      echo "Error: " . $branchquery . "<br>" . $branchconn->error;
-    }
-    $branchconn.close();
-  }
-  // $conn->close();*/
-  //$eventconn.close();
 ?>
