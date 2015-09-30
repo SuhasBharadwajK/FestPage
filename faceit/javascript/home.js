@@ -9,6 +9,8 @@ MAJOR TODO: Check the expanding after going back from closed home
 
 ***/
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
+var imagesGot = Array();
+var pagesGot = Array();
 var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer");
 var elementsNumber = 8;
 var currentPage = "home";
@@ -54,14 +56,45 @@ function show(id, value) {
 }
 
 onReady(function () {
+  // imageCount = 0;
+  // for (var i = 0; i < images.length; i++) {
+  //   $.ajax({
+  //     url: 'images/' + images[i],
+  //     type: 'GET',
+  //     success: function(response) {
+  //       imagesGot.push(response);
+  //       imageCount++;
+  //       if (imageCount == images.length) {
+  //
+  //
+  //       }
+  //     }
+  //   });
+  //
+  // }
   if($(window).width() > 1219) {
-    doneLoading();
+    fileCount = 0;
+    for (var i = 0; i < pages.length; i++) {
+      $.ajax({
+        url: 'pages/' + pages[i] + '.html',
+        type: 'GET',
+        cache: false,
+        success: function(response) {
+          pagesGot.push(response);
+          fileCount++;
+          if (fileCount == pages.length) {
+            doneLoading();
+          }
+        }
+      });
+
+    }
   }
   else {
     doneMobileLoading();
-    //doneLoading();
   }
   show('container', true);
+
 });
 
 function doneLoading() {
@@ -303,16 +336,20 @@ $(document).ready(function() {
       //   pageStack.push(currentPage);
       // }
       lastPage = pageStack[pageStack.length - 1];
-      var client = new XMLHttpRequest();
-      client.open('GET', '/pages/' + eventId);
-      client.onreadystatechange = function() {
-        //console.log(client.responseText);
-        $('.' + currentPage +'events').html(client.responseText);
-        console.log('These events .' + eventId +'events');
-        setHandlers();
-        $('.events').unbind('click', eventClicked);
-      }
-      client.send();
+      $('.' + currentPage +'events').html(pagesGot[pages.indexOf(currentPage)]);
+      console.log('These events .' + eventId +'events');
+      setHandlers();
+      $('.events').unbind('click', eventClicked);
+      // var client = new XMLHttpRequest();
+      // client.open('GET', '/pages/' + eventId);
+      // client.onreadystatechange = function() {
+      //   //console.log(client.responseText);
+      //   $('.' + currentPage +'events').html(client.responseText);
+      //   console.log('These events .' + eventId +'events');
+      //   setHandlers();
+      //   $('.events').unbind('click', eventClicked);
+      // }
+      // client.send();
     }
     //alert($(this).attr("id").toUpperCase());
     if (eventId != "faceit") {
@@ -442,7 +479,7 @@ function startEntry(page, num) {
         'slow', function() {
           //$(".cseevents").fadeIn('fast');
           $(branchevent).fadeIn('fast');
-          for (var i = 1; i <= 8; i++) {
+          for (var i = 1; i <= 9; i++) {
             console.log(branchevent);
             $(branchevent + " #l" + i).animate({
               top: '50px'},
@@ -635,7 +672,7 @@ function onlyRevert(revertId, fromList, nextBranch) {
               $('div').stop();
             }).promise().done(
               function() {
-                for (var i = 1; i <= 8; i++) {
+                for (var i = 1; i <= 9; i++) {
                     //$(branchevent + " #" + revertId).finish();
                     //console.log(branchevent);
                     $(branchevent + " #l" + i).css({'display':'block'});
@@ -727,6 +764,8 @@ function setHeight() {
     $(".righthalf").height($(window).height());
     $(".lefthalf").height($(window).height());
     $(".overlay").height($(window).height());
+    $(".backgroundimage").height($(window).height());
+    $(".backgroundimage1").height($(window).height());
   }
   else {
     $(".righthalf").height($(window).height() + 100);
@@ -954,49 +993,86 @@ function startEntryFromBranch(nextBranch) {
   animating = true;
   var reachedEnd = false;
   var time = 0;
-  var client = new XMLHttpRequest();
-  client.open('GET', '/pages/' + nexteventId);
-  client.onreadystatechange = function() {
-    //console.log(client.responseText);
-    $(nextBranch).html(client.responseText);
-    console.log('These events .' + nexteventId +'events');
-    setHandlers();
-    $('.events').unbind('click', eventClicked);
-    document.title = branchTitles[pages.indexOf(nexteventId)];
-    console.log("-------------------TITLE " + document.title);
-    $(nextBranch).fadeIn('fast');
+  $(nextBranch).html(pagesGot[pages.indexOf(nexteventId)]);
+  console.log('These events .' + nexteventId +'events');
+  setHandlers();
+  $('.events').unbind('click', eventClicked);
+  document.title = branchTitles[pages.indexOf(nexteventId)];
+  console.log("-------------------TITLE " + document.title);
 
-    for (var i = 1; i <= 8; i++) {
-      //console.log(branchevent);
-      $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
-      console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
-      if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
-        console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
-        $(nextBranch + " #l" + i + " .switch").prop('checked', true);
-        $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
-        $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
-        //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
-      }
-      if ($(nextBranch + " #l" + i).attr('id') == undefined) {
-        reachedEnd = true;
-        // animating = false;
-        time = 500 + 100*i;
-        break;
-      }
+  $(nextBranch).fadeIn('fast');
+
+  for (var i = 1; i <= 9; i++) {
+    //console.log(branchevent);
+    $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
+    console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
+    if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
+      console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
+      $(nextBranch + " #l" + i + " .switch").prop('checked', true);
+      $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
+      $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
+      //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
     }
-    $('div').clearQueue();
-    //checkUntilEnd = setInterval(function(){}, )
-
-    var branch = branchNames[pages.indexOf(nexteventId)]
-    $('.branchlisttop').children('span').html(branch);
-    $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
-    $('.branchlisttop').children('ul').children('#' + nexteventId + 'select').css({'display':'none'});
-
-    eventId = nexteventId;
-    currentPage = nexteventId;
-
+    if ($(nextBranch + " #l" + i).attr('id') == undefined) {
+      reachedEnd = true;
+      // animating = false;
+      time = 500 + 100*i;
+      break;
+    }
   }
-  client.send();
+  $('div').clearQueue();
+  //checkUntilEnd = setInterval(function(){}, )
+
+  var branch = branchNames[pages.indexOf(nexteventId)]
+  $('.branchlisttop').children('span').html(branch);
+  $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
+  $('.branchlisttop').children('ul').children('#' + nexteventId + 'select').css({'display':'none'});
+
+  eventId = nexteventId;
+  currentPage = nexteventId;
+  // var client = new XMLHttpRequest();
+  // client.open('GET', '/pages/' + nexteventId);
+  // client.onreadystatechange = function() {
+  //   //console.log(client.responseText);
+  //   // $(nextBranch).html(client.responseText);
+  //   // console.log('These events .' + nexteventId +'events');
+  //   // setHandlers();
+  //   // $('.events').unbind('click', eventClicked);
+  //   // document.title = branchTitles[pages.indexOf(nexteventId)];
+  //   // console.log("-------------------TITLE " + document.title);
+  //   // $(nextBranch).fadeIn('fast');
+  //   //
+  //   // for (var i = 1; i <= 9; i++) {
+  //   //   //console.log(branchevent);
+  //   //   $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
+  //   //   console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
+  //   //   if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
+  //   //     console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
+  //   //     $(nextBranch + " #l" + i + " .switch").prop('checked', true);
+  //   //     $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
+  //   //     $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
+  //   //     //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
+  //   //   }
+  //   //   if ($(nextBranch + " #l" + i).attr('id') == undefined) {
+  //   //     reachedEnd = true;
+  //   //     // animating = false;
+  //   //     time = 500 + 100*i;
+  //   //     break;
+  //   //   }
+  //   // }
+  //   // $('div').clearQueue();
+  //   // //checkUntilEnd = setInterval(function(){}, )
+  //   //
+  //   // var branch = branchNames[pages.indexOf(nexteventId)]
+  //   // $('.branchlisttop').children('span').html(branch);
+  //   // $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
+  //   // $('.branchlisttop').children('ul').children('#' + nexteventId + 'select').css({'display':'none'});
+  //   //
+  //   // eventId = nexteventId;
+  //   // currentPage = nexteventId;
+  //
+  // }
+  //client.send();
 
   $('div').clearQueue();
   setTimeout(function() {expandFirst(nextBranch);}, 1100);

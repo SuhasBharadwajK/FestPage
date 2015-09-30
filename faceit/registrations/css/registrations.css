@@ -35,6 +35,15 @@ body {
   //z-index: 5;
 }
 
+.heading {
+  font-family: 'Droid Sans';
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
 .branch {
   font-family: 'Droid Sans';
   color: white;

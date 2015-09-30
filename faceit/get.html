@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX GETs</title>
+    <script type="text/javascript" src="javascript/jquery.js"></script>
+  </head>
+  <style media="screen">
+    .box {
+      width: 200px;
+      height: 200px;
+      //background-color: black;
+    }
+  </style>
+  <body>
+    <div class="box">
+    </div>
+    <div class="fill">
+    </div>
+    <script type="text/javascript">
+      $('.box').click(function(event) {
+        $.ajax({
+          url: '../pages/cse',
+          type: 'GET',
+          cache: false,
+          success: function(response){
+            // console.log(response);
+            //$("#responsecontainer").html(response);
+            //alert(response);
+            //console.log(response);
+          }
+        });
+        $.ajax({
+          url: 'images/pic.jpg',
+          type: 'GET',
+          cache: false,
+          success: function(response){
+            // FileReader reader = new FileReader();
+            // $(this).backgroundImage = 'url(' + response + ')';
+            // console.log(response);
+            //$("#responsecontainer").html(response);
+            //alert(response);
+            // console.log(response);
+
+          }
+        });
+
+      });
+    </script>
+  </body>
+</html>

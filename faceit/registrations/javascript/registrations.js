@@ -52,14 +52,9 @@ $(document).ready(function() {
     }
   });
 
-  // $('.branch .evenmt').click(function(event) {
-  //   $('.branch').css({'border-bottom': 'none'});
-  //   $(this).css({'border-bottom': '5px solid white'});
-  //   currentPage = $(this).attr('value')
-  //   requestTables(currentPage);
-  // });
-
   $('.branch span').click(function(event) {
+    closeMenu($(this).parent('.branch').attr('id'), true);
+    $('.heading span').html($(this).html());
     $('.branch').children(".event").toggle();
     $('.branch').css({'border-bottom': 'none'});
     $(this).parent('.branch').css({'border-bottom': '5px solid white'});
@@ -68,6 +63,7 @@ $(document).ready(function() {
   });
 
   $('.branch .event').click(function(event) {
+    $('.heading span').html($(this).html());
     event.stopPropagation();
     currentPage = $(this).attr('value')
     requestTables(currentPage);

@@ -678,7 +678,10 @@ body {
   position: absolute;
   height: 40px;
   width: 100%;
-  background-color: rgba(112, 112, 112, 0.44);
+  //background-color: rgba(112, 112, 112, 0.44);
+  background-color: rgb(175, 96, 82);
+  //background-color: rgb(72, 106, 89);
+  //#AF6052
   //background-color: white;
   top: 0;
   left: 0;
@@ -788,6 +791,19 @@ body {
 }
 
 @media screen and (max-width: 1219px) {
+
+  .events{
+    display: none;
+  }
+
+  .hexagon {
+    display: none;
+  }
+
+  .hexagon-container {
+    display: none;
+  }
+
   .navdrawer {
     display: block;
     position: absolute;

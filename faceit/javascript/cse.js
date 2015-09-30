@@ -8,7 +8,7 @@ var yearActive = false, branchActive = false;
 var eventPage = true;
 var poppedup = false;
 eventImages = Array("clang.png", "java.png", "lanparty.png");
-topMargins = Array(5, 5, 30, 12, 15, 5, 15, 15);
+topMargins = Array(5, 5, 30, 15, 15, 28, 5, 15, 15);
 markedEvents = Array();
 toasts = Array();
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
       marginTop: "+=100px", height: "+=400", backgroundColor: 'white'},
       300, "easeOutCubic", function() {
         $(this).animate({
-          width: '+=1120px'},
+          width: '+=1136px'},
           300, "easeOutCubic", function() {
             $("#l1").children('.eventname').css({ 'margin-top': 10 });
             $("#l1").children('.eventdescription').fadeIn('slow');
@@ -349,7 +349,7 @@ function eventClicked() {
 
 function revert(revertId, currentId) {
   var factor = parseInt(revertId[1]);
-  var toLeft = "+=" + (160 * (factor-1)).toString() + "px";
+  var toLeft = "+=" + (142 * (factor-1)).toString() + "px";
   var imageUrl = eventImages[factor-1];
   $("#" + revertId).children('.eventdescription').fadeOut('fast');
   // console.log(imageUrl);
@@ -360,7 +360,7 @@ function revert(revertId, currentId) {
 
   $("#" + revertId).children('span').fadeOut('fast', function() {
     $("#" + revertId).animate({
-      width: '-=1120px',
+      width: '-=1136px',
       marginLeft: toLeft,
       backgroundColor: 'rgba(255, 255, 255, 1)'},
       200, function() {
@@ -380,7 +380,7 @@ function revert(revertId, currentId) {
 function expand(expandId) {
 
   var factor = parseInt(expandId[1]);
-  var toLeft = "-=" + (160 * (factor-1)).toString() + "px";
+  var toLeft = "-=" + (142 * (factor-1)).toString() + "px";
 
   $("#" + expandId).children('span').fadeOut('fast', function() {
     $("#" + expandId).animate({
@@ -391,7 +391,7 @@ function expand(expandId) {
         });
         $(this).animate({
           marginLeft: toLeft,
-          width: '+=1120px'},
+          width: '+=1136px'},
           400, "easeOutCubic", function() {
             $("#" + expandId).children('.eventname').css({ 'margin-top': 10 });
             $('.events').bind('click', eventClicked);

@@ -405,7 +405,7 @@ body {
   font-size: 25px !important;
   //font-family: 'AUdimat';
   //font-weight: bold;
-  width: 150px;
+  width: 130px;
   height: 80px;
   //margin-left: 10px;
   //background-color: rgba(179, 235, 252, 1);
@@ -443,44 +443,44 @@ body {
   display: block;
   margin-top: 5px;
   //margin-left: -5px;
-  font-size: 25px;
+  font-size: 22px;
   text-align: center;
   align-items: center;
 }
 
 #l2 {
-  margin-left: 160px;
+  margin-left: 142px;
 }
 
 #l2 .eventname {
   display: block;
   margin-top: 5px;
-  font-size: 24px;
+  font-size: 23px;
   line-height: 24px;
   text-align: center;
   align-items: center;
 }
 
 #l3 {
-  margin-left: 320px;
+  margin-left: 284px;
 }
 
 #l3 .eventname {
   display: block;
   margin-top: 30px;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 20px;
   text-align: center;
   align-items: center;
 }
 
 #l4 {
-  margin-left: 480px;
+  margin-left: 426px;
 }
 
 #l4 .eventname {
-  margin-top: 12px;
-  font-size: 25px;
+  margin-top: 15px;
+  font-size: 22px;
   display: block;
   text-align: center;
   align-items: center;
@@ -488,23 +488,36 @@ body {
 }
 
 #l5 {
-  margin-left: 640px;
+  margin-left: 568px;
 }
 
 #l5 .eventname {
   display: block;
   margin-top: 15px;
-  font-size: 23px;
+  font-size: 21px;
   line-height: 23px;
   text-align: center;
   align-items: center;
 }
 
 #l6 {
-  margin-left: 800px;
+  margin-left: 710px;
 }
 
 #l6 .eventname {
+  display: block;
+  margin-top: 28px;
+  font-size: 21px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
+#l7 {
+  margin-left: 852px;
+}
+
+#l7 .eventname {
   display: block;
   margin-top: 5px;
   font-size: 22px;
@@ -513,21 +526,8 @@ body {
   align-items: center;
 }
 
-#l7 {
-  margin-left: 960px;
-}
-
-#l7 .eventname {
-  display: block;
-  margin-top: 15px;
-  font-size: 25px;
-  line-height: 23px;
-  text-align: center;
-  align-items: center;
-}
-
 #l8 {
-  margin-left: 1120px;
+  margin-left: 994px;
 }
 
 #l8 .eventname {
@@ -538,6 +538,20 @@ body {
   text-align: center;
   align-items: center;
 }
+
+#l9 {
+  margin-left: 1136px;
+}
+
+#l9 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 23px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
 
 .eventdescription {
   line-height: 30px;

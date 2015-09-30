@@ -9,15 +9,15 @@ var eventPage = true;
 var poppedup = false;
 var currentPageEvent;
 eventImages = Array("clang.png", "java.png", "lanparty.png");
-topMargins = [[5, 5, 30, 12, 15, 5, 15, 15]     //CSE
-            , [15, 25, 15, 25, 15, 25, 15, 15]  //ECE
-            , [15, 25, 25, 25, 15, 25, 15, 15]  //MECH
-            , [15, 25, 25, 13, 18, 15, 15, 15]  //CIVIL
-            , [25, 25, 25, 25, 15, 25, 15, 15]  //EEE
-            , [5, 5, 30, 12, 15, 5, 15, 15]];   //IT
-var widths = Array(1270, 1262, 1265, 1270, 1265, 1270);
-var factors = Array(160, 182, 213, 160, 213, 160);
-var subtracts = Array(10, 12, 13, 10, 13, 10);
+topMargins = [[5, 5, 30, 15, 15, 28, 5, 15, 15]     //CSE
+            , [15, 25, 15, 25, 15, 25, 15, 15, 15]  //ECE
+            , [15, 25, 25, 25, 15, 25, 15, 15, 15]  //MECH
+            , [15, 25, 25, 13, 18, 15, 15, 15, 15]  //CIVIL
+            , [25, 25, 25, 25, 15, 25, 15, 15, 15]  //EEE
+            , [5, 5, 30, 12, 15, 5, 15, 15, 15]];   //IT
+var widths = Array(1268, 1262, 1265, 1270, 1265, 1270);
+var factors = Array(142, 182, 213, 160, 213, 160);
+var subtracts = Array(12, 12, 13, 10, 13, 10);
 var branchevent;
 var closingIn = false;
 var markedEvents = Array();
@@ -395,7 +395,7 @@ function fillWithEvents($fillArea) {
     var $eventToDelete = $(this);
     //alert(branchevent);
     $eventToDelete.parent().fadeOut(400, function() {$eventToDelete.parent().remove();});
-    for (var i = 1; i <= 8; i++) {
+    for (var i = 1; i <= 9; i++) {
       if ($(branchevent + " #l" + i).children('.eventname').html() == $eventToDelete.parent().children('.oneevent').html()) {
         $(branchevent + " #l" + i).children('.bottompanel').children('.marker').children('.switch').prop('checked', false);
         $(branchevent + " #l" + i).children('.bottompanel').children('.marker').children('.mark').html('Mark this event for registration');
