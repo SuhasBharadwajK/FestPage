@@ -63,6 +63,7 @@ $(document).ready(function() {
   });
 
   $('.branch .event').click(function(event) {
+    closeMenu(currentOpenedMenu, false);
     $('.heading span').html($(this).html());
     event.stopPropagation();
     currentPage = $(this).attr('value')

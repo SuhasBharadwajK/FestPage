@@ -1145,7 +1145,7 @@ function register() {
       alert("You wanted to register without a name? Come on! You can't be serious!");
     }, 550);
   }
-  else if (!/^([A-Z]{1}[.]?[a-z]*[^!_@#$%\^\-0-9]*[\s]?)([A-Z]{1}[.]?[a-z]*[^!_@#$%\^\-0-9]*[\s]?)+$/.test(name)) {
+  else if (!/^([A-Z]{1}[.]?[a-z]*[^!_@#$%\^\-0-9]*[\s]?)([A-Z]{1}[.]?[a-z]*[^!_@#$%\^\-0-9]*[\s]?)*$/.test(name)) {
     alert("Would you mind entering your name properly? It's your name after all, isn't it? So, please.")
   }
   else {
