@@ -11,7 +11,7 @@ MAJOR TODO: Check the expanding after going back from closed home
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
 var imagesGot = Array();
 var pagesGot = Array();
-var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer");
+var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer", ".card");
 var elementsNumber = 8;
 var currentPage = "home";
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
@@ -469,6 +469,7 @@ function openBranch() {
 }
 
 function startEntry(page, num) {
+  clearInterval(backgroundChange);
   animating = true;
 
   var branchevent = "." + page + "events";
@@ -542,7 +543,7 @@ function closeHomeIn(backStatus) {
   else {
     onlyRevert(activeId, false);
   }
-
+  backgroundChange = setInterval(changeBackground, 3500);
 }
 
 

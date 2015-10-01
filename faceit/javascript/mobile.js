@@ -1,9 +1,11 @@
 var opened = false;
 var openedId = "";
+var leftbackup = "", rightbackup = "";
 
 $('document').ready(function() {
     $('.card').click(expandCard);
     $('.closeimg').click(closeCard);
+    $('.navbranch').click(openEvents);
 });
 
 function expandCard() {
@@ -11,7 +13,7 @@ function expandCard() {
   if(!opened) {
        $(this).animate({
           height: '600px'
-       }, 400, function() {
+       }, 200, function() {
            $(this).css({'overflow-y' : 'auto'});
            $(this).children('.closeimgholder').css({'display': 'block'});
        });
@@ -21,7 +23,7 @@ function expandCard() {
   else {
     $('#' + openedId).animate({
         height: '80px'
-    }, 400, function() {
+    }, 200, function() {
       $(this).css({'overflow-y' : 'hidden'});
       $(this).bind('click', expandCard);
       $(this).children('.closeimgholder').css({'display': 'none'});
@@ -32,7 +34,7 @@ function expandCard() {
     opened = true;
     $(this).animate({
        height: '600px'
-    }, 400, function() {
+    }, 200, function() {
         $(this).css({'overflow-y' : 'auto'});
         $(this).children('.closeimgholder').css({'display': 'block'});
     });
@@ -44,7 +46,7 @@ function expandCard() {
 function closeCard() {
   $('#' + openedId).animate({
    height: '80px'
-   }, 400, function() {
+ }, 200, function() {
      $(this).css({'overflow-y' : 'hidden'});
      $(this).bind('click', expandCard);
      $(this).children('.closeimgholder').css({'display': 'none'});
@@ -54,4 +56,13 @@ function closeCard() {
   myDiv.scrollTop = 0;
   opened = false;
   openedId = "";
+}
+
+function openEvents() {
+  if (leftbackup == "") {
+    leftbackup = $('.lefthalf').html();
+    rightbackup = $('.righthalf').html();
+    clearInterval(backgroundChange);
+    // ajax
+  }
 }

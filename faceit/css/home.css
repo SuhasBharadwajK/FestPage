@@ -35,7 +35,7 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-
+.mobileholder {display: none;}
 .navdrawer { display: none; }
 .drawericonholder { display: none; }
 
@@ -804,6 +804,16 @@ body {
     display: none;
   }
 
+  .mobileholder {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 40;
+    //background-color: rgb(181, 181, 181);
+    overflow-y: auto;
+  }
+
   .navdrawer {
     display: block;
     position: absolute;
@@ -846,7 +856,7 @@ body {
     top: 30px;
     right: 10px;
     background-size: 100%;
-    z-index: 999;
+    z-index: 49;
   }
 
   .lefthalf {
@@ -882,6 +892,9 @@ body {
     width: 40px;
     height: 40px;
   }
+  .socialaddress {
+    display: none;
+  }
   #facebook img {
     margin-top: 2px;
     margin-left: 2px;
@@ -915,7 +928,7 @@ body {
   .socialbuttons {
     position: absolute;
     margin-left: 35%;
-    z-index: 99;
+    z-index: 40;
   }
 
 }
