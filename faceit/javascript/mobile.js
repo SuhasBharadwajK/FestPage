@@ -59,10 +59,19 @@ function closeCard() {
 }
 
 function openEvents() {
+  closeNav();
+  if (pageStack[pageStack.length - 1] != currentPage) {
+    pageStack.push(currentPage);
+  }
+
+  clearInterval(backgroundChange);
+  console.log($(this).attr("value"));
+  currentPage = $(this).attr("value");
+  $('.mobileholder').css({'display' : 'block'});
   if (leftbackup == "") {
     leftbackup = $('.lefthalf').html();
     rightbackup = $('.righthalf').html();
-    clearInterval(backgroundChange);
+    //clearInterval(backgroundChange);
     // ajax
   }
 }

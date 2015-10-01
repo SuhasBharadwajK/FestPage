@@ -805,12 +805,12 @@ body {
   }
 
   .mobileholder {
-    display: block;
+    //display: block;
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 40;
-    //background-color: rgb(181, 181, 181);
+    background-color: rgb(181, 181, 181);
     overflow-y: auto;
   }
 
@@ -928,7 +928,7 @@ body {
   .socialbuttons {
     position: absolute;
     margin-left: 35%;
-    z-index: 40;
+    z-index: 35;
   }
 
 }
