@@ -112,6 +112,7 @@ body {
 .regzone {
     width: 100%;
     height: 100px;
+    margin-top: 20px;
     background-color: #5e5e5e;
     -moz-user-select: none;
     -khtml-user-select: none;

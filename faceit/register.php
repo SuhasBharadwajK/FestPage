@@ -26,6 +26,7 @@
               "LAN Gaming" => "cselag",
               "Web Design Contest" => "csewdc",
               "Technical Treasure Hunt" => "csetth",
+              "Technical Quiz" => "cseteq",
               "Film Making on Green Computing" => "csefgc",
               "Project Exhibition" => "csepex",
               "Paper Presentation" => "cseppr",

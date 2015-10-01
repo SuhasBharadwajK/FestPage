@@ -1,12 +1,38 @@
 var opened = false;
 var openedId = "";
-var leftbackup = "", rightbackup = "";
+var fromBranch = false;
 
 $('document').ready(function() {
-    $('.card').click(expandCard);
-    $('.closeimg').click(closeCard);
-    $('.navbranch').click(openEvents);
+  $('.navbranch').click(openEvents);
+  setMobileHandlers();
 });
+
+function setMobileHandlers() {
+  $('.card').click(expandCard);
+  $('.closeimg').click(closeCard);
+  for(keyElement in keyElements) {
+    //console.log("Key:" + keyElements[keyElement]);
+    $(keyElements[keyElement]).swipe( {
+      swipeRight:openNav, swipeLeft:closeNav, threshold:80
+    });
+  }
+  for(keyElement in keyElements) {
+    if (keyElements[keyElement] != ".navdrawer") {
+      $(keyElements[keyElement]).click(function(event) {
+        closeNav();
+      });
+    }
+  }
+  $('.markbox').change(function(event) {
+    //alert("Flicked!");
+    if ($(this).is(":checked")) {
+      $(this).parent().children('.marklabel').html("Marked!");
+    }
+    else {
+      $(this).parent().children('.marklabel').html("Mark this event");
+    }
+  });
+}
 
 function expandCard() {
   $(this).unbind('click', expandCard);
@@ -60,18 +86,27 @@ function closeCard() {
 
 function openEvents() {
   closeNav();
+  console.log(currentPage);
   if (pageStack[pageStack.length - 1] != currentPage) {
     pageStack.push(currentPage);
   }
-
-  clearInterval(backgroundChange);
-  console.log($(this).attr("value"));
   currentPage = $(this).attr("value");
-  $('.mobileholder').css({'display' : 'block'});
-  if (leftbackup == "") {
-    leftbackup = $('.lefthalf').html();
-    rightbackup = $('.righthalf').html();
-    //clearInterval(backgroundChange);
-    // ajax
+
+  console.log($(this).attr("value"));
+
+  if (currentPage != "home") {
+    fromBranch = true;
+    clearInterval(backgroundChange);
+    $('.mobileholder').html(pagesGot[pages.indexOf(currentPage)]);
+    setMobileHandlers();
+    $('.mobileholder').css({'display' : 'block'});
+    $('.hamburger').css({'visibility' : 'collapse'});
   }
+  else {
+    fromBranch = false;
+    $('.mobileholder').css({'display' : 'none'});
+    $('.hamburger').css({'visibility' : 'visible'});
+    backgroundChange = setInterval(changeBackground, 3500);
+  }
+
 }

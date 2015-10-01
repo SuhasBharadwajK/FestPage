@@ -11,7 +11,7 @@ MAJOR TODO: Check the expanding after going back from closed home
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
 var imagesGot = Array();
 var pagesGot = Array();
-var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer", ".card");
+var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer", ".card", ".mobileholder");
 var elementsNumber = 8;
 var currentPage = "home";
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
@@ -91,7 +91,22 @@ onReady(function () {
     }
   }
   else {
-    doneMobileLoading();
+    fileCount = 0;
+    for (var i = 0; i < pages.length; i++) {
+      $.ajax({
+        url: 'pages/mobile' + pages[i] + '.html',
+        type: 'GET',
+        async: false,
+        cache: false,
+        success: function(response) {
+          pagesGot.push(response);
+          fileCount++;
+          if (fileCount == pages.length) {
+            doneMobileLoading();
+          }
+        }
+      });
+    }
   }
   show('container', true);
 
@@ -882,10 +897,12 @@ function openNav() {
     200, 'easeOutCubic', function() {
       navactive = true;
   });
-  $('.hamburger').fadeOut('fast', function() {
-    $('.hamburger').css({ 'background-image': 'url("images/close.png")' });
-    $('.hamburger').fadeIn(200);
-  });
+  if (!fromBranch) {
+    $('.hamburger').fadeOut('fast', function() {
+      $('.hamburger').css({ 'background-image': 'url("images/close.png")' });
+      $('.hamburger').fadeIn(200);
+    });
+  }
 }
 
 function closeNav() {
@@ -901,10 +918,12 @@ function closeNav() {
       200, 'easeOutCubic', function() {
         navactive = false;
     });
-    $('.hamburger').fadeOut('fast', function() {
-      $('.hamburger').css({ 'background-image': 'url("images/menu.png")' });
-      $('.hamburger').fadeIn(200);
-    });
+    if (!fromBranch) {
+      $('.hamburger').fadeOut('fast', function() {
+        $('.hamburger').css({ 'background-image': 'url("images/menu.png")' });
+        $('.hamburger').fadeIn(200);
+      });
+    }
   }
 }
 

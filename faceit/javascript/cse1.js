@@ -387,7 +387,7 @@ function fillWithEvents($fillArea) {
   $(".markedevents").html("");
   for (markedEvent in markedEvents) {
     var number = parseInt(markedEvent) + 1;
-    var newEvent = '<div class="markedevent m' + number + '"><span class="oneevent e' + number + '">' + markedEvents[markedEvent] +'</span><div class="deleteevent"><img src="https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-22-128.png" alt="images/closesmall.png" /></div></div>'
+    var newEvent = '<div class="markedevent m' + number + '"><span class="oneevent e' + number + '">' + markedEvents[markedEvent] +'</span><div class="deleteevent"><img src="images/closesmall.png" alt="images/closesmall.png" /></div></div>'
     $(".markedevents").append(newEvent);
   }
 

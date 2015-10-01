@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/civ1.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/eee1.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/it1.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/mobile.css" media="screen" title="no title" charset="utf-8">
     <!-- <link rel="stylesheet" type="text/css" href="css/style_p.css" media="screen and (orientation: portrait)"> -->
     <link rel="icon" href="images/logo.png" type="image/png"/>
     <script type="text/javascript" src="javascript/jquery.js"></script>
@@ -51,8 +51,42 @@
     </div>
     <div id="container">
       <div class="mobileholder">
-
       </div>
+      <div class="mobilepopup">
+        <input id="mobilename" class="mobiletextbox" type="text" name="namemobile" value="" placeholder="Name">
+        <input id="mobileemail" class="mobiletextbox" type="text" name="emailmobile" value="" placeholder="Email">
+        <input id="mobilecollege" class="mobiletextbox" type="text" name="collegemobile" value="" placeholder="College">
+        <input id="mobilerollnum" class="mobiletextbox" type="text" name="rollnummobile" value="" placeholder="Roll Number">
+        <input id="mobilephonenum" class="mobiletextbox" type="text" name="phonenummobile" value="" placeholder="Phone Number">
+        <div class="selectholder">
+          <select class="mobileyear mobileselect" name="yearmobile" value="Year">
+            <option value="" disabled selected style="display: none;">Year</option>
+            <option value="I/IV">I/IV</option>
+            <option value="II/IV">II/IV</option>
+            <option value="III/IV">III/IV</option>
+            <option value="IV/IV">IV/IV</option>
+          </select>
+          <select class="mobilebranch mobileselect" name="branchmobile" value="Year">
+            <option value="" disabled selected style="display: none;">Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Civil">Civil</option>
+            <option value="EEE">EEE</option>
+            <option value="IT">IT</option>
+          </select>
+        </div>
+        <div class="mobilemarkheading">You will be registered for:</div>
+        <div class="markedeventsmobile">
+        </div>
+        <input id="mobilerefcode" class="mobiletextbox" type="text" name="refcodemobile" value="" placeholder="Referral Code (Optional)">
+        <div class="buttholder">
+          <input class="mobilebutton mobilemin" type="button" name="mobileminz" value="Minimize">
+          <input class="mobilebutton mobilesubmit" type="button" name="mobilesubmit" value="Submit">
+        </div>
+      </div>
+
+
       <div class="lefthalf half" id="left" tabindex="-1">
         <div class="college">
           <div class="collegelogo">
@@ -151,6 +185,9 @@
           <div id="mobileit" class="menupp branch navbranch" value="it">
             <!-- <span>PRESENT</span><span>PAPERS</span> -->
             IT
+          </div>
+          <div id="mobilehome" class="menuhome branch navbranch" value="home">
+            Home
           </div>
         </div>
       </div>
