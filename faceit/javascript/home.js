@@ -2,7 +2,7 @@
 
 /***
 
-TODO The loading screen doesn't show up in smaller screens
+TODO The loading screen doesn't show up in smaller screens - Done. It doesn't need to.
 MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!  - Done. Fuck you Firefox.
 
 MAJOR TODO: Check the expanding after going back from closed home
@@ -57,22 +57,6 @@ function show(id, value) {
 }
 
 onReady(function () {
-  // imageCount = 0;
-  // for (var i = 0; i < images.length; i++) {
-  //   $.ajax({
-  //     url: 'images/' + images[i],
-  //     type: 'GET',
-  //     success: function(response) {
-  //       imagesGot.push(response);
-  //       imageCount++;
-  //       if (imageCount == images.length) {
-  //
-  //
-  //       }
-  //     }
-  //   });
-  //
-  // }
   if($(window).width() > 1219) {
     fileCount = 0;
     for (var i = 0; i < pages.length; i++) {
@@ -129,10 +113,7 @@ function doneLoading() {
           $('.secondLine').animate({
             marginLeft: '+=550px'
             },
-            700, function() {
-              //$("#clogo").fadeIn('slow');
-            });
-
+            700);
         $('.presents').animate({
           marginLeft: '+=600px'
           },
@@ -147,10 +128,7 @@ function doneLoading() {
             }, '100');
           });
         });
-
-
       });
-
       $('.backgroundimage').animate({
         right: '+=57.5%'
         },
@@ -166,9 +144,7 @@ function doneLoading() {
         },
         800, 'easeOutCirc', function() {
           $("#faceit").fadeTo('fast', 1, function() {
-            $("#centerlogo").fadeTo('fast', 0.6, function() {
-              // $(this).fadeTo('fast', 0.6);
-            });
+            $("#centerlogo").fadeTo('fast', 0.6);
 
 
             $("#cse").fadeTo('fast', 1, function() {
@@ -225,9 +201,7 @@ function doneMobileLoading() {
   $("#loadingoverlay").fadeOut('slow', function() {
     $('.socialbuttons').animate({
             bottom: '+=60px'},
-            "fast", function() {
-            /* stuff to do after animation is complete */
-          });
+            "fast");
     /*TODO Animations for mobile. Most mobiles lag because of this.*/
     // $(".firstLine").fadeIn(500, function() {
     //
@@ -268,13 +242,10 @@ window.onload = function () {
         history.pushState("jibberish", null, null);
         window.onpopstate = function () {
             history.pushState('newjibberish', null, null);
-            //alert("Backed up!");
             if (!animating) {
               console.log("Going Back!");
               goBack();
             }
-            //animating = true;
-            // Handle the back (or forward) buttons here
         };
     }
     else {
@@ -314,56 +285,34 @@ $(document).ready(function() {
     }
   });
 
-  // $('.popup').keydown(function(event) {
-  //   if (event.keyCode == 9) {
-  //     return true;
-  //   }
-  // });
-
   $('.hexagon').click(function(event) {
     animating = true;
-    //openBranch();
     $('.topimage').unbind('click', closeHomeIn);
     event.preventDefault();
     eventId = $(this).attr("id");
     console.log("Bloody hell " + eventId);
     if (eventId != "faceit") {
       if (pageStack[pageStack.length - 1] != currentPage) {
-        console.log("Pushing into stack.......................FROM HEX");
         pageStack.push(currentPage);
       }
       if (eventId == "it") {
-        //eventId = "cse";
         currentPage = "it";
       }
       else {
         currentPage = eventId;
       }
       document.title = branchTitles[pages.indexOf(currentPage)];
-      console.log("-------------------TITLE " + document.title);
-      // if (currentPage != "home") {
-      //   pageStack.push(currentPage);
-      // }
+
       lastPage = pageStack[pageStack.length - 1];
       $('.' + currentPage +'events').html(pagesGot[pages.indexOf(currentPage)]);
       console.log('These events .' + eventId +'events');
       setHandlers();
       $('.events').unbind('click', eventClicked);
-      // var client = new XMLHttpRequest();
-      // client.open('GET', '/pages/' + eventId);
-      // client.onreadystatechange = function() {
-      //   //console.log(client.responseText);
-      //   $('.' + currentPage +'events').html(client.responseText);
-      //   console.log('These events .' + eventId +'events');
-      //   setHandlers();
-      //   $('.events').unbind('click', eventClicked);
-      // }
-      // client.send();
+
     }
-    //alert($(this).attr("id").toUpperCase());
+
     if (eventId != "faceit") {
 
-      //$('.events').unbind('click', eventClicked);
       var branch = $(this).children('.hexagon1').children('.hexagon2').children('a').html();
       event.preventDefault();
       $('.branchlisttop').children('span').html(branch);
@@ -408,7 +357,6 @@ $(document).ready(function() {
   });
 
   $(window).resize(function(event) {
-    //console.log("resizing");
     respond();
   });
 
@@ -474,18 +422,11 @@ $(document).ready(function() {
   $('.mobilesubmit').click(mobileRegister);
 
   $('input').on('input', function() {
-    //alert("INPUTTED");
     stateChanged = true;
   });
 });
 
-function openBranch() {
-  //clearInterval(backgroundChange);
-  //$(otherBackground).css({'display':'none'});
-}
-
 function startEntry(page, num) {
-  //clearInterval(backgroundChange);
   animating = true;
 
   var branchevent = "." + page + "events";
@@ -494,7 +435,6 @@ function startEntry(page, num) {
         backgroundColor: 'rgb(224, 83, 58);'
         },
         'slow', function() {
-          //$(".cseevents").fadeIn('fast');
           $(branchevent).fadeIn('fast');
           for (var i = 1; i <= 9; i++) {
             console.log(branchevent);
@@ -506,7 +446,6 @@ function startEntry(page, num) {
                   $(branchevent + " #l" + i + " .switch").prop('checked', true);
                   $(branchevent + " #l" + i + " .forff").css({'left':'30px'});
                   $(branchevent + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
-                  //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
                 }
               });
           }
@@ -520,25 +459,18 @@ function startEntry(page, num) {
 
 function closeHomeIn(backStatus) {
   document.title = festTitle;
-  console.log("-------------------TITLE " + document.title);
   $('.topimage').unbind('click', closeHomeIn);
   animating = true;
   //eventPage = false;
   //goingBack = backStatus;
   if (!goingBack && pageStack[pageStack.length - 1] != currentPage) {
-    console.log("Pushing into stack..................................................................");
     if (pageStack[pageStack.length - 1] != currentPage) {
       pageStack.push(currentPage);
     }
     goingBack = false;
   }
-  else {
-    console.log(goingBack);
-    console.log(".............................NOT PUSHING..............................................");
-  }
   $('.topimage').unbind('click', closeHomeIn);
   closeBranches();
-  //eventPage = false;
   if (poppedup) {
     $(".popup").children().fadeOut('fast', function() {
       $('.popup').animate({
@@ -559,19 +491,14 @@ function closeHomeIn(backStatus) {
   else {
     onlyRevert(activeId, false);
   }
-  //backgroundChange = setInterval(changeBackground, 3500);
 }
 
 
 function openHome(previousPage) {
   animating = true;
   currentPage = previousPage;
-  //openBranch();
-  // console.log("Pushing into stack..................................................................");
-  // pageStack.push(currentPage);
   $('.topimage').unbind('click', closeHomeIn);
   $('.events').unbind('click', eventClicked);
-  //event.preventDefault();
 
   $('.lefthalf').animate({
     marginLeft: '-42.5%'
@@ -585,9 +512,6 @@ function openHome(previousPage) {
     right: '-57.5%'
     },
     800, 'easeInOutCirc', function() {
-      // $(this).fadeOut('fast', function() {
-      //
-      // });
     });
   $('.backgroundimage1').animate({
     right: '-57.5%'
@@ -606,37 +530,28 @@ function openHome(previousPage) {
 }
 
 function fadeThemOut() {
-  //eventPage = false;
+
   animating = true;
   console.log("currentPage: " + eventId);
-  // $("." + currentPage + "events").fadeOut('slow', function() {
-  //   $(this).children('.events').css({top: '1150px'});
-  // });
+
   $('.topbar').fadeOut('slow', function() {
   });
   $('body').animate({
     backgroundColor: 'black'},
     'slow', function() {
-      //lefthalf, righthalf, backgroundimage, backgroundimage1, social
       $('.lefthalf').fadeIn('fast', function() {
         $(this).animate({
           marginLeft: '0'},
-          800, 'easeOutCirc', function() {
-          /* stuff to do after animation is complete */
-        });
+          800, 'easeOutCirc');
       });
       $('.righthalf').fadeIn('fast', function() {
         $(this).animate({
           marginRight: '0'},
-          800, 'easeOutCirc', function() {
-          /* stuff to do after animation is complete */
-        });
+          800, 'easeOutCirc');
       });
       $('.backgroundimage').animate({
         right: '0px'},
-        800, 'easeOutCirc', function() {
-
-      });
+        800, 'easeOutCirc');
       $('.backgroundimage1').animate({
         right: '0px'},
         800, 'easeOutCirc', function() {
@@ -662,14 +577,9 @@ function onlyRevert(revertId, fromList, nextBranch) {
   animating = true;
   console.log("Only rever called!");
   var factor = parseInt(revertId[1]);
-  //alert(pages.indexOf(currentPage) + "," + topMargins[pages.indexOf(currentPage)][factor-1]);
   var toLeft = "" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
   var imageUrl = eventImages[factor-1];
   $(branchevent + " #" + revertId).children('.eventdescription').fadeOut('fast');
-  // console.log(imageUrl);
-  // console.log(factor);
-
-  //reversing(revertId);
 
   $(branchevent + " #" + revertId).children('.bottompanel').fadeOut('fast');
   $(branchevent + " #" + revertId).children('span').fadeOut('fast', function() {
@@ -690,8 +600,7 @@ function onlyRevert(revertId, fromList, nextBranch) {
             }).promise().done(
               function() {
                 for (var i = 1; i <= 9; i++) {
-                    //$(branchevent + " #" + revertId).finish();
-                    //console.log(branchevent);
+
                     $(branchevent + " #l" + i).css({'display':'block'});
                     $(branchevent + " #l" + i).animate({
                       top: '-350px'},
@@ -703,11 +612,9 @@ function onlyRevert(revertId, fromList, nextBranch) {
                   $('div').clearQueue();
                   if (!fromList) {
                     fadeThemOut();
-                    //animating = false;
                   }
                   else {
                     startEntryFromBranch(nextBranch);
-                    //animating = false;
                   }
               });
         });
@@ -727,9 +634,7 @@ function changeBackground() {
       'background-image': "url('images/" + nextDisplayImage + "')",
     });
     $('.backgroundimage').fadeOut('slow', function() {
-      // $('.backgroundimage1').css({
-      //   'opacity': 0
-      // });
+
       $(this).css({
         'background-image': "url('images/" + displayImage + "')"
       });
@@ -752,9 +657,7 @@ function changeBackground() {
       'background-image': "url('images/" + nextDisplayImage + "')"
     });
     $('.backgroundimage1').fadeOut('slow', function() {
-      // $('.backgroundimage').css({
-      //   'opacity': 0
-      // });
+
       $(this).css({
         'background-image': "url('images/" + displayImage + "')"
       });
@@ -776,7 +679,6 @@ function changeBackground() {
 
 function setHeight() {
 
-  //if(parseInt($(window).width()) >= 1200) {
   if(true) {
     $(".righthalf").height($(window).height());
     $(".lefthalf").height($(window).height());
@@ -791,53 +693,20 @@ function setHeight() {
 
 function respond(value) {
   var windowWidth = parseInt($(window).width());
-  //alert(windowWidth);
-  if (windowWidth >= 1920) {
-    setHeight();
-    makedesktop();
-    //$("#responsive").attr("href", "css/homestyles1920.css");
-    console.log("1600");
-  }
-  else if (windowWidth >= 1600) {
-    setHeight();
-    makedesktop();
-    //$("#responsive").attr("href", "css/home.css");
-    console.log("1600");
-  }
-  else if (windowWidth >= 1300) {
-    setHeight();
-    makedesktop();
-    //$("#responsive").attr("href", "css/homestyles1366.css");
-    console.log(windowWidth);
-  }
-  else if (windowWidth >= 1220) {
-    setHeight();
-    //$("#responsive").attr("href", "css/homestyles1280.css");
-    //makedesktop();
-    console.log(windowWidth);
-  }
-  else if (windowWidth < 1219 || windowWidth > 640){
-    //$("#responsive").attr("href", "css/homestylesmobile.css");
+
+  setHeight();
+  if (windowWidth < 1219 || windowWidth > 640){
     mobileDevice = true;
-    console.log("GOTCHA!" + windowWidth);
     makemobile(value);
   }
-  else {
-    console.log("Nothing here.");
-  }
+  var socialLeft = ((((42.5 * windowWidth) / 100)) - 250)/2 - 40;
+  $(".socialbuttons").css({
+    'left': socialLeft
+  });
 
-
-  // if (windowWidth >= 1200) {
-  if (true) {
-    var socialLeft = ((((42.5 * windowWidth) / 100)) - 250)/2 - 40;
-    $(".socialbuttons").css({
-      'left': socialLeft
-    });
-
-    $(".socialaddress").css({
-      'left': socialLeft + 50
-    });
-  }
+  $(".socialaddress").css({
+    'left': socialLeft + 50
+  });
 
 }
 
@@ -939,47 +808,21 @@ function makemobile(value) {
       'top': $(window).height() * 0.6
     });
   }
-
-  console.log($(".secondLine").children('span').width());
-  console.log("Second Width! " + ($(window).width() - $(".secondLine").children('span').width())/2);
 }
-
-
-function makedesktop() {
-  // if (left == $('.lefthalf')) {
-  //   var toAdd = '<div class="lefthalf half" id="left" tabindex="-1">' + left + '</div>'
-  //   $('.body').children('container').append(toAdd);
-  //   left = undefined;
-  //   alert('msg');
-  // }
-  //location.reload();
-}
-
-$(document).change(function(event) {
-  /* Act on the event */
-  //respond();
-});
 
 $(document).keydown(function(event) {
 
   if (($(".lefthalf").height()) > (($(window).height()))) {
     setHeight();
   }
-  //respond();
   if (event.which == 123) {
     //respond();
   }
-  //console.log(event.which);
   setTimeout(function(){
-      //do what you need here
-      //alert("Timed out!");
       setHeight();
   }, 200);
   e = jQuery.Event("keydown");
   e.which = 65;
-  //if(flag == "Stop") {$(document).trigger(e, "Stop" );}
-  //console.log($(".lefthalf").height());
-  //console.log($(window).height());
   if (($(".lefthalf").height()) > (($(window).height()))) {
     setHeight();
   }
@@ -994,18 +837,8 @@ function selectFromList() {
 
   nexteventId = $(this).attr('value');
 
-  //alert($(this).attr('value'));
   nextBranch = '.' + $(this).attr('value') + 'events';
   onlyRevert(activeId, true, nextBranch);
-  // $(branchevent).fadeIn('fast');
-  // for (var i = 1; i <= 8; i++) {
-  //   //console.log(branchevent);
-  //   $(branchevent + " #l" + i).animate({
-  //     top: '50px'},
-  //     500 + 100*i);
-  // }
-  // //startEntry($(this).attr('value'), 1);
-  //animating = false;
 }
 
 function startEntryFromBranch(nextBranch) {
@@ -1013,7 +846,6 @@ function startEntryFromBranch(nextBranch) {
 
   }
   if (!goingBack) {
-    console.log("Pushing into stack..................................................................");
     if (pageStack[pageStack.length - 1] != currentPage) {
       pageStack.push(currentPage);
     }
@@ -1024,16 +856,13 @@ function startEntryFromBranch(nextBranch) {
   var reachedEnd = false;
   var time = 0;
   $(nextBranch).html(pagesGot[pages.indexOf(nexteventId)]);
-  console.log('These events .' + nexteventId +'events');
   setHandlers();
   $('.events').unbind('click', eventClicked);
   document.title = branchTitles[pages.indexOf(nexteventId)];
-  console.log("-------------------TITLE " + document.title);
 
   $(nextBranch).fadeIn('fast');
 
   for (var i = 1; i <= 9; i++) {
-    //console.log(branchevent);
     $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
     console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
     if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
@@ -1041,7 +870,6 @@ function startEntryFromBranch(nextBranch) {
       $(nextBranch + " #l" + i + " .switch").prop('checked', true);
       $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
       $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
-      //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
     }
     if ($(nextBranch + " #l" + i).attr('id') == undefined) {
       reachedEnd = true;
@@ -1051,7 +879,6 @@ function startEntryFromBranch(nextBranch) {
     }
   }
   $('div').clearQueue();
-  //checkUntilEnd = setInterval(function(){}, )
 
   var branch = branchNames[pages.indexOf(nexteventId)]
   $('.branchlisttop').children('span').html(branch);
@@ -1060,66 +887,14 @@ function startEntryFromBranch(nextBranch) {
 
   eventId = nexteventId;
   currentPage = nexteventId;
-  // var client = new XMLHttpRequest();
-  // client.open('GET', '/pages/' + nexteventId);
-  // client.onreadystatechange = function() {
-  //   //console.log(client.responseText);
-  //   // $(nextBranch).html(client.responseText);
-  //   // console.log('These events .' + nexteventId +'events');
-  //   // setHandlers();
-  //   // $('.events').unbind('click', eventClicked);
-  //   // document.title = branchTitles[pages.indexOf(nexteventId)];
-  //   // console.log("-------------------TITLE " + document.title);
-  //   // $(nextBranch).fadeIn('fast');
-  //   //
-  //   // for (var i = 1; i <= 9; i++) {
-  //   //   //console.log(branchevent);
-  //   //   $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
-  //   //   console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
-  //   //   if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
-  //   //     console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
-  //   //     $(nextBranch + " #l" + i + " .switch").prop('checked', true);
-  //   //     $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
-  //   //     $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
-  //   //     //$(branchevent + " #l" + i + " .mark").html("This event has been marked.")
-  //   //   }
-  //   //   if ($(nextBranch + " #l" + i).attr('id') == undefined) {
-  //   //     reachedEnd = true;
-  //   //     // animating = false;
-  //   //     time = 500 + 100*i;
-  //   //     break;
-  //   //   }
-  //   // }
-  //   // $('div').clearQueue();
-  //   // //checkUntilEnd = setInterval(function(){}, )
-  //   //
-  //   // var branch = branchNames[pages.indexOf(nexteventId)]
-  //   // $('.branchlisttop').children('span').html(branch);
-  //   // $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
-  //   // $('.branchlisttop').children('ul').children('#' + nexteventId + 'select').css({'display':'none'});
-  //   //
-  //   // eventId = nexteventId;
-  //   // currentPage = nexteventId;
-  //
-  // }
-  //client.send();
 
   $('div').clearQueue();
   setTimeout(function() {expandFirst(nextBranch);}, 1100);
-
-  // var branch = branchNames[pages.indexOf(nexteventId)]
-  // event.preventDefault();
-  // //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
-  // $('.branchlisttop').children('span').html(branch);
-
-  //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
 
 }
 
 
 function goBack() {
-  console.log("GOING BACK!");
-  console.log(pageStack);
   if (pageStack.length >= 1) {
     //Custom comebacks
     var previousPage = pageStack.pop();
@@ -1134,7 +909,6 @@ function goBack() {
       else {
         closeHomeIn(true);
         goingBack = true;
-        //$(previousBranch).html("");
       }
     }
     else {
