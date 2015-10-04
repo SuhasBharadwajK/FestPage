@@ -8,6 +8,7 @@
   $phonenum = $_POST["phonenum"];
   $events = $_POST["allevents"];
   $refcode = $_POST["refcode"];
+  $mobile = $_POST["mobile"];
   $eventCodes = json_decode($_POST["eventCodes"]);
 
   $eventArray = explode(",", $events);
@@ -96,7 +97,7 @@
     }
     if ($deptentered === TRUE) {
       # code...
-      $branchquery = "INSERT INTO {$abranch}(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPushBranch')";
+      $branchquery = "INSERT INTO {$abranch}(name, email, college, year, branch, rollnum, phonenum, refcode, events, mobile) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$eventsToPushBranch', '$mobile')";
       $branchquerybool = $branchconn->query($branchquery);
       if ($branchquerybool === TRUE) {
       }
@@ -113,7 +114,7 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
-  $sqlquery = "INSERT INTO registrations(name, email, college, year, branch, rollnum, phonenum, refcode, events) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$events')";
+  $sqlquery = "INSERT INTO registrations(name, email, college, year, branch, rollnum, phonenum, refcode, events, mobile) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$events', '$mobile')";
   if ($conn->query($sqlquery) === TRUE) {
   }
   else {

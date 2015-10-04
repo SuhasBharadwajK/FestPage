@@ -14,6 +14,7 @@ var pagesGot = Array();
 var keyElements = Array(".overlay", ".firstLine", ".secondLine", ".presents", "#flogo", ".navdrawer", ".card", ".mobileholder");
 var elementsNumber = 8;
 var currentPage = "home";
+var stateChanged = false;
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
 var branchNames = Array("CSE", "ECE", "MECH", "CIVIL", "EEE", "IT");
 var festTitle = "fACEit 2k15 - A National Level Technical Symposium";
@@ -78,6 +79,7 @@ onReady(function () {
       $.ajax({
         url: 'pages/' + pages[i] + '.html',
         type: 'GET',
+        async: false,
         cache: false,
         success: function(response) {
           pagesGot.push(response);
@@ -111,6 +113,8 @@ onReady(function () {
   show('container', true);
 
 });
+
+
 
 function doneLoading() {
     $("#loadingoverlay").fadeOut('slow', function() {
@@ -210,16 +214,11 @@ function doneLoading() {
                 left: "-=20px",
                 top: "-=20px"
                 },
-                800);
+                800, function() {animating = false;});
               });
-
-
           });
-
-
         });
     });
-
 }
 
 function doneMobileLoading() {
@@ -255,18 +254,13 @@ function doneMobileLoading() {
     //   });
     //
     // });
-
   });
-
 }
 
-$(document).load(function() {
-  //respond();
-});
-
-
-window.onbeforeunload = function() {
-  //return "Are you sure?";
+ window.onbeforeunload = function() {
+   if(stateChanged){
+      return "If you refresh this page, the data you entered and the changes you made will not be saved.";
+    }
  };
 
 window.onload = function () {
@@ -329,13 +323,13 @@ $(document).ready(function() {
   $('.hexagon').click(function(event) {
     animating = true;
     //openBranch();
-    console.log("Pushing into stack..................................................................");
     $('.topimage').unbind('click', closeHomeIn);
     event.preventDefault();
     eventId = $(this).attr("id");
     console.log("Bloody hell " + eventId);
     if (eventId != "faceit") {
       if (pageStack[pageStack.length - 1] != currentPage) {
+        console.log("Pushing into stack.......................FROM HEX");
         pageStack.push(currentPage);
       }
       if (eventId == "it") {
@@ -379,7 +373,7 @@ $(document).ready(function() {
         $('.lefthalf').animate({
           marginLeft: '-42.5%'
           },
-          600, function() {
+          800, function() {
           $(this).fadeOut('fast', function() {
 
           });
@@ -476,6 +470,13 @@ $(document).ready(function() {
   });
   $('#submitbutton').click(register);
 
+  $('.mobilemin').click(minimizeMobile);
+  $('.mobilesubmit').click(mobileRegister);
+
+  $('input').on('input', function() {
+    //alert("INPUTTED");
+    stateChanged = true;
+  });
 });
 
 function openBranch() {
@@ -484,7 +485,7 @@ function openBranch() {
 }
 
 function startEntry(page, num) {
-  clearInterval(backgroundChange);
+  //clearInterval(backgroundChange);
   animating = true;
 
   var branchevent = "." + page + "events";
@@ -558,7 +559,7 @@ function closeHomeIn(backStatus) {
   else {
     onlyRevert(activeId, false);
   }
-  backgroundChange = setInterval(changeBackground, 3500);
+  //backgroundChange = setInterval(changeBackground, 3500);
 }
 
 
@@ -620,25 +621,25 @@ function fadeThemOut() {
       $('.lefthalf').fadeIn('fast', function() {
         $(this).animate({
           marginLeft: '0'},
-          800, 'easeOutCubic', function() {
+          800, 'easeOutCirc', function() {
           /* stuff to do after animation is complete */
         });
       });
       $('.righthalf').fadeIn('fast', function() {
         $(this).animate({
           marginRight: '0'},
-          900, 'easeOutCubic', function() {
+          800, 'easeOutCirc', function() {
           /* stuff to do after animation is complete */
         });
       });
       $('.backgroundimage').animate({
         right: '0px'},
-        900, 'easeOutCubic', function() {
+        800, 'easeOutCirc', function() {
 
       });
       $('.backgroundimage1').animate({
         right: '0px'},
-        900, 'easeOutCubic', function() {
+        800, 'easeOutCirc', function() {
 
         $('.social').fadeIn(300, function() {
           currentPage = "home";
@@ -986,6 +987,7 @@ $(document).keydown(function(event) {
 });
 
 function selectFromList() {
+  $('.topimage').unbind('click', closeHomeIn);
   animating = true;
   popitdown();
   setTimeout(function() {closeBranches();}, 100);
@@ -1010,6 +1012,14 @@ function startEntryFromBranch(nextBranch) {
   if (!animating) {
 
   }
+  if (!goingBack) {
+    console.log("Pushing into stack..................................................................");
+    if (pageStack[pageStack.length - 1] != currentPage) {
+      pageStack.push(currentPage);
+    }
+    goingBack = false;
+  }
+
   animating = true;
   var reachedEnd = false;
   var time = 0;
@@ -1103,18 +1113,12 @@ function startEntryFromBranch(nextBranch) {
   // $('.branchlisttop').children('span').html(branch);
 
   //currentPage = $(this).children('.hexagon1').children('.hexagon2').children('a').html().toLowerCase();
-  if (!goingBack) {
-    console.log("Pushing into stack..................................................................");
-    if (pageStack[pageStack.length - 1] != currentPage) {
-      pageStack.push(currentPage);
-    }
-    goingBack = false;
-  }
 
 }
 
 
 function goBack() {
+  console.log("GOING BACK!");
   console.log(pageStack);
   if (pageStack.length >= 1) {
     //Custom comebacks
@@ -1129,6 +1133,7 @@ function goBack() {
       }
       else {
         closeHomeIn(true);
+        goingBack = true;
         //$(previousBranch).html("");
       }
     }
@@ -1141,6 +1146,7 @@ function goBack() {
     }
   }
   else {
+    console.log("GOING BACK!");
     history.go(-2);
   }
 }
@@ -1148,6 +1154,7 @@ function goBack() {
 function register() {
   var validCount = 0;
   //successfulRegister("Suhas");
+  mobile = "No";
   name = $("#name").val();
   email = $("#email").val();
   college = $("#college").val();
@@ -1239,7 +1246,7 @@ function register() {
       }
     }
 
-    dataToSend = 'name=' + name + '&email=' + email + '&college=' + college + '&rollnum=' + rollnum + '&year=' + year + '&branch=' + branch + '&phonenum=' + phonenum + '&allevents=' + allEvents + '&eventCodes=' + eventCodes + '&refcode=' + refcode;
+    dataToSend = 'name=' + name + '&email=' + email + '&college=' + college + '&rollnum=' + rollnum + '&year=' + year + '&branch=' + branch + '&phonenum=' + phonenum + '&allevents=' + allEvents + '&eventCodes=' + eventCodes + '&refcode=' + refcode + '&mobile=' + mobile;
 
     $.ajax({
       url: 'register.php',
@@ -1253,6 +1260,7 @@ function register() {
         }
         else {
           successfulRegister(name);
+          setTimeout(location.reload(), 3000);
           console.log(result);
         }
         //successfulRegister(name);

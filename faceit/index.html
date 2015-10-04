@@ -9,9 +9,6 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!-- <link rel="stylesheet" href="css/homestyles1280.css" media="screen" title="no title" charset="utf-8"/> -->
-    <!-- <link rel="stylesheet" href="css/homestyles1366.css" media="screen" title="no title" charset="utf-8"> -->
-    <!-- <link rel="stylesheet" href="css/homestyles1600.css" media="screen" title="no title" charset="utf-8"> -->
     <link id="responsive" rel="stylesheet" href="css/home.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/cse1.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/ece1.css" media="screen" title="no title" charset="utf-8">
@@ -20,16 +17,19 @@
     <link rel="stylesheet" href="css/eee1.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/it1.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/mobile.css" media="screen" title="no title" charset="utf-8">
-    <!-- <link rel="stylesheet" type="text/css" href="css/style_p.css" media="screen and (orientation: portrait)"> -->
     <link rel="icon" href="images/logo.png" type="image/png"/>
     <script type="text/javascript" src="javascript/jquery.js"></script>
     <script type="text/javascript" src="javascript/jquery-ui.min.js"></script>
     <script type="text/javascript" src="javascript/swipe.js"></script>
-    <!--<script type="text/javascript" src="javascript/jquery.mobile.min.js"></script>-->
     <script id="jssource" type="text/javascript" src="javascript/home.js"></script>
     <script id="jssource1" type="text/javascript" src="javascript/cse1.js"></script>
     <script id="jssource2" type="text/javascript" src=""></script>
     <script type="text/javascript"  src="javascript/mobile.js"></script>
+    <!--<script type="text/javascript" src="javascript/jquery.mobile.min.js"></script>-->
+    <!-- <link rel="stylesheet" type="text/css" href="css/style_p.css" media="screen and (orientation: portrait)"> -->
+    <!-- <link rel="stylesheet" href="css/homestyles1280.css" media="screen" title="no title" charset="utf-8"/> -->
+    <!-- <link rel="stylesheet" href="css/homestyles1366.css" media="screen" title="no title" charset="utf-8"> -->
+    <!-- <link rel="stylesheet" href="css/homestyles1600.css" media="screen" title="no title" charset="utf-8"> -->
 
 
     <script>
@@ -53,11 +53,11 @@
       <div class="mobileholder">
       </div>
       <div class="mobilepopup">
-        <input id="mobilename" class="mobiletextbox" type="text" name="namemobile" value="" placeholder="Name">
-        <input id="mobileemail" class="mobiletextbox" type="text" name="emailmobile" value="" placeholder="Email">
-        <input id="mobilecollege" class="mobiletextbox" type="text" name="collegemobile" value="" placeholder="College">
-        <input id="mobilerollnum" class="mobiletextbox" type="text" name="rollnummobile" value="" placeholder="Roll Number">
-        <input id="mobilephonenum" class="mobiletextbox" type="text" name="phonenummobile" value="" placeholder="Phone Number">
+        <input id="mobilename" class="mobiletextbox" type="text" name="namemobile" placeholder="Name">
+        <input id="mobileemail" class="mobiletextbox" type="text" name="emailmobile" placeholder="Email">
+        <input id="mobilecollege" class="mobiletextbox" type="text" name="collegemobile" placeholder="College">
+        <input id="mobilerollnum" class="mobiletextbox" type="text" name="rollnummobile" placeholder="Roll Number">
+        <input id="mobilephonenum" class="mobiletextbox" type="text" name="phonenummobile" placeholder="Phone Number">
         <div class="selectholder">
           <select class="mobileyear mobileselect" name="yearmobile" value="Year">
             <option value="" disabled selected style="display: none;">Year</option>
@@ -79,13 +79,12 @@
         <div class="mobilemarkheading">You will be registered for:</div>
         <div class="markedeventsmobile">
         </div>
-        <input id="mobilerefcode" class="mobiletextbox" type="text" name="refcodemobile" value="" placeholder="Referral Code (Optional)">
+        <input id="mobilerefcode" class="mobiletextbox" type="text" name="refcodemobile" placeholder="Referral Code (Optional)">
         <div class="buttholder">
           <input class="mobilebutton mobilemin" type="button" name="mobileminz" value="Minimize">
           <input class="mobilebutton mobilesubmit" type="button" name="mobilesubmit" value="Submit">
         </div>
       </div>
-
 
       <div class="lefthalf half" id="left" tabindex="-1">
         <div class="college">
@@ -303,7 +302,10 @@
               <li class="branchfromlist" id="itselect"  value="it">IT</li>
             </ul>
           </div>
+
+          <a target="_blank" href="coordinators.html" style="text-decoration: none;"><div class="extras branchlisttop">Contact Us</div></a>
         </div>
+
 
         <div class="popup">
           <div class="group" id="namegroup">

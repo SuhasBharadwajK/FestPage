@@ -227,16 +227,16 @@
   height: 325px;
 }
 
-.eceevents .descright ul {
+.eceevents .rightcontent ul {
   width: 90%;
 }
 
-.eceevents .descright ol {
+.eceevents .rightcontent ol {
   width: 90%;
   margin: 0;
 }
 
-.eceevents .descright ol > li {
+.eceevents .rightcontent ol > li {
   font-size: 22px;
   //font-family: "Droid Sans";
 }

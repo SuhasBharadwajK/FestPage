@@ -667,6 +667,7 @@ body * {
 }
 
 .leftcontent::-moz-scrollbar-track {
+  display: none;
     //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
@@ -715,30 +716,6 @@ body * {
 .cseevents .rightcontent ol > li {
   font-size: 22px;
   //font-family: "Droid Sans";
-}
-
-
-.cseevents .rightcontent::-webkit-scrollbar {
-  width: 5px;
-}
-
-.cseevents .rightcontent::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  border-radius: 5px;
-  //outline: 1px solid slategrey;
-}
-
-.cseevents .rightcontent::-webkit-scrollbar-track {
-  display: none;
-  //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-.cseevents .rightcontent::-moz-scrollbar-track {
-  //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-.cseevents .rightcontent:hover {
-  overflow-y: auto;
 }
 
 .cseevents .rightinnerheading {
@@ -1031,6 +1008,15 @@ body * {
   margin-top: -38px;
   margin-right: 0px;
   //right: 152px;
+}
+
+.extras {
+  position: absolute;
+  font-family: "Droid Sans";
+  color: white;
+  //right: 150px;
+  margin-left: 1110px;
+  //font-size: 20px !important;
 }
 
 .branchlisttop {

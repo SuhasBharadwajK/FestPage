@@ -155,8 +155,8 @@ body {
 
 
 #instagram  img {
-  margin-top: 9px;
-  margin-left: 9px;
+  margin-top: 10px;
+  margin-left: 10px;
   width: 40px;
 }
 
@@ -814,6 +814,7 @@ body {
     width: 100%;
     z-index: 40;
     background-color: rgb(224, 222, 222);
+    background-color: white;
     overflow-y: auto;
   }
 
@@ -876,6 +877,11 @@ body {
     font-family: 'Droid Sans';
   }
 
+  .regbutt {
+    position: relative;
+    z-index: 45;
+  }
+
   .markedeventsmobile {
     width: calc(100% - 40px);
     height: 150px;
@@ -910,6 +916,24 @@ body {
 
   .mobilesubmit {
     float: right;
+  }
+
+  .successtick {
+    width: 200px;
+    margin-left: calc(50% - 100px);
+    margin-top: 40px;
+  }
+
+  .closegreen {
+    font-family: 'Anivers';
+    background-color: white;
+    height: 30px;
+    width: 100px;
+    margin-top: 30px;
+    margin-left: calc(50% - 50px);
+    border: none;
+    border-radius: 4px;
+    color: rgb(4, 179, 68);
   }
 
   .navdrawer {
