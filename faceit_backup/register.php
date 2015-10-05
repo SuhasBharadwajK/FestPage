@@ -85,7 +85,7 @@
         $eventsToPushBranch .= $eventname . ',';
         $eventsToPush .= $eventname . ',';
         $deptentered = TRUE;
-        $eventquery = "INSERT INTO {$eventcode}(name, email, college, year, branch, rollnum, phonenum, refcode, mobile) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode', '$mobile')";
+        $eventquery = "INSERT INTO {$eventcode}(name, email, college, year, branch, rollnum, phonenum, refcode) VALUES ('$name', '$email', '$college', '$year', '$branch', '$rollnum', '$phonenum', '$refcode')";
         $eventquerybool = $eventconn->query($eventquery);
         if ($eventquerybool === TRUE) {
         }

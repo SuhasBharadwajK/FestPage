@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'Droid Sans';
+  src: url("fonts/DroidSans.ttf") ;
+}
+
+body {
+  background-color: rgb(238, 238, 238);
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.selectionbar {
+  position: relative;
+  width: 100%;
+  height: 65px;
+  margin-top: -10px;
+  background-color: rgb(91, 91, 91);
+  border-radius: 8px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.heading {
+  font-family: 'Droid Sans';
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+.branch {
+  font-family: 'Droid Sans';
+  color: white;
+  display: inline-block;
+  font-size: 30px;
+  height: 50px;
+  margin-left: 65px;
+  margin-top: 10px;
+  cursor: pointer;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: border 0.4s ease;
+  -webkit-transition: border 0.4s ease;
+  -o-transition: border 0.4s ease;
+  -ms-transition: border 0.4s ease;
+  -moz-transition: border 0.4s ease;
+}
+
+#home {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 5px solid white;
+}
+
+.eventholder {
+  position: absolute;
+  background-color: rgb(162, 162, 162);
+  width: 400px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  font-size: 25px;
+  margin-left: -20px;
+  margin-top: -400px;
+  border-radius: 0 0 4px 4px;
+  z-index: -1;
+}
+
+#ece .eventholder {
+  width: 300px;
+}
+
+#mec .eventholder {
+  width: 300px;
+}
+
+#civ .eventholder {
+  width: 250px;
+  margin-left: -220px;
+  padding-right: 20px;
+  text-align: right;
+}
+
+#eee .eventholder {
+  width: 250px;
+  margin-left: -220px;
+  padding-right: 20px;
+  text-align: right;
+}
+
+.event {
+  margin-bottom: 10px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.tableholder {
+  position: relative;
+  margin-top: 50px;
+  z-index: -5;
+}
+
+.tableholder table {
+  width: 100%;
+  margin-bottom: 100px;
+  border-collapse: collapse;
+  -moz-user-select: all;
+  -khtml-user-select: all;
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.tableholder table tr {
+  position: relative;
+  border: 2px solid black;
+  -moz-user-select: all;
+  -khtml-user-select: all;
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.tableholder table th {
+  border: 2px solid black;
+  -moz-user-select: all;
+  -khtml-user-select: all;
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+
+.tableholder table td {
+  font-family: 'Droid Sans';
+  text-align: center;
+  width: 220px;
+  border: 2px solid black;
+  -moz-user-select: all;
+  -khtml-user-select: all;
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}

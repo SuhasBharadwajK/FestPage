@@ -1,0 +1,234 @@
+.mechevents .events {
+  position: absolute;
+  font-family: 'Anivers';
+  font-size: 25px !important;
+  width: 200px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 1);
+  overflow:hidden;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+}
+
+.mechevents .events span {
+  display: none;
+}
+
+.mechevents #l1 {
+  background-position: left;
+  background-size: contain;
+}
+
+.mechevents #l1 .eventname {
+  line-height: 23px;
+  display: block;
+  margin-top: 15px;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents #l2 {
+  margin-left: 213px;
+}
+
+.mechevents #l2 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents #l3 {
+  margin-left: 426px;
+}
+
+.mechevents #l3 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents #l4 {
+  margin-left: 639px;
+}
+
+.mechevents #l4 .eventname {
+  margin-top: 25px;
+  font-size: 24px;
+  line-height: 24px;
+  display: block;
+  text-align: center;
+  align-items: center;
+
+}
+
+.mechevents #l5 {
+  margin-left: 852px;
+}
+
+.mechevents #l5 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 23px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents #l6 {
+  margin-left: 1065px;
+}
+
+.mechevents #l6 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 23px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents #l7 {
+  margin-left: 1092px;
+}
+
+.mechevents #l7 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents #l8 {
+  margin-left: 1120px;
+}
+
+.mechevents #l8 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
+.mechevents .eventdescription {
+  line-height: 30px;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 330px;
+  margin-top: 5px;
+  -moz-user-select: auto;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.mechevents .eventdescription ul {
+  font-size: 19px;
+  margin: 0;
+  font-family: 'Aller';
+  margin-bottom: 10px;
+}
+
+.mechevents .eventheading {
+  position: absolute;
+  margin-left: 600px;
+}
+
+.mechevents .descleft {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.mechevents .leftheading {
+  position: absolute;
+  margin-left: 240px;
+  margin-bottom: 20px;
+}
+
+.mechevents .perules {
+  margin-left: 600px;
+  z-index: 9999;
+}
+
+.mechevents .leftcontent {
+  overflow: hidden;
+  height: 300px;
+  margin-top: 40px;
+}
+
+.mechevents .leftcontent ul {
+  width: 90%;
+  overflow: hidden;
+}
+
+.mechevents .descright {
+  right: 0;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.mechevents .rightheading {
+  position: absolute;
+  margin-left: 210px;
+  margin-bottom: 50px;
+}
+
+.mechevents .rightcontent {
+  margin-top: 40px;
+  height: 300px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.mechevents .javadbrc {
+  margin-top: 10px;
+  height: 325px;
+}
+
+.mechevents .descright ul {
+  width: 90%;
+}
+
+.mechevents .descright ol {
+  width: 90%;
+  margin: 0;
+}
+
+.mechevents .descright ol > li {
+  font-size: 22px;
+}
+
+.mechevents .rightinnerheading {
+  margin-left: 200px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  font-size: 20px;
+  font-family: 'Aller';
+}

@@ -53,7 +53,7 @@ $(document).ready(function() {
     closeMenu(currentOpenedMenu, false);
     $('.heading span').html($(this).html());
     event.stopPropagation();
-    currentPage = $(this).attr('value');
+    currentPage = $(this).attr('value')
     requestTables(currentPage);
   });
 
@@ -62,9 +62,6 @@ $(document).ready(function() {
 function openMenu(eventItself) {
   closeMenu(currentOpenedMenu, false);
   $('#' + currentPage).css({'border': 'none'});
-  eventItself.children('.eventholder').css({
-    'display': 'block'
-  });
   eventItself.children('.eventholder').animate({
     marginTop: '20px'},
     300, function() {
@@ -75,8 +72,7 @@ function openMenu(eventItself) {
 }
 
 function closeMenu(openedMenuId, fromEsc) {
-
-  $('.eventholder').css({'z-index' : '-1', 'display' : 'none'});
+  $('.eventholder').css({'z-index' : '-1'});
   openedMenu = $('#' + openedMenuId);
   if (!fromEsc) {
     openedMenu.css({'border': 'none'});

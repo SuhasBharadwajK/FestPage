@@ -1,0 +1,234 @@
+.civevents .events {
+  position: absolute;
+  font-family: 'Anivers';
+  font-size: 25px !important;
+  width: 150px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 1);
+  overflow:hidden;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+  box-shadow: 0px 3px 9px -3px rgba(0,0,0,0.48);
+}
+
+.civevents .events span {
+  display: none;
+}
+
+.civevents #l1 {
+  background-position: left;
+  background-size: contain;
+}
+
+.civevents #l1 .eventname {
+  line-height: 25px;
+  display: block;
+  margin-top: 15px;
+  font-size: 26px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents #l2 {
+  margin-left: 160px;
+}
+
+.civevents #l2 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents #l3 {
+  margin-left: 320px;
+}
+
+.civevents #l3 .eventname {
+  display: block;
+  margin-top: 25px;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents #l4 {
+  margin-left: 480px;
+}
+
+.civevents #l4 .eventname {
+  margin-top: 13px;
+  font-size: 25px;
+  line-height: 24px;
+  display: block;
+  text-align: center;
+  align-items: center;
+
+}
+
+.civevents #l5 {
+  margin-left: 640px;
+}
+
+.civevents #l5 .eventname {
+  display: block;
+  margin-top: 18px;
+  font-size: 23px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents #l6 {
+  margin-left: 800px;
+}
+
+.civevents #l6 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 25px;
+  line-height: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents #l7 {
+  margin-left: 960px;
+}
+
+.civevents #l7 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents #l8 {
+  margin-left: 1120px;
+}
+
+.civevents #l8 .eventname {
+  display: block;
+  margin-top: 15px;
+  font-size: 25px;
+  line-height: 23px;
+  text-align: center;
+  align-items: center;
+}
+
+.civevents .eventdescription {
+  line-height: 30px;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 330px;
+  margin-top: 5px;
+  -moz-user-select: auto;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.civevents .eventdescription ul {
+  font-size: 19px;
+  margin: 0;
+  font-family: 'Aller';
+  margin-bottom: 10px;
+}
+
+.civevents .eventheading {
+  position: absolute;
+  margin-left: 600px;
+}
+
+.civevents .descleft {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.civevents .leftheading {
+  position: absolute;
+  margin-left: 240px;
+  margin-bottom: 20px;
+}
+
+.civevents .perules {
+  margin-left: 600px;
+  z-index: 9999;
+}
+
+.civevents .leftcontent {
+  overflow: hidden;
+  height: 300px;
+  margin-top: 40px;
+}
+
+.civevents .leftcontent ul {
+  width: 90%;
+  overflow: hidden;
+}
+
+.civevents .descright {
+  right: 0;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.civevents .rightheading {
+  position: absolute;
+  margin-left: 210px;
+  margin-bottom: 50px;
+}
+
+.civevents .rightcontent {
+  margin-top: 40px;
+  height: 300px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.civevents .javadbrc {
+  margin-top: 10px;
+  height: 325px;
+}
+
+.civevents .descright ul {
+  width: 90%;
+}
+
+.civevents .descright ol {
+  width: 90%;
+  margin: 0;
+}
+
+.civevents .descright ol > li {
+  font-size: 22px;
+}
+
+.civevents .rightinnerheading {
+  margin-left: 200px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  font-size: 20px;
+  font-family: 'Aller';
+}

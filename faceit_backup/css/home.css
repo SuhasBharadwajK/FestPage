@@ -1,0 +1,1125 @@
+@font-face {
+  font-family: 'Dense';
+  src: url("fonts/Dense-Regular.otf") ;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url("fonts/HelveticaNeue.otf");
+}
+
+@font-face {
+  font-family: 'Bigjohn';
+  src: url("fonts/BIGJOHN.otf");
+}
+
+@font-face {
+  font-family: 'HelveticaNeueThin';
+  src: url("fonts/HelveticaNeue-Thin.otf");
+}
+
+* { padding: 0; margin: 0; }
+
+ul { padding: 0 0 0 40px; }
+
+html {
+    height: 100%;
+}
+
+body {
+  background-color: black;
+  overflow: hidden;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.mobileholder {display: none;}
+.mobilepopup {display: none;}
+.navdrawer { display: none; }
+.drawericonholder { display: none; }
+
+#loadingoverlay {
+  position: fixed;
+	left: 0px;
+	top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 99999;
+  background-image: url("../images/preloader3.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#container {
+
+}
+
+.half {
+  display: inline-block;
+}
+
+.lefthalf {
+  float: left;
+  margin-left: -42.5%;
+  width: 42.5%;
+  background-color: #1B1F2A;
+}
+
+.socialaddress {
+  color: white;
+  font-family: 'HelveticaNeueThin';
+  font-size: 20px;
+  position: absolute;
+  bottom: -20px;
+
+}
+
+.socialbuttons {
+  font-size: 0;
+  position: absolute;
+  bottom: -60px;
+}
+
+.socialbutton {
+  width: 60px;
+  height: 60px;
+  float: left;
+  transition: background-color 0.4s ease;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  -ms-transition: background-color 0.4s ease;
+}
+
+.socialaddress {
+  content: "";
+}
+
+#facebook {
+  background-color: #45619D;
+}
+
+#twitter {
+  background-color: #55ACEE;
+}
+
+#googleplus {
+  background-color: #DD4B39;
+}
+
+#instagram {
+  background-color: #3F72B9;
+}
+
+#youtube {
+  background-color: #CD201F;
+}
+
+#facebook:hover, #twitter:hover, #googleplus:hover, #instagram:hover, #youtube:hover {
+  background-color: white;
+}
+
+.brand {
+  width: 50px;
+}
+
+#facebook img {
+  margin-top: 4px;
+  margin-left: 5px;
+}
+
+#twitter img {
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+#googleplus img {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+
+#instagram  img {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 40px;
+}
+
+#youtube  img {
+  margin-top: 14.5px;
+  margin-left: 10px;
+  width: 40px;
+}
+
+
+.righthalf{
+  float: right;
+  margin-right: -57.5%;
+  width: 57.5%;
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  -webkit-transition:background-image 1s ease-in-out;
+  -moz-transition:background-image 1s ease-in-out;
+  -o-transition:background-image 1s ease-in-out;
+  -ms-transition:background-image 1s ease-in-out;
+  transition:background-image 1s ease-in-out;
+}
+
+
+.backgroundimage {
+  position: absolute;
+	right: -57.5%;
+	top: 0px;
+  height: 100%;
+  width: 57.5%;
+  background-image: url('../images/background.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  z-index: -14;
+
+}
+
+.backgroundimage1 {
+  position: absolute;
+	right: -57.5%;
+	top: 0px;
+  height: 100%;
+  width: 57.5%;
+  background-image: url('../images/pic.jpg');
+  background-size: contain;
+  background-size: cover;
+  background-position: right;
+  z-index: -15;
+
+}
+
+
+.overlay {
+  height: inherit;
+  width: 100%;
+  background-color: rgba(22, 125, 148, 0.5);
+}
+
+.firstLine {
+  color: white;
+  font-size: 70px;
+  font-family: 'HelveticaNeue';
+  padding-left: 260px;
+  margin-top: 10px;
+}
+
+.firstLine span {
+  position: relative;
+  margin-left: -400px;
+}
+
+.secondLine {
+  color: white;
+  font-size: 50px;
+  font-family: 'HelveticaNeueThin';
+  padding-left: 120px;
+  margin-top: -5px;
+}
+
+.secondLine span {
+  position: relative;
+  margin-left: -550px;
+}
+
+.presents {
+  color: white;
+  font-size: 120px;
+  font-family: 'Dense';
+  padding-left: 200px;
+}
+
+.presents span {
+  position: relative;
+  margin-left: -600px;
+}
+
+#clogo {
+  width: 75px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 30px;
+  display: none;
+}
+
+#flogo {
+  width: 600px;
+  margin-left: 30px;
+  margin-top: 50px;
+  display: none;
+}
+
+.hexagon-container {
+  margin-left: 220px;
+  position: absolute;
+  top: 10%;
+}
+
+.hexagon {
+  display: none;
+  position: absolute;
+  width: 200px;
+  height: 350px;
+  background-color: rgba(92, 231, 255, 0.5);
+  overflow: hidden;
+  visibility: hidden;
+  cursor: pointer;
+  -webkit-transform: rotate(120deg);
+	-moz-transform: rotate(120deg);
+	-o-transform: rotate(120deg);
+	-ms-transform: rotate(120deg);
+	transform: rotate(120deg);
+
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hexagon1 {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  overflow: hidden;
+  visibility: hidden;
+
+  -webkit-transform: rotate(-60deg);
+	-moz-transform: rotate(-60deg);
+	-o-transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+  -webkit-backface-visibility:hidden;
+}
+
+.hexagon2 {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  visibility: visible;
+  background-repeat: no-repeat;
+  background-position: right -650px bottom -40px;
+
+  -webkit-backface-visibility:hidden;
+
+  -webkit-transform: rotate(-60deg);
+	-moz-transform: rotate(-60deg);
+	-o-transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+
+
+}
+
+.hexagon2 a {
+  position: relative;
+  font-size: 70px;
+  text-decoration: none;
+  color: white;
+  top: 145px;
+  left: 30px;
+  font-family: 'Bigjohn';
+}
+
+.hexagon2 a:visited {
+  color: white;
+}
+
+#faceit {
+  display: none;
+  margin-left: 151px;
+  margin-top: 150px;
+}
+
+#faceit img {
+  display: none;
+  width: 150px;
+  margin-left: 26px;
+  margin-top: 101px;
+}
+
+#cse {
+  display: none;
+  margin-left: 30px;
+  margin-top: -60px;
+}
+
+#cse a {
+  left: 28px;
+}
+
+#ece {
+  margin-left: 272px;
+  margin-top: -60px;
+  display: none;
+}
+
+#mech {
+  display: none;
+  margin-left: -75px;
+  margin-top: 150px;
+}
+
+
+#mech a {
+  font-size: 60px;
+  top: 145px;
+  left: 8px;
+}
+
+#civ {
+  margin-left: 377px;
+  margin-top: 150px;
+  display: none;
+}
+
+#civ a {
+  font-size: 60px;
+  top: 145px;
+  left: 12px;
+}
+
+#it {
+  display: none;
+  margin-left: 28px;
+  margin-top: 348px;
+}
+
+#it a {
+  top: 145px;
+  left: 65px;
+}
+
+#eee {
+  display: none;
+  margin-left: 274px;
+  margin-top: 348px;
+}
+
+#eee a {
+  top: 145px;
+  left: 37px;
+}
+
+#eee a span {
+  display: block;
+}
+
+#eee a #papers {
+  margin-left: 10px;
+}
+
+#cse:hover {
+  margin-left: 20px;
+  margin-top: -80px;
+}
+#ece:hover {
+  margin-left: 282px;
+  margin-top: -80px;
+}
+#mech:hover {
+  margin-left: -95px;
+}
+
+#civ:hover {
+  margin-left: 397px;
+}
+#it:hover {
+  margin-left: 18px;
+  margin-top: 368px;
+}
+#eee:hover {
+  margin-left: 284px;
+  margin-top: 368px;
+}
+
+#faceit:hover ~ #cse {
+  margin-left: 20px;
+  margin-top: -80px;
+}
+
+#faceit:hover ~ #ece {
+  margin-left: 282px;
+  margin-top: -80px;
+}
+
+#faceit:hover ~ #mech {
+  margin-left: -95px;
+}
+
+#faceit:hover ~ #civ {
+  margin-left: 397px;
+}
+
+#faceit:hover ~ #it {
+  margin-left: 18px;
+  margin-top: 368px;
+}
+
+#faceit:hover ~ #eee {
+  margin-left: 284px;
+  margin-top: 368px;
+}
+
+.mobilebuttons {
+  display: none;
+}
+
+.errortext {
+  display: none;
+  position: relative;
+  font-size: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 280px;
+  cursor: default;
+  font-family: "Droid Sans";
+}
+
+.refcode {
+  display: none;
+}
+
+.refcodetext {
+  font-family: "Droid Sans";
+  position: absolute;
+  margin-top: 520px;
+  margin-left: 300px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgb(73, 73, 73);
+  text-align: center;
+}
+
+.successtick {
+  width: 300px;
+  margin-left: 230px;
+  margin-top: 40px;
+
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+  -webkit-transform: rotateY(90deg);
+  -o-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -moz-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+
+.successtext {
+  display: none;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: 'Anivers';
+}
+
+.cseevents {
+  position: absolute;
+  width: 100%;
+  z-index: 15;
+}
+
+.eceevents {
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+}
+
+.mechevents {
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+}
+
+.civevents {
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+}
+
+.eeeevents {
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+}
+
+.itevents {
+  position: absolute;
+  width: 100%;
+  z-index: 13;
+}
+
+.events {
+  top: 1150px;
+  cursor: pointer !important;
+}
+
+.topbar {
+  display: none;
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  background-color: rgb(175, 96, 82);
+  top: 0;
+  left: 0;
+  z-index: 18;
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1400px) {
+  .firstLine {
+    font-size: 50px;
+    padding-left: 240px;
+  }
+  .secondLine {
+    font-size: 40px;
+    padding-left: 120px;
+  }
+  .presents {
+    font-size: 100px;
+    padding-left: 182px;
+  }
+  #clogo {
+    margin-top: 15px;
+  }
+  #flogo {
+    width: 500px;
+    margin-left: 30px;
+    margin-top: 50px;
+    display: none;
+  }
+  .hexagon-container {
+    margin-left: 145px;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1300px){
+  .firstLine {
+    font-size: 50px;
+    padding-left: 220px;
+  }
+  .secondLine {
+    font-size: 40px;
+    padding-left: 100px;
+  }
+  .presents {
+    font-size: 100px;
+    padding-left: 162px;
+  }
+  #clogo {
+    margin-top: 15px;
+  }
+  #flogo {
+    width: 480px;
+    margin-left: 30px;
+    margin-top: 50px;
+    display: none;
+  }
+  .hexagon-container {
+    margin-top: -50px;
+    margin-left: 145px;
+  }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1220px) {
+  .firstLine {
+    font-size: 50px;
+    padding-left: 220px;
+  }
+  .secondLine {
+    font-size: 40px;
+    padding-left: 100px;
+  }
+  .presents {
+    font-size: 100px;
+    padding-left: 162px;
+  }
+  #flogo {
+    width: 480px;
+    margin-left: 20px;
+    margin-top: 50px;
+    display: none;
+  }
+  .hexagon-container {
+    margin-left: 115px;
+  }
+}
+
+@media screen and (max-width: 1219px) {
+
+  .events{
+    display: none;
+  }
+
+  .hexagon {
+    display: none;
+  }
+
+  .hexagon-container {
+    display: none;
+  }
+
+  .mobileholder {
+    position: absolute;
+    height: calc(100%);
+    width: 100%;
+    z-index: 40;
+    background-color: rgb(224, 222, 222);
+    background-color: white;
+    overflow-y: auto;
+  }
+
+  .mobilepopup {
+    display: none;
+    height: calc(100% + 60px);
+    width: 100%;
+    position: absolute;
+    z-index: 105;
+    background-color: rgb(255, 62, 62);
+    background-color: #F44336;
+    background-color: rgb(224, 83, 62);
+  }
+
+  .mobiletextbox {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+    height: 35px;
+    width: calc(100% - 40px);
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Droid Sans';
+    font-size: 17px;
+  }
+
+  .selectholder {
+    margin-left: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .mobileselect {
+    font-family: 'Droid Sans';
+    margin-top: 10px;
+    height: 30px;
+    width: calc(50% - 10px);
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  .mobileyear {
+    margin-right: 10px;
+  }
+
+  .mobilebranch {
+    float: right;
+  }
+
+  .mobilemarkheading {
+    width: calc(100% - 40px);
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    font-family: 'Droid Sans';
+  }
+
+  .regbutt {
+    position: relative;
+    z-index: 45;
+  }
+
+  .markedeventsmobile {
+    width: calc(100% - 40px);
+    height: 150px;
+    margin-left: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  #mobilerefcode {
+    width: calc(100% - 140px);
+    margin-left: 70px;
+    height: 25px;
+    font-size: 13px;
+  }
+
+  .buttholder {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .mobilebutton {
+    width: calc(50% - 10px);
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+
+  .mobilesubmit {
+    float: right;
+  }
+
+  .successtick {
+    width: 200px;
+    margin-left: calc(50% - 100px);
+    margin-top: 40px;
+  }
+
+  .closegreen {
+    font-family: 'Anivers';
+    background-color: white;
+    height: 30px;
+    width: 100px;
+    margin-top: 30px;
+    margin-left: calc(50% - 50px);
+    border: none;
+    border-radius: 4px;
+    color: rgb(4, 179, 68);
+  }
+
+  .navdrawer {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    background-color: #1B1F2A;
+    z-index: 100;
+    left: -60%;
+    overflow-y: auto;
+  }
+  .branch {
+    position: relative;
+    overflow: hidden;
+    font-size: 1.7em;
+    font-family: 'Bigjohn';
+    width: calc(100%);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    background-color: #1B1F2A;
+    text-align: center;
+    border-top: 4px solid #22262f;
+    border-radius: 5px;
+  }
+
+  .branch span {
+    display: block;
+    padding: none;
+    padding-bottom: 0;
+  }
+  .hamburger {
+    position: absolute;
+    background-image: url('../images/menu.png');
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    top: 30px;
+    right: 10px;
+    background-size: 100%;
+    z-index: 49;
+  }
+
+  .lefthalf {
+    background-color: transparent;
+    width: 0;
+    margin: 0;
+  }
+
+  .righthalf {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+  .backgroundimage {
+  	top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .backgroundimage1 {
+  	top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .hexagon {
+    display:none;
+  }
+  .hexagon-container {
+    visibility: collapse;
+  }
+  .socialbutton {
+    width: 40px;
+    height: 40px;
+  }
+  .socialaddress {
+    display: none;
+  }
+  #facebook img {
+    margin-top: 2px;
+    margin-left: 2px;
+    width: 35px;
+  }
+
+  #twitter img {
+    width: 30px;
+    margin-top: 7px;
+    margin-left: 5px;
+  }
+
+  #googleplus img {
+    width: 30px;
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+
+  #instagram  img {
+    margin-top: 8px;
+    margin-left: 7px;
+    width: 25px;
+  }
+
+  #youtube  img {
+    margin-top: 9px;
+    margin-left: 5px;
+    width: 30px;
+  }
+  .socialbuttons {
+    position: absolute;
+    margin-left: 35%;
+    z-index: 35;
+  }
+
+}
+
+@media screen and (max-width: 1219px) and (min-width: 900px) {
+
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 80px;
+    top: 20px;
+    width: 150px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    top: 220px;
+    width: 500px;
+    margin-left: 30%;
+    z-index: 9;
+  }
+  .firstLine span {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 20%;
+    z-index: 9;
+  }
+  .secondLine span {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 20%;
+    z-index: 9;
+  }
+  .presents span {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 20%;
+    z-index: 9;
+  }
+
+}
+
+@media screen and (max-width: 899px) and (min-width: 640px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 100px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    top: 200px;
+    width: 500px;
+    margin-left: 15%;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 50px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 50px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 80px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 8%;
+    z-index: 9;
+  }
+}
+
+@media screen and (max-width: 639px) and (min-width: 480px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 70px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    width: 400px;
+    top: 200px;
+    left: 8%;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 50px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 1%;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 40px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 80px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 5%;
+    z-index: 9;
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 321px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 60px;
+    top: -15px;
+    width: 50px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    width: 300px;
+    top: 200px;
+    left: 0px;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 40px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -110px;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 30px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: -50px;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 80px;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: -90px;
+    z-index: 9;
+  }
+  .socialbuttons {
+    margin-left: 180px !important;
+  }
+}
+
+@media screen and (max-width: 320px) and (min-width: 240px) {
+  #clogo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: -15px;
+    width: 50px;
+    z-index: 9;
+  }
+  #flogo {
+    position: absolute;
+    display: block;
+    width: 200px;
+    top: 180px;
+    left: 10%;
+    z-index: 9;
+  }
+  .firstLine span {
+    font-size: 30px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -120px;
+    z-index: 9;
+  }
+  .secondLine span {
+    font-size: 30px;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: -70px;
+    z-index: 9;
+  }
+  .presents span {
+    font-size: 60px;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: -90px;
+    z-index: 9;
+  }
+}
