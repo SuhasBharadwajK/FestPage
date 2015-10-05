@@ -1,13 +1,3 @@
-//console.log("Aspect ratio: " + $(window).width()/$(window).height());
-
-/***
-
-TODO The loading screen doesn't show up in smaller screens - Done. It doesn't need to.
-MAJOR TODO!! Firefuckingfox doesn't support background-image transitions!!!!  - Done. Fuck you Firefox.
-
-MAJOR TODO: Check the expanding after going back from closed home
-
-***/
 var images = Array("pic.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg", "pic7.jpg", "background.jpg", "pic.jpg");
 var imagesGot = Array();
 var pagesGot = Array();
@@ -18,12 +8,7 @@ var stateChanged = false;
 var pages = Array("cse", "ece", "mech", "civ", "eee", "it");
 var branchNames = Array("CSE", "ECE", "MECH", "CIVIL", "EEE", "IT");
 var festTitle = "fACEit 2k15 - A National Level Technical Symposium";
-var branchTitles = [["Department of Computer Science and Engineering"],
-                    ["Department of Electronics and Communication Engineering"],
-                    ["Department of Mechanical Engineering"],
-                    ["Department of Civil Engineering"],
-                    ["Department of Electrical and Electronics Engineering"],
-                    ["Deparment of Information Technology"]];
+var branchTitles = [["Department of Computer Science and Engineering"],["Department of Electronics and Communication Engineering"],["Department of Mechanical Engineering"],["Department of Civil Engineering"],["Department of Electrical and Electronics Engineering"],["Deparment of Information Technology"]];
 var activeIds = Array("l1", "l1", "l1", "l1", "l1", "l1");
 var currentIds = Array("", "", "", "", "", "");
 var pageStack = Array();
@@ -33,7 +18,6 @@ var currentBackground = 0, otherBackground = "";
 var lastPage = "";
 var mobileDevice = false, navactive = false;
 var $dragging = null;
-var initialAspectRatio = $(window).width() / $(window).height();
 var left = undefined;
 var backgroundChange;
 var eventId, nexteventId;
@@ -95,10 +79,7 @@ onReady(function () {
     }
   }
   show('container', true);
-
 });
-
-
 
 function doneLoading() {
     $("#loadingoverlay").fadeOut('slow', function() {
@@ -202,32 +183,6 @@ function doneMobileLoading() {
     $('.socialbuttons').animate({
             bottom: '+=60px'},
             "fast");
-    /*TODO Animations for mobile. Most mobiles lag because of this.*/
-    // $(".firstLine").fadeIn(500, function() {
-    //
-    // });
-    // $(".righthalf #clogo").fadeIn(500, function() {
-    //
-    // });
-    // $(".righthalf .secondLine").fadeIn(500, function() {
-    //
-    //   $(".righthalf .presents").fadeIn(800, function() {
-    //
-    //     $('.hamburger').animate({
-    //       'right': '+=70'}, 600);
-    //
-    //     $(".righthalf #flogo").fadeIn(500, function() {
-    //       $('.socialbuttons').animate({
-    //         bottom: '+=60px'},
-    //         "fast", function() {
-    //         /* stuff to do after animation is complete */
-    //       });
-    //
-    //     });
-    //
-    //   });
-    //
-    // });
   });
 }
 
@@ -243,7 +198,6 @@ window.onload = function () {
         window.onpopstate = function () {
             history.pushState('newjibberish', null, null);
             if (!animating) {
-              console.log("Going Back!");
               goBack();
             }
         };
@@ -261,21 +215,15 @@ window.onload = function () {
         };
     }
 }
-/*
---------------------------------------------------------------------------------------------------------------------
-Document READY!!!
---------------------------------------------------------------------------------------------------------------------
-*/
+
 $(document).ready(function() {
-
   respond();
-
   setHeight();
-
-  console.log("Ready!");
-
   $(window).keydown(function(event) {
-    if (event.keyCode == 9) {
+    if (event.keyCode == 40) {
+      event.preventDefault();
+    }
+    else if (event.keyCode == 9 || event.keyCode == 39) {
       if ($('.group').children('input').is(":focus")) {
         return true;
       }
@@ -285,12 +233,15 @@ $(document).ready(function() {
     }
   });
 
+  if ($('.forminput').val() != "") {
+    $('.forminput').val("");
+  }
+
   $('.hexagon').click(function(event) {
     animating = true;
     $('.topimage').unbind('click', closeHomeIn);
     event.preventDefault();
     eventId = $(this).attr("id");
-    console.log("Bloody hell " + eventId);
     if (eventId != "faceit") {
       if (pageStack[pageStack.length - 1] != currentPage) {
         pageStack.push(currentPage);
@@ -305,7 +256,6 @@ $(document).ready(function() {
 
       lastPage = pageStack[pageStack.length - 1];
       $('.' + currentPage +'events').html(pagesGot[pages.indexOf(currentPage)]);
-      console.log('These events .' + eventId +'events');
       setHandlers();
       $('.events').unbind('click', eventClicked);
 
@@ -368,15 +318,11 @@ $(document).ready(function() {
 
   setTimeout(function(){$(window).trigger('click');} , 100);
 
-  /**** TODO Without this, the elements in the smaller screens are fucked up for some reason  ****/
-  //setTimeout(function(){$(window).trigger('resize');} , 100);
-
   backgroundChange = setInterval(changeBackground, 3500);
 
 
   $(".socialbutton").hover(function() {
     var id = $(this).attr("id");
-    //console.log(id);
     $(this).find('img').fadeOut('fast', function() {
       $(this).attr('src', 'images/' + id + '.png');
       $(this).fadeIn('fast');
@@ -437,12 +383,10 @@ function startEntry(page, num) {
         'slow', function() {
           $(branchevent).fadeIn('fast');
           for (var i = 1; i <= 9; i++) {
-            console.log(branchevent);
             $(branchevent + " #l" + i).animate({
               top: '50px'},
               500 + 100*i, function () {
                 if (registeredEventIds.indexOf(branchevent + " #l" + i) >= 0) {
-                  console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
                   $(branchevent + " #l" + i + " .switch").prop('checked', true);
                   $(branchevent + " #l" + i + " .forff").css({'left':'30px'});
                   $(branchevent + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
@@ -461,8 +405,6 @@ function closeHomeIn(backStatus) {
   document.title = festTitle;
   $('.topimage').unbind('click', closeHomeIn);
   animating = true;
-  //eventPage = false;
-  //goingBack = backStatus;
   if (!goingBack && pageStack[pageStack.length - 1] != currentPage) {
     if (pageStack[pageStack.length - 1] != currentPage) {
       pageStack.push(currentPage);
@@ -532,7 +474,6 @@ function openHome(previousPage) {
 function fadeThemOut() {
 
   animating = true;
-  console.log("currentPage: " + eventId);
 
   $('.topbar').fadeOut('slow', function() {
   });
@@ -575,10 +516,8 @@ function fadeThemOut() {
 
 function onlyRevert(revertId, fromList, nextBranch) {
   animating = true;
-  console.log("Only rever called!");
   var factor = parseInt(revertId[1]);
   var toLeft = "" + (factors[pages.indexOf(eventId)] * (factor-1)).toString() + "px";
-  var imageUrl = eventImages[factor-1];
   $(branchevent + " #" + revertId).children('.eventdescription').fadeOut('fast');
 
   $(branchevent + " #" + revertId).children('.bottompanel').fadeOut('fast');
@@ -710,35 +649,35 @@ function respond(value) {
 
 }
 
+/*
 function doOnOrientationChange() {
-  // $('.backgroundimage').height($(window).height() + 60);
-  // $('.backgroundimage1').height($(window).height() + 60);
+  $('.backgroundimage').height($(window).height() + 60);
+  $('.backgroundimage1').height($(window).height() + 60);
   switch(window.orientation)
   {
     case -90:
-      // $('.backgroundimage').height($(window).height() + 60);
-      // $('.backgroundimage1').height($(window).height() + 60);
-      // $(".righthalf").height($(window).height() + 100);
-      //alert("-90");
+      $('.backgroundimage').height($(window).height() + 60);
+      $('.backgroundimage1').height($(window).height() + 60);
+      $(".righthalf").height($(window).height() + 100);
+      alert("-90");
       break;
     case 90:
-      //alert('landscape');
-      // $('.backgroundimage').height($(window).height() + 60);
-      // $('.backgroundimage1').height($(window).height() + 60);
-      // $(".righthalf").height($(window).height() + 100);
-      //alert("90");
+      alert('landscape');
+      $('.backgroundimage').height($(window).height() + 60);
+      $('.backgroundimage1').height($(window).height() + 60);
+      $(".righthalf").height($(window).height() + 100);
+      alert("90");
       break;
     default:
-      //alert('portrait');
+      alert('portrait');
       break;
   }
-}
+}*/
 
-window.addEventListener('orientationchange', doOnOrientationChange);
+//window.addEventListener('orientationchange', doOnOrientationChange);
 
 $(function() {
   for(keyElement in keyElements) {
-    console.log("Key:" + keyElements[keyElement]);
     $(keyElements[keyElement]).swipe( {
       swipeRight:openNav, swipeLeft:closeNav, threshold:80
     });
@@ -755,7 +694,6 @@ $(function() {
 
   }
 });
-
 function openNav() {
   $(".navdrawer").animate({
     'left': '0'},
@@ -774,9 +712,7 @@ function openNav() {
     });
   }
 }
-
 function closeNav() {
-
   if (navactive) {
     $(".navdrawer").animate({
       'left': '-60%'},
@@ -796,9 +732,7 @@ function closeNav() {
     }
   }
 }
-
 function makemobile(value) {
-
   if (value != 1 || value === 2) {
     $('.backgroundimage').height($(window).height() + 60);
     $('.backgroundimage1').height($(window).height() + 60);
@@ -809,14 +743,9 @@ function makemobile(value) {
     });
   }
 }
-
 $(document).keydown(function(event) {
-
   if (($(".lefthalf").height()) > (($(window).height()))) {
     setHeight();
-  }
-  if (event.which == 123) {
-    //respond();
   }
   setTimeout(function(){
       setHeight();
@@ -826,32 +755,23 @@ $(document).keydown(function(event) {
   if (($(".lefthalf").height()) > (($(window).height()))) {
     setHeight();
   }
-
 });
-
 function selectFromList() {
   $('.topimage').unbind('click', closeHomeIn);
   animating = true;
   popitdown();
   setTimeout(function() {closeBranches();}, 100);
-
   nexteventId = $(this).attr('value');
-
   nextBranch = '.' + $(this).attr('value') + 'events';
   onlyRevert(activeId, true, nextBranch);
 }
-
 function startEntryFromBranch(nextBranch) {
-  if (!animating) {
-
-  }
   if (!goingBack) {
     if (pageStack[pageStack.length - 1] != currentPage) {
       pageStack.push(currentPage);
     }
     goingBack = false;
   }
-
   animating = true;
   var reachedEnd = false;
   var time = 0;
@@ -859,41 +779,30 @@ function startEntryFromBranch(nextBranch) {
   setHandlers();
   $('.events').unbind('click', eventClicked);
   document.title = branchTitles[pages.indexOf(nexteventId)];
-
   $(nextBranch).fadeIn('fast');
-
   for (var i = 1; i <= 9; i++) {
     $(nextBranch + " #l" + i).animate({top: '50px'}, 500 + 100*i);
-    console.log("IDs in loop: " + $(nextBranch + " #l" + i).attr('id'));
     if (registeredEventIds.indexOf(nextBranch + " #l" + i) >= 0) {
-      console.log('Already registered!' + branchevent + " #l" + i + " .switch" + '---------.....................----------------');
       $(nextBranch + " #l" + i + " .switch").prop('checked', true);
       $(nextBranch + " #l" + i + " .switch").parent().children('.mark').html("This event has been marked.");
       $(nextBranch + " #l" + i + " .forff").css({'left':'30px'});
     }
     if ($(nextBranch + " #l" + i).attr('id') == undefined) {
       reachedEnd = true;
-      // animating = false;
       time = 500 + 100*i;
       break;
     }
   }
   $('div').clearQueue();
-
   var branch = branchNames[pages.indexOf(nexteventId)]
   $('.branchlisttop').children('span').html(branch);
   $('.branchlisttop').children('ul').children('#' + eventId + 'select').css({'display':'block'});
   $('.branchlisttop').children('ul').children('#' + nexteventId + 'select').css({'display':'none'});
-
   eventId = nexteventId;
   currentPage = nexteventId;
-
   $('div').clearQueue();
   setTimeout(function() {expandFirst(nextBranch);}, 1100);
-
 }
-
-
 function goBack() {
   if (pageStack.length >= 1) {
     //Custom comebacks
@@ -915,19 +824,14 @@ function goBack() {
       $('.topimage').unbind('click', closeHomeIn);
       openHome(previousPage);
       document.title = branchTitles[pages.indexOf(currentPage)];
-      console.log("-------------------TITLE " + document.title);
-      //startEntry(previousPage, 1);
     }
   }
   else {
-    console.log("GOING BACK!");
     history.go(-2);
   }
 }
-
 function register() {
   var validCount = 0;
-  //successfulRegister("Suhas");
   mobile = "No";
   name = $("#name").val();
   email = $("#email").val();
@@ -940,7 +844,6 @@ function register() {
   eventCodes = JSON.stringify(markedEventCodes);
   refcode = $(".refcodetext").val();
   var dataToSend
-
   if (name == "") {
     setTimeout(function(){
       alert("You wanted to register without a name? Come on! You can't be serious!");
@@ -959,7 +862,6 @@ function register() {
     else {
       validCount++;
       if (college == "") {
-        //Semi regex for proper name /^([A-Z]{1}[.]?[a-z]*[\s]?)([A-Z]{1}[.]?[a-z]*[\s]?)*$/
         setTimeout(function(){
           alert("You don't go to a college? Isn't that sad? Well, if you do, then enter your college's name.")
         }, 550);
@@ -1010,7 +912,6 @@ function register() {
     }
   }
   if (validCount == 8) {
-    //successfulRegister(name);
     for (anEvent in markedEvents) {
       if (anEvent == markedEvents.length - 1) {
         allEvents += markedEvents[anEvent].replace("&nbsp;", "");
@@ -1019,38 +920,26 @@ function register() {
         allEvents += markedEvents[anEvent].replace("&nbsp;", "") + ",";
       }
     }
-
     dataToSend = 'name=' + name + '&email=' + email + '&college=' + college + '&rollnum=' + rollnum + '&year=' + year + '&branch=' + branch + '&phonenum=' + phonenum + '&allevents=' + allEvents + '&eventCodes=' + eventCodes + '&refcode=' + refcode + '&mobile=' + mobile;
-
     $.ajax({
       url: 'register.php',
       type: 'POST',
       data: dataToSend,
       cache: false,
       success: function(result) {
-        //console.log(result);
         if (result.indexOf("Duplicate") >= 0) {
           setTimeout(function() {alert("It appears you, or someone else, has already registered for these events with that email. Try something else.")}, 550);
         }
         else {
           successfulRegister(name);
           setTimeout(location.reload(), 3000);
-          console.log(result);
         }
-        //successfulRegister(name);
-        // console.log("The inserttion was a " + result);
-        // if (result == "success") {
-        //
-        // }
       },
       error: function(result) {
-        console.log(result);
       }
     });
-
   }
 }
-
 function successfulRegister(name) {
   if (poppedup) {
     $('.popup').children().fadeOut('fast', function() {

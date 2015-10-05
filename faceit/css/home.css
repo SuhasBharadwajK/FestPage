@@ -50,8 +50,6 @@ body {
   height: 100%;
   background-color: white;
   z-index: 99999;
-  //background:rgba(0,0,0,0.9);
-  //transition: 1s 0.4s;
   background-image: url("../images/preloader3.gif");
   background-position: center;
   background-repeat: no-repeat;
@@ -69,7 +67,6 @@ body {
   float: left;
   margin-left: -42.5%;
   width: 42.5%;
-  //background-color: rgb(138, 138, 138);
   background-color: #1B1F2A;
 }
 
@@ -86,24 +83,17 @@ body {
   font-size: 0;
   position: absolute;
   bottom: -60px;
-  /*z-index: 5;
-  margin-top: 700px;*/
 }
 
 .socialbutton {
   width: 60px;
   height: 60px;
-  //display: inline-block;
   float: left;
-  //position: absolute;
-  //bottom: 0;
   transition: background-color 0.4s ease;
   -webkit-transition: background-color 0.4s ease;
   -moz-transition: background-color 0.4s ease;
   -o-transition: background-color 0.4s ease;
   -ms-transition: background-color 0.4s ease;
-  /*z-index: 5;
-  margin-top: 700px;*/
 }
 
 .socialaddress {
@@ -169,13 +159,8 @@ body {
 
 .righthalf{
   float: right;
-  //position: relative;
   margin-right: -57.5%;
   width: 57.5%;
-  //background-color: rgba(233, 97, 121, 0.56);
-  //background-image: url("http://i.ytimg.com/vi/bk5368Y_DRo/maxresdefault.jpg");
-  //background-image: url("");
-  //background-image: url('../images/background.jpg');
   background-size: contain;
   background-size: cover;
   background-position: right;
@@ -219,20 +204,11 @@ body {
 .overlay {
   height: inherit;
   width: 100%;
-  //background-color: rgba(93, 182, 255, 0.56);
-  //background-color: rgba(131, 134, 143, 0.5);
   background-color: rgba(22, 125, 148, 0.5);
-  //margin-top: -50px;
-
 }
-
-/*.collegetext  div {
-  display: inline-block;
-}*/
 
 .firstLine {
   color: white;
-  //position: relative;
   font-size: 70px;
   font-family: 'HelveticaNeue';
   padding-left: 260px;
@@ -286,8 +262,6 @@ body {
 
 .hexagon-container {
   margin-left: 220px;
-  //margin-right: auto;
-  //margin-top: -50px;
   position: absolute;
   top: 10%;
 }
@@ -297,7 +271,6 @@ body {
   position: absolute;
   width: 200px;
   height: 350px;
-  //background-color: rgba(0, 218, 247, 0.4);
   background-color: rgba(92, 231, 255, 0.5);
   overflow: hidden;
   visibility: hidden;
@@ -321,8 +294,6 @@ body {
   opacity: 1;
   width: 100%;
   height: 100%;
-  //background-color: rgba(0, 218, 247, 0.7);
-  //background-color: rgba(92, 231, 255, 0.4);
   background-color: inherit;
   overflow: hidden;
   visibility: hidden;
@@ -339,14 +310,9 @@ body {
   opacity: 1;
   width: 100%;
   height: 100%;
-  //background-color: rgba(0, 218, 247, 0.7);
-  //background-color: rgba(92, 231, 255, 0.4);
   background-color: inherit;
   visibility: visible;
-  //background-image: url('hammer.png');
   background-repeat: no-repeat;
-  //background-position: 50%;
-  //background-position: right -90px bottom 150px;
   background-position: right -650px bottom -40px;
 
   -webkit-backface-visibility:hidden;
@@ -387,40 +353,7 @@ body {
   margin-top: 101px;
 }
 
-/*#faceit a {
-  position: absolute;
-  margin-top: -150px;
-  padding: 0;
-}*/
-
-/*#faceit span {
-  position: relative;
-  font-size: 70px;
-  color: white;
-  top: 145px;
-  font-size: 45px;
-  left: 15px;
-  font-family: 'Bigjohn';
-
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}*/
-
-/*#k15 {
-  margin-left: 25px;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}*/
-
 #cse {
-  /*margin-left: 48px;
-  margin-top: -28px;*/
   display: none;
   margin-left: 30px;
   margin-top: -60px;
@@ -431,16 +364,12 @@ body {
 }
 
 #ece {
-  /*margin-left: 254px;
-  margin-top: -28px;*/
   margin-left: 272px;
   margin-top: -60px;
   display: none;
 }
 
 #mech {
-  /*margin-left: -55px;
-  margin-top: 150px;*/
   display: none;
   margin-left: -75px;
   margin-top: 150px;
@@ -454,8 +383,6 @@ body {
 }
 
 #civ {
-  /*margin-left: 357px;
-  margin-top: 150px;*/
   margin-left: 377px;
   margin-top: 150px;
   display: none;
@@ -468,8 +395,6 @@ body {
 }
 
 #it {
-  /*margin-left: 48px;
-  margin-top: 328px;*/
   display: none;
   margin-left: 28px;
   margin-top: 348px;
@@ -481,8 +406,6 @@ body {
 }
 
 #eee {
-  /*margin-left: 254px;
-  margin-top: 328px;*/
   display: none;
   margin-left: 274px;
   margin-top: 348px;
@@ -612,65 +535,41 @@ body {
 }
 
 .cseevents {
-  //display: none;
   position: absolute;
   width: 100%;
   z-index: 15;
-  //bottom: -50px;
 }
 
 .eceevents {
-  //display: none;
   position: absolute;
   width: 100%;
   z-index: 13;
-  //bottom: -50px;
 }
 
 .mechevents {
-  //display: none;
   position: absolute;
   width: 100%;
   z-index: 13;
-  //bottom: -50px;
 }
 
 .civevents {
-  //display: none;
   position: absolute;
   width: 100%;
   z-index: 13;
-  //bottom: -50px;
 }
 
 .eeeevents {
-  //display: none;
   position: absolute;
   width: 100%;
   z-index: 13;
-  //bottom: -50px;
 }
 
 .itevents {
-  //display: none;
   position: absolute;
   width: 100%;
   z-index: 13;
-  //bottom: -50px;
 }
 
-
-/*.cseevents .events {
-  top: 1150px;
-}
-
-.eceevents .events {
-  top: 1150px;
-}
-
-.mechevents .events {
-  top: 1150px;
-}*/
 .events {
   top: 1150px;
   cursor: pointer !important;
@@ -681,11 +580,7 @@ body {
   position: absolute;
   height: 40px;
   width: 100%;
-  //background-color: rgba(112, 112, 112, 0.44);
   background-color: rgb(175, 96, 82);
-  //background-color: rgb(72, 106, 89);
-  //#AF6052
-  //background-color: white;
   top: 0;
   left: 0;
   z-index: 18;
@@ -744,26 +639,6 @@ body {
     margin-top: -50px;
     margin-left: 145px;
   }
-  #cse a {
-    top: 128px;
-  }
-  #ece a {
-    top: 128px;
-  }
-  #mech a {
-    top: 135px;
-  }
-  #civ a {
-    top: 135px;
-  }
-  #it a {
-    top: 130px;
-
-  }
-  #eee a {
-    top: 130px;
-    //left: 36px;
-  }
 }
 
 @media screen and (max-width: 1299px) and (min-width: 1220px) {
@@ -779,9 +654,6 @@ body {
     font-size: 100px;
     padding-left: 162px;
   }
-  /*#clogo {
-    margin-top: 15px;
-  }*/
   #flogo {
     width: 480px;
     margin-left: 20px;
@@ -808,7 +680,6 @@ body {
   }
 
   .mobileholder {
-    //display: block;
     position: absolute;
     height: calc(100%);
     width: 100%;
@@ -885,7 +756,6 @@ body {
   .markedeventsmobile {
     width: calc(100% - 40px);
     height: 150px;
-    //margin-top: 10px;
     margin-left: 20px;
     border: 1px solid black;
     border-radius: 4px;
@@ -951,12 +821,9 @@ body {
     overflow: hidden;
     font-size: 1.7em;
     font-family: 'Bigjohn';
-    //left: 20px;
     width: calc(100%);
     padding-top: 20px;
     padding-bottom: 20px;
-    //padding-left: 50px;
-    //padding-right: 40px;
     color: white;
     background-color: #1B1F2A;
     text-align: center;
@@ -1069,7 +936,6 @@ body {
     position: absolute;
     display: block;
     top: 220px;
-    //left: 20%;
     width: 500px;
     margin-left: 30%;
     z-index: 9;

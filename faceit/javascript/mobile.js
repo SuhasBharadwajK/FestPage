@@ -13,7 +13,6 @@ function setMobileHandlers() {
   $('.closeimg').click(closeCard);
   $('.regbutt').click(buttPressed);
   for(keyElement in keyElements) {
-    //console.log("Key:" + keyElements[keyElement]);
     $(keyElements[keyElement]).swipe( {
       swipeRight:openNav, swipeLeft:closeNav, threshold:80
     });
@@ -26,7 +25,6 @@ function setMobileHandlers() {
     }
   }
   $('.markbox').change(function(event) {
-    //alert("Flicked!");
     if ($(this).is(":checked")) {
       $(this).parent().children('.marklabel').html("Marked!");
       if (markedEventCodes.indexOf($(this).parent().parent().parent().parent().children('.eventheadingmobile').attr('value')) < 0) {
@@ -101,14 +99,10 @@ function closeCard() {
 function openEvents() {
   openedId = "";
   closeNav();
-  console.log(currentPage);
   if (pageStack[pageStack.length - 1] != currentPage) {
     pageStack.push(currentPage);
   }
   currentPage = $(this).attr("value");
-
-  console.log($(this).attr("value"));
-
   if (currentPage != "home") {
     fromBranch = true;
     clearInterval(backgroundChange);
@@ -149,7 +143,6 @@ function buttPressed() {
   }
   $(this).parent().children('.marklabel').html("Marked!");
   fillWithEventsMobile();
-  console.log("Mob pop");
   $('.mobilepopup').css({'display': 'block'});
 }
 
@@ -168,8 +161,6 @@ function fillWithEventsMobile() {
 }
 
 function deleteMobile() {
-  // console.log("DELETING MOBILE");
-  // alert("DELETING MOBILE");
   eventToDelete = $(this);
   $("#" + registeredEventIds[markedEvents.indexOf(eventToDelete.parent().children('span').html())] + " .markbox").prop('checked', false);
   $("#" + registeredEventIds[markedEvents.indexOf(eventToDelete.parent().children('span').html())] + " .marklabel").html("Mark this event");
@@ -180,12 +171,10 @@ function deleteMobile() {
 
 function mobileRegister() {
   registerFromMobile();
-  //successfulRegisterMobile("Suhas Bharadwaj");
 }
 
 function registerFromMobile() {
   var validCount = 0;
-  //successfulRegister("Suhas");
   mobile = "Yes";
   name = $("#mobilename").val();
   email = $("#mobileemail").val();
@@ -193,8 +182,6 @@ function registerFromMobile() {
   rollnum = $("#mobilerollnum").val();
   year = $('.mobileyear :selected').text();
   branch = $('.mobilebranch :selected').text();
-  // mobilebranch
-  // branch = $("#branch").children('span').html();
   phonenum = $("#mobilephonenum").val();
   allEvents = "";
   eventCodes = JSON.stringify(markedEventCodes);
@@ -219,7 +206,6 @@ function registerFromMobile() {
     else {
       validCount++;
       if (college == "") {
-        //Semi regex for proper name /^([A-Z]{1}[.]?[a-z]*[\s]?)([A-Z]{1}[.]?[a-z]*[\s]?)*$/
         setTimeout(function(){
           alert("You don't go to a college? Isn't that sad? Well, if you do, then enter your college's name.")
         }, 550);
@@ -270,7 +256,6 @@ function registerFromMobile() {
     }
   }
   if (validCount == 8) {
-    //successfulRegister(name);
     for (anEvent in markedEvents) {
       if (anEvent == markedEvents.length - 1) {
         allEvents += markedEvents[anEvent].replace("&nbsp;", "");
@@ -288,22 +273,12 @@ function registerFromMobile() {
       data: dataToSend,
       cache: false,
       success: function(result) {
-        //console.log(result);
         if (result.indexOf("Duplicate") >= 0) {
           setTimeout(function() {alert("Uh oh! It appears you, or someone else, has already registered for these events with that email. Try something else.")}, 550);
         }
         else {
           successfulRegisterMobile(name);
-          console.log(result);
         }
-        //successfulRegister(name);
-        // console.log("The inserttion was a " + result);
-        // if (result == "success") {
-        //
-        // }
-      },
-      error: function(result) {
-        console.log(result);
       }
     });
 
@@ -343,8 +318,6 @@ function successfulRegisterMobile(name) {
       });
       $('.closegreen').click(function(event) {
         location.reload();
-        //backgroundChange = setInterval(changeBackground, 3500);
-        //$('.mobilepopup').css({'display': 'none'});
       });
   });
 }

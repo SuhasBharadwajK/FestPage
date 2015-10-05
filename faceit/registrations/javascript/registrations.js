@@ -19,22 +19,9 @@ $(document).ready(function() {
     type: 'GET',
     data: 'tableName=registrations',
     success: function(response){
-      // console.log(response);
-      //$("#responsecontainer").html(response);
-      //alert(response);
       $('table').html(response);
     }
-  })
-  .done(function(result) {
-    //console.log(result);
-  })
-  .fail(function() {
-    //console.log("error");
-  })
-  .always(function() {
-    //console.log("complete");
   });
-
 
   $('.branch').dblclick(function(event) {
     $('.branch').css({'border-bottom': 'none'});
@@ -93,28 +80,19 @@ function closeMenu(openedMenuId, fromEsc) {
   openedMenu.children('.eventholder').animate({
     marginTop: '-400px'},
     300, function() {
-      //eventItself.css({'border-bottom': '5px solid white'});
       currentOpenedMenu = "";
   });
 }
 
 function requestTables(tableName) {
   if (tableName != undefined && tableName != currentOpenedMenu) {
-    //console.log(tableName);
     $.ajax({
       url: 'list.php',
       type: 'GET',
       data: 'tableName=' + tableName
     })
     .done(function(result) {
-      //console.log("success " + result);
       $('table').html(result);
-    })
-    .fail(function() {
-      //console.log("error");
-    })
-    .always(function() {
-      //console.log("complete");
     });
 
   }

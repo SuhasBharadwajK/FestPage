@@ -16,7 +16,6 @@ body {
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  //z-index: -12;
 }
 
 .selectionbar {
@@ -32,7 +31,6 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  //z-index: 5;
 }
 
 .heading {
@@ -63,17 +61,12 @@ body {
   -o-transition: border 0.4s ease;
   -ms-transition: border 0.4s ease;
   -moz-transition: border 0.4s ease;
-  //z-index: 5;
 }
 
 #home {
   padding-bottom: 0;
   margin-bottom: 0;
   border-bottom: 5px solid white;
-}
-
-.cse {
-  //border-bottom: 5px solid white;
 }
 
 .eventholder {
@@ -113,11 +106,9 @@ body {
 }
 
 .event {
-  //position: relative;
   margin-bottom: 10px;
   height: 30px;
   cursor: pointer;
-  //z-index: 10;
 }
 
 .tableholder {
@@ -139,7 +130,6 @@ body {
 
 .tableholder table tr {
   position: relative;
-  //margin-bottom: 120px;
   border: 2px solid black;
   -moz-user-select: all;
   -khtml-user-select: all;
@@ -149,8 +139,6 @@ body {
 }
 
 .tableholder table th {
-  //position: relative;
-  //margin-bottom: 120px;
   border: 2px solid black;
   -moz-user-select: all;
   -khtml-user-select: all;

@@ -2,7 +2,6 @@ var patrons = Array();
 var currentvalue = "";
 
 $(document).ready(function() {
-  //alert($(window).height());
   $('.descholder').height($(window).height() - 20);
   $.ajax({
     url: 'pages/coords.html',
@@ -14,9 +13,6 @@ $(document).ready(function() {
         $('.descholder').html(response);
         $('.descholder').fadeIn('fast');
       });
-    },
-    error: function(response) {
-      console.log(response);
     }
   });
   $('.menuelement').click(function(event) {
@@ -36,7 +32,6 @@ $(document).ready(function() {
         'background-color' : 'rgb(232, 232, 232)'
       });
       currentvalue = $(this).attr('value');
-      //$('.descholder').html(patrons[parseInt($(this).attr('id')[1])]);
       if (currentvalue == 'trailer.html') {
         $('.descholder').fadeOut('fast', function() {
           $('.descholder').html('<div class="trailer"><iframe width="900" height="615" src="https://www.youtube.com/embed/FqYWKz1YlSE" frameborder="0" allowfullscreen></iframe></div>');
@@ -60,9 +55,6 @@ $(document).ready(function() {
               $('.descholder').html(response);
               $('.descholder').fadeIn('fast');
             });
-          },
-          error: function(response) {
-            console.log(response);
           }
         });
       }
