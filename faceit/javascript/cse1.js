@@ -183,11 +183,15 @@ function expandFirst(bevent) {
             $(this).children('span').fadeIn('400', function(){
               $('.topimage').bind('click', closeHomeIn);
               if (!alerted) {
-                //Alert code
                 $('.protip').animate({
                   top: 0},
                   'fast', 'easeOutCubic', function() {
-                  /* stuff to do after animation is complete */
+                    setTimeout(function() {
+                      $('.protip').animate({
+                        top: -400},
+                        'fast', 'easeOutCubic');
+                    }, 5000);
+                    alerted = true;
                 });
               }
             });

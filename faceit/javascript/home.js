@@ -371,6 +371,12 @@ $(document).ready(function() {
   $('input').on('input', function() {
     stateChanged = true;
   });
+
+  $('.tipclose').click(function(event) {
+    $('.protip').animate({
+      top: -400},
+      'fast', 'easeOutCubic');
+  });
 });
 
 function startEntry(page, num) {
