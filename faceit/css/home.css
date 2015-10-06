@@ -1123,3 +1123,36 @@ body {
     z-index: 9;
   }
 }
+
+.protip {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  top: -400px;
+  left: calc(50% - 200px);
+  background-color: rgb(212, 52, 52);
+  background-color: rgb(224, 84, 58);
+  border-radius: 0 0 5px 5px;
+  border: 1px solid rgb(110, 110, 110);
+  z-index: 999;
+}
+
+.protip img {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.protip .tip {
+  clear: both;
+  float: left;
+  color: white;
+  font-size: 16px;
+  font-family: 'Droid Sans';
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}

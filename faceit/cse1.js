@@ -180,17 +180,7 @@ function expandFirst(bevent) {
             $(elementToExpand).children('.eventname').css({ 'margin-top': 10 });
             $(elementToExpand).children('.eventdescription').fadeIn('slow');
             $(elementToExpand).children('.bottompanel').fadeIn('fast');
-            $(this).children('span').fadeIn('400', function(){
-              $('.topimage').bind('click', closeHomeIn);
-              if (!alerted) {
-                //Alert code
-                $('.protip').animate({
-                  top: 0},
-                  'fast', 'easeOutCubic', function() {
-                  /* stuff to do after animation is complete */
-                });
-              }
-            });
+            $(this).children('span').fadeIn('400', function(){$('.topimage').bind('click', closeHomeIn);});
             $('.events').bind('click', eventClicked);
             animating = false;
             goingBack = false;

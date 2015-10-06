@@ -24,7 +24,6 @@ var eventId, nexteventId;
 var goingBack = false;
 var animating = true;
 var topListOpen = false;
-var alerted = false;
 
 
 function onReady(callback) {
@@ -966,7 +965,5 @@ function resetAll() {
     $(registeredEventIds[registeredEvent] + " .forff").animate( {'left': '-5px'}, 'fast');
     $(registeredEventIds[registeredEvent] + " .mark").html("Mark this event for registration");
   }
-  registeredEventIds = Array();
-  markedEvents = Array();
   $('input').val('');
-}
+} 
