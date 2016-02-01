@@ -966,4 +966,4 @@ function resetAll() {
     $(registeredEventIds[registeredEvent] + " .mark").html("Mark this event for registration");
   }
   $('input').val('');
-} 
+}

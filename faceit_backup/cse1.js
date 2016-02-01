@@ -1,7 +1,3 @@
-/*
-TODO: Page specific active IDs so that when the previous page is opened again, it should open the event which was open when the user left.
-*/
-
 var currentId = "l1", activeId = "l1";
 var count = 0, tcount = 0;
 var yearActive = false, branchActive = false;
